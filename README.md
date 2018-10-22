@@ -1,6 +1,6 @@
 # 关于
 
-官网 : https://golang.org/
+官网 : [https://golang.org/](https://golang.org/) 或 https://golang.google.cn/
 
 中文社区
 
