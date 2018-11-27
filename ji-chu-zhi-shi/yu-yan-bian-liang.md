@@ -15,13 +15,13 @@ v_name = value
 var vname v_type = value
 ```
 
-根据值自行判定变量类型 . 
+根据值自行判定变量类型 .
 
 ```
 var v_name = value
 ```
 
-省略var , 使用`:=`声明变量 , 当然 , 这个变量不能是声明过的 , 否则会编译错误 . 
+省略var , 使用`:=`声明变量 , 当然 , 这个变量不能是声明过的 , 否则会编译错误 .
 
 ```
 v_name := value
@@ -37,7 +37,8 @@ var b string = "Hello Peter"
 var c bool
 
 func main() {
-	println(a, b, c)
+    d := 'fuck'
+    println(a, b, c, d)
 }
 ```
 
