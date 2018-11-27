@@ -89,3 +89,7 @@ func main() {
 
 ![](/assets/neicun1.png)
 
+当使用等号将一个变量的值赋值给另一个变量时 , 实际上是在内存中将i的值进行了拷贝 : 
+
+![](/assets/neicun2.png)
+
