@@ -85,7 +85,7 @@ func main() {
 
 #### 值类型和引用类型
 
-所有像int , float , bool , string这些基本类型都属于值类型 , 使用这些类型的变量直接指向存在内存中的值 : 
+所有像int , float , bool , string这些基本类型都属于值类型 , 使用这些类型的变量直接指向存在内存中的值 :
 
-
+![](/assets/neicun1.png)
 
