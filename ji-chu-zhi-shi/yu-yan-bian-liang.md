@@ -27,7 +27,7 @@ var v_name = value
 v_name := value
 ```
 
-代码示例
+**代码示例**
 
 ```go
 package main
@@ -59,6 +59,33 @@ var (
     vname2 v_type2
 )
 ```
+
+**代码示例**
+
+```
+package main
+
+var x, y int
+var (
+    a int
+    b bool
+)
+
+var c, d int = 1, 2
+var e, f = 123, "hello"
+
+// 这种不带声明格式的只能在函数体中出现
+// g, h := 123, "hello"
+
+func main() {
+    g, h := 123, "hello"
+    println(x, y, a, b, c, d, e, f, g, h)
+}
+```
+
+#### 值类型和引用类型
+
+所有像int , float , bool , string这些基本类型都属于值类型 , 使用这些类型的变量直接指向存在内存中的值 : 
 
 
 
