@@ -27,9 +27,26 @@ fmt.Println("hello,world")
 
 #### 标识符
 
-标识符用来命名变量、类型等程序实体 . 一个标识符实际上就是一个或是多个字母\(A~Z和a~z\)数字\(0~9\)、下划线\_组成的序列 , 但是第一个字符必须是字母或下划线而不能是数字 . 
+标识符用来命名变量、类型等程序实体 . 一个标识符实际上就是一个或是多个字母\(A~Z和a~z\)数字\(0~9\)、下划线\_组成的序列 , 但是第一个字符必须是字母或下划线而不能是数字 .
 
 #### 关键字
+
+下面列举了 Go 代码中会使用到的 25 个关键字或保留字 : 
+
+| break | default | func | interface | select |
+| :--- | :--- | :--- | :--- | :--- |
+| case | defer | go | map | struct |
+| chan | else | goto | package | switch |
+| const | fallthrough | if | range | type |
+| continue | for | import | return | var |
+
+Go 语言的36个预定义标识符 : 
+
+| append | bool | byte | cap | close | complex | complex64 | complex128 | uint16 |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| copy | false | float32 | float64 | imag | int | int8 | int16 | uint32 |
+| int32 | int64 | iota | len | make | new | nil | panic | uint64 |
+| print | println | real | recover | string | true | uint | uint8 | uintptr |
 
 
 
