@@ -33,5 +33,7 @@ func main() {
 go run helloworld.go
 ```
 
+> 花括号"{"不能单独一行
+
 
 
