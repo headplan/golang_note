@@ -7,5 +7,5 @@
   * [基础语法](ji-chu-zhi-shi/ji-chu-yu-fa.md)
   * [数据类型](ji-chu-zhi-shi/shu-ju-lei-xing.md)
   * [语言变量](ji-chu-zhi-shi/yu-yan-bian-liang.md)
-  * 语言常量
+  * [语言常量](ji-chu-zhi-shi/yu-yan-chang-liang.md)
 
