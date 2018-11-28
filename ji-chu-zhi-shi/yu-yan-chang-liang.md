@@ -77,7 +77,7 @@ const (
 )
 ```
 
-第一个iota等于0 , 每当iota在新的一行被使用时 , 它的值都会自动加1 , 所以a=0 , b=1 , c=2可以简写 : 
+第一个iota等于0 , 每当iota在新的一行被使用时 , 它的值都会自动加1 , 所以a=0 , b=1 , c=2可以简写 :
 
 ```go
 const (
@@ -85,6 +85,29 @@ const (
     b
     c
 )
+```
+
+#### iota用法
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	const (
+		a = iota
+		b
+		c
+		d = "ha"
+		e
+		f = 100
+		g
+		h = iota
+		i
+	)
+	fmt.Println(a,b,c,d,e,f,g,h,i)
+}
 ```
 
 
