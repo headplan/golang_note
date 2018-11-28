@@ -31,34 +31,50 @@ const (
 )
 ```
 
-例如上面的例子中 , 代表未 , 女性 , 男性 . 
+例如上面的例子中 , 代表未 , 女性 , 男性 .
 
-常量可以用len\(\) , cap\(\) , unsafe.Sizeof\(\)函数计算表达式的值 . 常量表达式中 , 函数必须是内置函数 , 否则编译不过 : 
+常量可以用len\(\) , cap\(\) , unsafe.Sizeof\(\)函数计算表达式的值 . 常量表达式中 , 函数必须是内置函数 , 否则编译不过 :
 
 ```go
 package main
 
 import (
-	"fmt"
-	"unsafe"
+    "fmt"
+    "unsafe"
 )
 const (
-	aa = "abc"
-	bb = len(aa)
-	cc = unsafe.Sizeof(aa)
+    aa = "abc"
+    bb = len(aa)
+    cc = unsafe.Sizeof(aa)
 )
 
 func main() {
-	const LENGTH int = 10
-	const WIDTH int = 5
-	var area int
-	const a, b, c = 1, false, "str" // 多重复值
+    const LENGTH int = 10
+    const WIDTH int = 5
+    var area int
+    const a, b, c = 1, false, "str" // 多重复值
 
-	area = LENGTH * WIDTH
-	fmt.Printf("面积为:%d", area)
-	println()
-	println(a,b,c)
+    area = LENGTH * WIDTH
+    fmt.Printf("面积为:%d", area)
+    println()
+    println(a,b,c)
 }
+```
+
+#### iota
+
+iota特殊常量 , 是一个可以被编译器修改的常量 . 
+
+iota在const关键字出现时将被重置为0\(const内部的第一行之前\) , const中每新增一行常量声明将使iota计数一次\(iota可理解为const语句块中的行索引\) . 
+
+iota可以被用作枚举值 : 
+
+```
+const (
+    a = iota
+    b = iota
+    c = iota
+)
 ```
 
 
