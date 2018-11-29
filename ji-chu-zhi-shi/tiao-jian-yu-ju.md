@@ -174,26 +174,26 @@ package main
 import "fmt"
 
 func main() {
-	var x interface{}
+    var x interface{}
 
-	switch i := x.(type) {
-		case nil :
-			fmt.Printf("x的类型:%T", i)
-		case int :
-			fmt.Printf("x是int型")
-		case float64 :
-			fmt.Printf("x是float64型")
-		case func(int) float64:
-			fmt.Printf("x是func(int)型")
-		case bool, string:
-			fmt.Printf("x是bool或string型" )
-		default:
-			fmt.Printf("未知型")
-	}
+    switch i := x.(type) {
+        case nil :
+            fmt.Printf("x的类型:%T", i)
+        case int :
+            fmt.Printf("x是int型")
+        case float64 :
+            fmt.Printf("x是float64型")
+        case func(int) float64:
+            fmt.Printf("x是func(int)型")
+        case bool, string:
+            fmt.Printf("x是bool或string型" )
+        default:
+            fmt.Printf("未知型")
+    }
 }
 ```
 
 #### select 语句
 
-
+select是Go中的一个控制结构 , 可以理解为用于通信的switch语句 . 每个case必须是一个通信操作 , 要么是发送要么是接收 . 
 
