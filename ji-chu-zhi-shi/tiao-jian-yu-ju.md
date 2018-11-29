@@ -95,7 +95,7 @@ func main() {
 
 #### switch 语句
 
-switch语句用于基于不同条件执行不同动作 , 每一个case分支都是唯一的 , 从上直下逐一测试 , 直到匹配为止 . 
+switch语句用于基于不同条件执行不同动作 , 每一个case分支都是唯一的 , 从上直下逐一测试 , 直到匹配为止 .
 
 switch语句执行的过程从上至下 , 直到找到匹配项 , 匹配项后面也不需要再加break
 
@@ -110,7 +110,7 @@ switch var1 {
 }
 ```
 
-变量var1可以是任何类型 , 而val1和val2则可以是同类型的任意值 . 类型不被局限于常量或整数 , 但必须是相同的类型或者最终结果为相同类型的表达式 . 
+变量var1可以是任何类型 , 而val1和val2则可以是同类型的任意值 . 类型不被局限于常量或整数 , 但必须是相同的类型或者最终结果为相同类型的表达式 .
 
 可以同时测试多个可能符合条件的值 , 使用逗号分割 , 例如case val1, val2, val3
 
@@ -120,35 +120,76 @@ package main
 import "fmt"
 
 func main() {
-	// 定义全局变量
-	var grade string = "B"
-	var marks int = 40
+    // 定义全局变量
+    var grade string = "B"
+    var marks int = 40
 
-	switch marks {
-		case 90 :
-			grade = "A"
-		case 80 :
-			grade = "B"
-		case 50,60,70 :
-			grade = "C"
+    switch marks {
+        case 90 :
+            grade = "A"
+        case 80 :
+            grade = "B"
+        case 50,60,70 :
+            grade = "C"
+        default:
+            grade = "D"
+    }
+
+    switch {
+        case grade == "A" :
+            fmt.Printf("优秀!\n")
+        case grade == "B", grade == "C" :
+            fmt.Printf("良好\n")
+        case grade == "D" :
+            fmt.Printf("及格\n")
+        case grade == "F":
+            fmt.Printf("不及格\n")
+        default:
+            fmt.Printf("差\n")
+    }
+
+    fmt.Printf("你的等级是%s\n", grade)
+}
+```
+
+##### Type Switch
+
+判断某个interface变量中实际存储的变量类型
+
+```
+switch x.(type){
+    case type:
+       statement(s);      
+    case type:
+       statement(s); 
+    /* 你可以定义任意个数的case */
+    default: /* 可选 */
+       statement(s);
+}
+```
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	var x interface{}
+
+	switch i := x.(type) {
+		case nil :
+			fmt.Printf("x的类型:%T", i)
+		case int :
+			fmt.Printf("x是int型")
+		case float64 :
+			fmt.Printf("x是float64型")
+		case func(int) float64:
+			fmt.Printf("x是func(int)型")
+		case bool, string:
+			fmt.Printf("x是bool或string型" )
 		default:
-			grade = "D"
+			fmt.Printf("未知型")
 	}
-
-	switch {
-		case grade == "A" :
-			fmt.Printf("优秀!\n")
-		case grade == "B", grade == "C" :
-			fmt.Printf("良好\n")
-		case grade == "D" :
-			fmt.Printf("及格\n")
-		case grade == "F":
-			fmt.Printf("不及格\n")
-		default:
-			fmt.Printf("差\n")
-	}
-
-	fmt.Printf("你的等级是%s\n", grade)
 }
 ```
 
