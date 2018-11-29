@@ -81,7 +81,7 @@ func main() {
    } else {
       fmt.Printf("第二行 - a 不小于 b\n" )
    } 
-   
+
    if ( a > b ) {
       fmt.Printf("第三行 - a 大于 b\n" )
    } else {
@@ -98,6 +98,14 @@ func main() {
    }
 }
 ```
+
+#### 逻辑运算符
+
+| 运算符 | 描述 | 实例 |
+| :--- | :--- | :--- |
+| && | 逻辑 AND 运算符。 如果两边的操作数都是 True，则条件 True，否则为 False。 | \(A && B\) 为 False |
+| \|\| | 逻辑 OR 运算符。 如果两边的操作数有一个 True，则条件 True，否则为 False。 | \(A \|\| B\) 为 True |
+| ! | 逻辑 NOT 运算符。 如果条件为 True，则逻辑 NOT 条件 False，否则为 True。 | !\(A && B\) 为 True |
 
 
 
