@@ -11,6 +11,7 @@
   * [运算符](ji-chu-zhi-shi/yun-suan-fu.md)
   * [条件语句](ji-chu-zhi-shi/tiao-jian-yu-ju.md)
   * [循环语句](ji-chu-zhi-shi/xun-huan-yu-ju.md)
+  * [函数](ji-chu-zhi-shi/han-shu.md)
   * [变量作用域](ji-chu-zhi-shi/bian-liang-zuo-yong-yu.md)
   * 数组
   * [指针](ji-chu-zhi-shi/zhi-zhen.md)
@@ -18,5 +19,5 @@
   * 切片\(Slice\)
   * 范围\(Range\)
   * 集合\(Map\)
-  * [递归函数](ji-chu-zhi-shi/di-gui-han-shu.md)
+  * 函数
 
