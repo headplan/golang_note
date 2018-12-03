@@ -151,9 +151,37 @@ func main() {
 
 #### goto
 
-goto语句可以无条件地转移到过程中指定的行 . 通常与条件语句配合使用 . 
+goto语句可以无条件地转移到过程中指定的行 . 通常与条件语句配合使用 .
 
-可用来实现条件转移 , 构成循环 , 跳出循环体等功能 . 
+可用来实现条件转移 , 构成循环 , 跳出循环体等功能 .
 
 但是 , 在结构化程序设计中一般不主张使用goto语句 , 以免造成程序流程的混乱 , 使理解和调试程序都产生困难 . 
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	var a int = 10
+
+	LOOP: for a < 20 {
+		if (a == 15) {
+			a = a + 1
+			goto LOOP
+		}
+		if (a == 18) {
+			goto BKLOOP
+		}
+
+		fmt.Printf("a的值为 : %d\n", a)
+
+		a++
+	}
+
+	BKLOOP: fmt.Printf("a的值为 : %d 时候跳出\n", a)
+}
+```
+
+
 
