@@ -8,6 +8,10 @@
 
 [http://www.runoob.com/go/go-tutorial.html](http://www.runoob.com/go/go-tutorial.html)
 
+**在线运行**
+
+https://play.golang.org/
+
 **相关书籍**
 
 &lt;Go并发编程实战&gt;
