@@ -103,5 +103,28 @@ func main() {
 
 #### 循环控制语句
 
+#### break
+
+* 用于循环语句跳出 , 并开始执行循环之后的语句 . 
+* break在switch中执行一条case后跳出语句 . 
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	var a int = 10
+
+	for a < 20 {
+		fmt.Printf("a 的值为 : %d\n", a);
+		a++
+		if a > 15 {
+			break
+		}
+	}
+}
+```
+
 
 
