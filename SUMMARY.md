@@ -18,6 +18,5 @@
   * [结构体](ji-chu-zhi-shi/jie-gou-ti.md)
   * 切片\(Slice\)
   * 范围\(Range\)
-  * 集合\(Map\)
-  * 函数
+  * [集合\(Map\)](ji-chu-zhi-shi/ji-540828-map.md)
 
