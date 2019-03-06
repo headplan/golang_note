@@ -10,9 +10,13 @@
 
 **在线运行**
 
-https://play.golang.org/
+[https://play.golang.org/](https://play.golang.org/)
 
 **相关书籍**
 
 &lt;Go并发编程实战&gt;
+
+**Go语言标准库**
+
+https://books.studygolang.com/The-Golang-Standard-Library-by-Example/
 
