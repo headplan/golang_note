@@ -55,5 +55,13 @@ go run helloworld.go
 
 > 花括号"{"不能单独一行
 
+**编译Go程序**
+
+```
+go build helloworld.go
+```
+
+> Go在默认情况下会使用静态连接
+
 
 
