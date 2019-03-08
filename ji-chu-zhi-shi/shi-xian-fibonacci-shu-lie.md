@@ -1,6 +1,6 @@
 # 实现Fibonacci数列
 
-Fibonacci数列又称黄金分割数列 , 因数学家列昂纳多·斐波那契\(Leonardoda Fibonacci\)以兔子繁殖为例子而引入 , 故又称为"兔子数列" . 
+Fibonacci数列又称黄金分割数列 , 因数学家列昂纳多·斐波那契\(Leonardoda Fibonacci\)以兔子繁殖为例子而引入 , 故又称为"兔子数列" .
 
 #### 递推公式
 
@@ -18,22 +18,40 @@ package test
 import "testing"
 
 func TestFibList(t *testing.T) {
-	//var a int = 1
-	//var b int = 1
-	//var (
-	//	a int = 1
-	//	b int = 2
-	//)
+    //var a int = 1
+    //var b int = 1
+    //var (
+    //    a int = 1
+    //    b int = 2
+    //)
+    a := 1
+    b := 2
+    for i := 0; i < 15; i++ {
+        t.Log(" ", b)
+        tmp := a
+        a = b
+        b = tmp + a
+    }
+}
+```
+
+并行赋值简化写法
+
+```go
+package test
+
+import "testing"
+
+func TestFibList(t *testing.T) {
 	a := 1
-	b := 2
+	b := 1
+	t.Log(" ", a)
 	for i := 0; i < 15; i++ {
 		t.Log(" ", b)
-		tmp := a
-		a = b
-		b = tmp + a
+		a, b = b, a
+		b = a + b
 	}
 }
-
 ```
 
 
