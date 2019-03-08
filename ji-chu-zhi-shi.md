@@ -1,5 +1,9 @@
 # 基础知识
 
+#### 官方文档
+
+https://golang.org/doc/faq
+
 #### 语言环境安装
 
 [https://golang.org/dl/](https://golang.org/dl/)
