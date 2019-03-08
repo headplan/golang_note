@@ -17,18 +17,16 @@ package test
 
 import "testing"
 
-func TestFibList(t *testing.T) {
-	a := 1
-	b := 1
-	t.Log(" ", a)
-	for i := 0; i < 5; i++ {
-		t.Log(" ", b)
-		a, b = b, a
-		b = a + b
-	}
+func TestFibListTry(t *testing.T) {
+    a := 1
+    b := 1
+    t.Log(" ", a)
+    for i := 0; i < 5; i++ {
+        t.Log(" ", b)
+        a, b = b, a
+        b = a + b
+    }
 }
-
-
 ```
 
 并行赋值简化写法
@@ -38,15 +36,14 @@ package test
 
 import "testing"
 
-func TestFibList2(t *testing.T) {
-	var tmp int
-	a := 1
-	for i := 0; i < 5; i++ {
-		t.Log(" ",a)
-		a,tmp = tmp + a,a
-	}
+func TestFibList2Try(t *testing.T) {
+    var tmp int
+    a := 1
+    for i := 0; i < 5; i++ {
+        t.Log(" ",a)
+        a,tmp = tmp + a,a
+    }
 }
-
 ```
 
 
