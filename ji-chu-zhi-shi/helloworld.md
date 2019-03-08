@@ -74,12 +74,35 @@ go build helloworld.go
 package main
 
 import (
+    "fmt"
+    "os"
+)
+
+func main() {
+    fmt.Println("hello world")
+    os.Exit(0)
+}
+```
+
+**获取命令行参数**
+
+* main 函数不支持传入参数
+* func main\(arg \[\]string\)
+
+```go
+package main
+
+import (
 	"fmt"
 	"os"
 )
 
 func main() {
-	fmt.Println("hello world")
+	if len(os.Args) > 1 {
+		fmt.Println("hello", os.Args[1])
+	} else {
+		fmt.Println("hello world")
+	}
 	os.Exit(0)
 }
 ```
