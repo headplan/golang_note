@@ -18,5 +18,15 @@
 
 **Go语言标准库**
 
-https://books.studygolang.com/The-Golang-Standard-Library-by-Example/
+[https://books.studygolang.com/The-Golang-Standard-Library-by-Example/](https://books.studygolang.com/The-Golang-Standard-Library-by-Example/)
+
+#### 介绍
+
+Go语言初步设想始于2007年 , 主要是为了解决Google在软件开发中面临的问题 : 
+
+* 多核硬件架构 ; 
+* 超大规模分布式计算集群 ; 
+* Web 开发模式导致的前所未有的开发规模和更新速度 . 
+
+
 
