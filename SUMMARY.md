@@ -4,11 +4,12 @@
 * [Golang学习路线](chapter1.md)
 * [基础知识](ji-chu-zhi-shi.md)
   * [Hello World](ji-chu-zhi-shi/helloworld.md)
-  * [编写测试程序](ji-chu-zhi-shi/bian-xie-ce-shi-cheng-xu.md)
   * [基础语法](ji-chu-zhi-shi/ji-chu-yu-fa.md)
   * [数据类型](ji-chu-zhi-shi/shu-ju-lei-xing.md)
   * [变量](ji-chu-zhi-shi/yu-yan-bian-liang.md)
   * [常量](ji-chu-zhi-shi/yu-yan-chang-liang.md)
+  * [编写测试程序](ji-chu-zhi-shi/bian-xie-ce-shi-cheng-xu.md)
+  * [实现Fibonacci数列](ji-chu-zhi-shi/shi-xian-fibonacci-shu-lie.md)
   * [运算符](ji-chu-zhi-shi/yun-suan-fu.md)
   * [条件语句](ji-chu-zhi-shi/tiao-jian-yu-ju.md)
   * [循环语句](ji-chu-zhi-shi/xun-huan-yu-ju.md)
@@ -18,5 +19,5 @@
   * [指针](ji-chu-zhi-shi/zhi-zhen.md)
   * [结构体](ji-chu-zhi-shi/jie-gou-ti.md)
   * 切片\(Slice\)
-  * 范围\(Range\)
+  * 实现Fibonacci数列
 
