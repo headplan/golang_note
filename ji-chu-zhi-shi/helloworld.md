@@ -93,17 +93,17 @@ func main() {
 package main
 
 import (
-	"fmt"
-	"os"
+    "fmt"
+    "os"
 )
 
 func main() {
-	if len(os.Args) > 1 {
-		fmt.Println("hello", os.Args[1])
-	} else {
-		fmt.Println("hello world")
-	}
-	os.Exit(0)
+    if len(os.Args) > 1 {
+        fmt.Println("hello", os.Args[1])
+    } else {
+        fmt.Println("hello world")
+    }
+    os.Exit(0)
 }
 ```
 

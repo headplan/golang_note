@@ -4,6 +4,7 @@
 * [Golang学习路线](chapter1.md)
 * [基础知识](ji-chu-zhi-shi.md)
   * [Hello World](ji-chu-zhi-shi/helloworld.md)
+  * [编写测试程序](ji-chu-zhi-shi/bian-xie-ce-shi-cheng-xu.md)
   * [基础语法](ji-chu-zhi-shi/ji-chu-yu-fa.md)
   * [数据类型](ji-chu-zhi-shi/shu-ju-lei-xing.md)
   * [变量](ji-chu-zhi-shi/yu-yan-bian-liang.md)
@@ -13,10 +14,9 @@
   * [循环语句](ji-chu-zhi-shi/xun-huan-yu-ju.md)
   * [函数](ji-chu-zhi-shi/han-shu.md)
   * [变量作用域](ji-chu-zhi-shi/bian-liang-zuo-yong-yu.md)
-  * 数组
+  * [数组](ji-chu-zhi-shi/shu-zu.md)
   * [指针](ji-chu-zhi-shi/zhi-zhen.md)
   * [结构体](ji-chu-zhi-shi/jie-gou-ti.md)
   * 切片\(Slice\)
   * 范围\(Range\)
-  * [集合\(Map\)](ji-chu-zhi-shi/ji-540828-map.md)
 
