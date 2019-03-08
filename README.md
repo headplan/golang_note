@@ -28,23 +28,23 @@ Go语言初步设想始于2007年 , 主要是为了解决Google在软件开发�
 * 超大规模分布式计算集群 ; 
 * Web 开发模式导致的前所未有的开发规模和更新速度 . 
 
-Go的三位创始人 : 
+Go的三位创始人 :
 
-**Rob Pike** 
+**Rob Pike**
 
-Unix 的早期开发者 
+Unix 的早期开发者
 
 UTF-8 创始人
 
-**Ken Thompson** 
+**Ken Thompson**
 
-Unix 的创始人 
+Unix 的创始人
 
 C 语言创始人
 
 1983 年获图灵奖
 
-**Robert Griesemer** 
+**Robert Griesemer**
 
 Google V8 JS Engine 开发者
 
