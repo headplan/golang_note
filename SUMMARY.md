@@ -4,7 +4,6 @@
 * [Golang学习路线](chapter1.md)
 * [基础知识](ji-chu-zhi-shi.md)
   * [Hello World](ji-chu-zhi-shi/helloworld.md)
-  * [语言结构](ji-chu-zhi-shi/yu-yan-jie-gou.md)
   * [基础语法](ji-chu-zhi-shi/ji-chu-yu-fa.md)
   * [数据类型](ji-chu-zhi-shi/shu-ju-lei-xing.md)
   * [变量](ji-chu-zhi-shi/yu-yan-bian-liang.md)
