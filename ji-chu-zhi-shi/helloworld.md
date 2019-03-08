@@ -61,7 +61,7 @@ go run helloworld.go
 go build helloworld.go
 ```
 
-> Go在默认情况下会使用静态连接
+> Go在默认情况下会使用静态连接 , 编译完的go程序是一个独立的二进制文件
 
 
 
