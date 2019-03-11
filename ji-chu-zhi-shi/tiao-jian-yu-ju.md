@@ -14,9 +14,9 @@ if var declaration; condition {
 }
 
 func TestCondition(t *testing.T) {
-	if a := 1 == 1; a {
-		t.Log(a);
-	}
+    if a := 1 == 1; a {
+        t.Log(a);
+    }
 }
 ```
 
@@ -112,6 +112,13 @@ func main() {
 ```
 
 #### switch 语句
+
+#### 与其他主要编程语言的差异
+
+* 条件表达式不限制为常量或者整数 ; 
+* 单个case中 , 可以出现多个结果选项 , 使用逗号分隔 ; 
+* 与C语言等规则相反 , Go语言不需要用break来明确退出一个case ; 
+* 可以不设定switch之后的条件表达式 , 在此种情况下 , 整个switch结构与多个if ... else ... 的逻辑作用等同 . 
 
 switch语句用于基于不同条件执行不同动作 , 每一个case分支都是唯一的 , 从上直下逐一测试 , 直到匹配为止 .
 
