@@ -15,16 +15,30 @@ package test
 import "testing"
 
 func TestImplicit(t *testing.T) {
-	var a int32 = 1
-	var b int64
-	b = int64(a)
-	var c MyInt
-	c = MyInt(b)
+    var a int32 = 1
+    var b int64
+    b = int64(a)
+    var c MyInt
+    c = MyInt(b)
 
-	t.Log(a, b, c)
+    t.Log(a, b, c)
 }
-
 ```
+
+#### 类型的预定义值
+
+* math.MaxInt64
+* math.MaxFloat64
+* math.MaxUint32
+
+#### 指针类型
+
+Go语言和Java类似 , 支持垃圾回收的机制 . 同时也支持直接使用指针访问内存空间 . 但是Go语言的指针是有一些使用限制的 . 
+
+*  不支持指针运算
+* string是值类型 , 其默认的初始化值为空字符串 , 而不是nil
+
+
 
 Go语言按类别有以下几种数据类型 :
 
