@@ -6,11 +6,17 @@
 
 condition表达式结果必须为布尔值
 
-支持变量赋值 : 
+支持变量赋值 :
 
-```
+```go
 if var declaration; condition {
     // code to be executed if condition is true
+}
+
+func TestCondition(t *testing.T) {
+	if a := 1 == 1; a {
+		t.Log(a);
+	}
 }
 ```
 
