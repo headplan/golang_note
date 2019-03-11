@@ -9,6 +9,23 @@
 * Go语言不允许隐式类型转换
 * 别名和原有类型也不能进行隐式类型转换
 
+```go
+package test
+
+import "testing"
+
+func TestImplicit(t *testing.T) {
+	var a int32 = 1
+	var b int64
+	b = int64(a)
+	var c MyInt
+	c = MyInt(b)
+
+	t.Log(a, b, c)
+}
+
+```
+
 Go语言按类别有以下几种数据类型 :
 
 | 序号 | 类型和描述 |
