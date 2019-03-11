@@ -44,12 +44,21 @@ package test
 import "testing"
 
 func TestPoint(t *testing.T) {
-	a := 1
-	// 通过取址符获得
-	aPtr := &a
-	//aPtr = aPtr + 1
-	t.Log(a, aPtr)
-	t.Logf("%T %T", a, aPtr)
+    a := 1
+    // 通过取址符获得
+    aPtr := &a
+    //aPtr = aPtr + 1
+    t.Log(a, aPtr)
+    t.Logf("%T %T", a, aPtr)
+}
+
+func TestString(t *testing.T) {
+	var str string
+	t.Log("*" + str + "*")
+	t.Log(len(str))
+	if str == "" {
+		t.Log("值类型")
+	}
 }
 ```
 
