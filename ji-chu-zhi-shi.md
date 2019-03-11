@@ -2,7 +2,7 @@
 
 #### 官方文档
 
-https://golang.org/doc/faq
+[https://golang.org/doc/faq](https://golang.org/doc/faq)
 
 #### 语言环境安装
 
