@@ -33,12 +33,25 @@ func TestImplicit(t *testing.T) {
 
 #### 指针类型
 
-Go语言和Java类似 , 支持垃圾回收的机制 . 同时也支持直接使用指针访问内存空间 . 但是Go语言的指针是有一些使用限制的 . 
+Go语言和Java类似 , 支持垃圾回收的机制 . 同时也支持直接使用指针访问内存空间 . 但是Go语言的指针是有一些使用限制的 .
 
-*  不支持指针运算
+* 不支持指针运算
 * string是值类型 , 其默认的初始化值为空字符串 , 而不是nil
 
+```go
+package test
 
+import "testing"
+
+func TestPoint(t *testing.T) {
+	a := 1
+	// 通过取址符获得
+	aPtr := &a
+	//aPtr = aPtr + 1
+	t.Log(a, aPtr)
+	t.Logf("%T %T", a, aPtr)
+}
+```
 
 Go语言按类别有以下几种数据类型 :
 
