@@ -190,8 +190,8 @@ const (
 )
 
 func TestCompareBin(t *testing.T) {
-	a := 7 // 二进制:0111
-	a = a &^ _Readable // 清零可读操作
+	a := 7               // 二进制:0111
+	a = a &^ _Readable   // 清零可读操作
 	a = a &^ _Executable // 清零可执行操作
 	t.Log(a&_Readable == _Readable, a&_Writable == _Writable, a&_Executable == _Executable)
 }
