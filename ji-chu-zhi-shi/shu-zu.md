@@ -75,7 +75,12 @@ func TestArrayTravel(t *testing.T) {
 arr\[开始索引\(包含\) , 结束索引\(不包含\)\]
 
 ```
-
+a := [...]int{1,2,3,4,5}
+a[1:2]
+a[1:3]
+a[1:len(a)]
+a[1:]
+a[:3]
 ```
 
 
