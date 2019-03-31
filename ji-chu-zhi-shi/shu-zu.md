@@ -81,6 +81,17 @@ a[1:3]
 a[1:len(a)]
 a[1:]
 a[:3]
+
+// 不支持负数
+func TestArraySection(t *testing.T) {
+	arr := [...]int{1, 2, 3, 4, 5}
+	arr_sec := arr[1:3]
+	arr_sec2 := arr[1:]
+	arr_sec3 := arr[:4]
+	arr_sec4 := arr[1:len(arr)]
+	arr_sec5 := arr[:]
+	t.Log(arr_sec, arr_sec2, arr_sec3, arr_sec4, arr_sec5)
+}
 ```
 
 
