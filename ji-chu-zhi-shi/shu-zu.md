@@ -38,7 +38,36 @@ var a [3]int // 声明并初始化为默认值零
 a[0] = 1
 
 b := [3]int{1,2,3} // 声明同时初始化
-c := [2][2]int{{1,2},{3,4}} // 多维数组初始化
+c := [2][2]int{{1,2},{3,4}} // 多维数组初始化 
+```
+
+数组声明初始化以及遍历
+
+```go
+package test
+
+import "testing"
+
+func TestArrayInit(t *testing.T) {
+	var arr [3]int
+	arr1 := [4]int{1, 2, 3, 4}
+	arr3 := [...]int{1, 3, 4, 5}
+	arr1[1] = 5
+	t.Log(arr[1], arr[2])
+	t.Log(arr1, arr3)
+}
+
+func TestArrayTravel(t *testing.T) {
+	arr := [...]int{1, 3, 4, 5}
+
+	for i := 0; i < len(arr); i++ {
+		t.Log(arr[i])
+	}
+
+	for _, e := range arr {
+		t.Log(e)
+	}
+}
 ```
 
 
