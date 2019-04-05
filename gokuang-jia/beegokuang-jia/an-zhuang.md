@@ -37,5 +37,9 @@ go get -u github.com/astaxie/beego
 go install  github.com/astaxie/beego
 ```
 
+## Bee工具
+
+协助快速开发工具 , 用于项目的创建、热编译、开发、测试、和部署 . 
+
 
 
