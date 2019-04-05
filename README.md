@@ -20,6 +20,10 @@
 
 [https://books.studygolang.com/The-Golang-Standard-Library-by-Example/](https://books.studygolang.com/The-Golang-Standard-Library-by-Example/)
 
+**Go语言规范文档**
+
+[https://golang.google.cn/ref/spec](https://golang.google.cn/ref/spec)
+
 #### 介绍
 
 Go语言初步设想始于2007年 , 主要是为了解决Google在软件开发中面临的问题 :
