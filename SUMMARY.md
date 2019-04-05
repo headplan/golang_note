@@ -2,6 +2,7 @@
 
 * [关于](README.md)
 * [Golang学习路线](chapter1.md)
+  * [工作区和GOPATH](chapter1/gong-zuo-qu-he-gopath.md)
 * [基础知识](ji-chu-zhi-shi.md)
   * [Hello World](ji-chu-zhi-shi/helloworld.md)
   * [基础语法](ji-chu-zhi-shi/ji-chu-yu-fa.md)
@@ -22,4 +23,5 @@
   * [结构体](ji-chu-zhi-shi/jie-gou-ti.md)
 * [Go框架](gokuang-jia.md)
   * [Beego框架](gokuang-jia/beegokuang-jia.md)
+    * [安装](gokuang-jia/beegokuang-jia/an-zhuang.md)
 
