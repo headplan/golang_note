@@ -68,5 +68,5 @@ go install github.com/labstack/echo
 
 ![](/assets/guidangwenjian.png)
 
-
+总之 , 某个工作区的src子目录下的源码文件安装后一般放在pkg或bin中 . 
 
