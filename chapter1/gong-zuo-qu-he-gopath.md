@@ -62,9 +62,9 @@ github.com/labstack/echo
 go install github.com/labstack/echo
 ```
 
-生成的归档文件相对目录就是github.com/labstack , 文件名echo.a . 顺便说一下 , 这个代码包导入路径也表示 , 代码包的源码文件在Github上labstack组的代码仓库echo中 . 
+生成的归档文件相对目录就是github.com/labstack , 文件名echo.a . 顺便说一下 , 这个代码包导入路径也表示 , 代码包的源码文件在Github上labstack组的代码仓库echo中 .
 
-归档文件的相对目录与pkg目录之间还有一级目录 , 叫平台相关目录 . 平台相关目录的名称是由build的目标操作系统 , 下划线和目标计算机架构的代号组成的 . 
+归档文件的相对目录与pkg目录之间还有一级目录 , 叫平台相关目录 . 平台相关目录的名称是由build的目标操作系统 , 下划线和目标计算机架构的代号组成的 . 例如 , linux\_amd64 . 
 
 
 
