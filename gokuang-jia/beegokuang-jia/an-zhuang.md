@@ -57,5 +57,24 @@ Bee可执行文件默认存放在`$GOPATH/bin`里 , 所以需要把`$GOPATH/bin`
 bee command [arguments]
 ```
 
+**相关命令**
+
+```
+version 展示bee和beego的版本
+migrate 运行数据库迁移
+api 创建基本的api应用
+bale 将非go文件打包为go源文件
+fix 修复应用,通过beego新版本使其兼容
+dlv 使用Delve启动调试session
+dockerize 为Beego应用程序生成Dockerfile
+generate 源代码生成器
+hprose 基于hprose和beego框架创建RPC应用程序
+new 创建应用
+pack 压缩zip包应用
+rs 运行自定义脚本
+run 运行可热编译的应用程序
+server 在端口上通过HTTP提供静态内容
+```
+
 
 
