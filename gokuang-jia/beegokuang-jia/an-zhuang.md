@@ -102,7 +102,7 @@ myproject
 
 **api命令**
 
-上面的`new`命令是用来新建 Web 项目 , 这个api命令是用来创建API应用的 . 
+上面的`new`命令是用来新建 Web 项目 , 这个api命令是用来创建API应用的 .
 
 ```
 apiproject
@@ -123,5 +123,13 @@ apiproject
     └── default_test.go
 ```
 
-目录上看 , 少了static和views目录 , 多了test模块来做单元测试 . 
+目录上看 , 少了static和views目录 , 多了test模块来做单元测试 .
+
+自定义参数自动连接数据库创建相关 model 和 controller : 
+
+```
+bee api [appname] [-tables=""] [-driver=mysql] [-conn="root:<password>@tcp(127.0.0.1:3306)/test"]
+```
+
+其中conn参数为空则创建一个示例项目 . 
 
