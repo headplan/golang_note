@@ -131,9 +131,11 @@ apiproject
 bee api [appname] [-tables=""] [-driver=mysql] [-conn="root:<password>@tcp(127.0.0.1:3306)/test"]
 ```
 
-其中conn参数为空则创建一个示例项目 . 如果修改Controller下的default.go文件 , 就能看到控制台的输出 . 
+其中conn参数为空则创建一个示例项目 . 
 
 **run命令**
 
+在开发 Go 项目的时候最大的问题是经常需要自己手动去编译再运行 , `bee run`命令是监控 beego 的项目 , 通过[fsnotify](https://github.com/howeyc/fsnotify)监控文件系统 . 但是注意该命令必须在`$GOPATH/src/appname`下执行 . 
 
+如果修改Controller下的default.go文件 , 就能看到控制台的输出 .
 
