@@ -149,9 +149,28 @@ bee api [appname] [-tables=""] [-driver=mysql] [-conn="root:<password>@tcp(127.0
 
 **version命令**
 
-查看当前版本 . 
+查看当前版本 .
 
 **generate命令**
 
-用来自动化生成代码 , 包含从数据库一键生成model , 还包含scaffold脚手架 . 
+用来自动化生成代码 , 包含从数据库一键生成model , 还包含scaffold脚手架 .
+
+**dockerize命令**
+
+通过Dockerfile文件来实现docker化应用 . 
+
+**bee工具配置文件**
+
+在 bee 工具的源码目录下有一个`bee.json`文件 , 这个文件是针对 bee 工具的一些行为进行配置 . 该功能还未完全开发完成 , 不过其中的一些选项已经可以使用 : 
+
+```
+"version": 0：配置文件版本，用于对比是否发生不兼容的配置格式版本。
+"go_install": false：如果您的包均使用完整的导入路径（例如：github.com/user/repo/subpkg）,则可以启用该选项来进行 go install 操作，加快构建操作。
+"watch_ext": []：用于监控其它类型的文件（默认只监控后缀为 .go 的文件）。
+"dir_structure":{}：如果您的目录名与默认的 MVC 架构的不同，则可以使用该选项进行修改。
+"cmd_args": []：如果您需要在每次启动时加入启动参数，则可以使用该选项。
+"envs": []：如果您需要在每次启动时设置临时环境变量参数，则可以使用该选项。
+```
+
+
 
