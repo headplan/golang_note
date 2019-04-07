@@ -125,11 +125,15 @@ apiproject
 
 目录上看 , 少了static和views目录 , 多了test模块来做单元测试 .
 
-自定义参数自动连接数据库创建相关 model 和 controller : 
+自定义参数自动连接数据库创建相关 model 和 controller :
 
 ```
 bee api [appname] [-tables=""] [-driver=mysql] [-conn="root:<password>@tcp(127.0.0.1:3306)/test"]
 ```
 
-其中conn参数为空则创建一个示例项目 . 
+其中conn参数为空则创建一个示例项目 . 如果修改Controller下的default.go文件 , 就能看到控制台的输出 . 
+
+**run命令**
+
+
 
