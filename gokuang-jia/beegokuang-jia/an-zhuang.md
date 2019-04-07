@@ -78,7 +78,27 @@ server 在端口上通过HTTP提供静态内容
 
 **new命令**
 
-new 命令是新建一个 Web 项目 , 在命令行下执行 bee new &lt;项目名&gt; 就可以创建一个新的项目 . 但是注意该命令必须在`$GOPATH/src`下执行 . 最后会在`$GOPATH/src`相应目录下生成目录结构的项目 . 
+new 命令是新建一个 Web 项目 , 在命令行下执行 bee new &lt;项目名&gt; 就可以创建一个新的项目 . 但是注意该命令必须在`$GOPATH/src`下执行 . 最后会在`$GOPATH/src`相应目录下生成目录结构的项目 .
+
+```
+myproject
+├── conf
+│   └── app.conf
+├── controllers
+│   └── default.go
+├── main.go
+├── models
+├── routers
+│   └── router.go
+├── static
+│   ├── css
+│   ├── img
+│   └── js
+├── tests
+│   └── default_test.go
+└── views
+    └── index.tpl
+```
 
 
 
