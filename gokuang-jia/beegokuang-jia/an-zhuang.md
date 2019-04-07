@@ -100,5 +100,28 @@ myproject
     └── index.tpl
 ```
 
+**api命令**
 
+上面的`new`命令是用来新建 Web 项目 , 这个api命令是用来创建API应用的 . 
+
+```
+apiproject
+├── conf
+│   └── app.conf
+├── controllers
+│   └── object.go
+│   └── user.go
+├── docs
+│   └── doc.go
+├── main.go
+├── models
+│   └── object.go
+│   └── user.go
+├── routers
+│   └── router.go
+└── tests
+    └── default_test.go
+```
+
+目录上看 , 少了static和views目录 , 多了test模块来做单元测试 . 
 
