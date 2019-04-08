@@ -70,7 +70,8 @@ beego.Router("/user", &controllers.UserController{})
 * 是否编译模板 : 启动时根据配置把views目录下的所有模板进行预编译 , 存储在map里 , 提高模板运行效率 . 
 * 是否开启文档功能 : 根据 EnableDocs 配置判断是否开启内置的文档路由功能 . 
 * 是否启动管理模块 : 启动后会在8088端口做一个内部监听 , 可以通过这个端口查询QPS , CPU , 内存 , GC , goroutine , thread等统计信息 . 
-* 监听服务端口
+* 监听服务端口 : 最后一步也就是我们看到的访问 8080 看到的网页端口，内部其实调用了
+  `ListenAndServe`, 充分利用了 goroutine 的优势 . 
 
 #### Controller运行机制
 
