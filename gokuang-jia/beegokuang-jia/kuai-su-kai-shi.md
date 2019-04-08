@@ -109,7 +109,7 @@ beego是一个RESTful的框架 , 所以请求默认是执行对应req.Method的�
 
 用户设置了模板之后系统会自动的调用`Render`函数\(这个函数是在 beego.Controller 中实现的\) , 所以无需用户自己来调用渲染 .
 
-也可以不使用模板 , 直接用this.Ctx.WriteString输出字符串 . 例如 : 
+也可以不使用模板 , 直接用this.Ctx.WriteString输出字符串 . 例如 :
 
 ```go
 func (this *MainController) Get() {
@@ -118,6 +118,38 @@ func (this *MainController) Get() {
 ```
 
 #### Model逻辑
+
+如果应用足够简单 , 那么Controller可以处理一切的逻辑 , 如果逻辑里面存在着可以复用的东西 , 那么就抽取出来变成一个模块 . 因此Model就是逐步抽象的过程 , 一般会在Model里面处理一些数据读取 , 例如 : 
+
+```go
+package models
+
+import (
+    "loggo/utils"
+    "path/filepath"
+    "strconv"
+    "strings"
+)
+
+var (
+    NotPV []string = []string{"css", "js", "class", "gif", "jpg", "jpeg", "png", "bmp", "ico", "rss", "xml", "swf"}
+)
+
+const big = 0xFFFFFF
+
+func LogPV(urls string) bool {
+    ext := filepath.Ext(urls)
+    if ext == "" {
+        return true
+    }
+    for _, v := range NotPV {
+        if v == strings.ToLower(ext) {
+            return false
+        }
+    }
+    return true
+}
+```
 
 #### View编写
 
