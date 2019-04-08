@@ -8,7 +8,7 @@ beego的项目基本都是通过bee命令来创建的 . 创建项目
 bee new webpro
 ```
 
-创建的项目的目录结构就是典型的MVC框架 , main.go是入口文件 . 
+创建的项目的目录结构就是典型的MVC框架 , main.go是入口文件 .
 
 **运行项目**
 
@@ -16,9 +16,24 @@ bee new webpro
 bee run
 ```
 
-默认访问8080端口 , Go已经有网络层 , 所以不需要nginx和apache . 
+默认访问8080端口 , Go已经有网络层 , 所以不需要nginx和apache .
 
 #### 路由设置
+
+先来看看入口文件main.go
+
+```go
+package main
+
+import (
+    _ "quickstart/routers"
+    "github.com/astaxie/beego"
+)
+
+func main() {
+    beego.Run()
+}
+```
 
 #### Controller运行机制
 
