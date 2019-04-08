@@ -205,12 +205,12 @@ https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/07.4
 StaticDir["/static"] = "static"
 ```
 
-用户可以设置多个静态文件处理目录 , 假如有多个文件下载目录download1 , download2 , 可以如下映射\(在/main.go文件中beego.Run\(\)之前加入\) : 
+用户可以设置多个静态文件处理目录 , 假如有多个文件下载目录download1 , download2 , 可以如下映射\(在/main.go文件中beego.Run\(\)之前加入\) :
 
 ```go
 beego.SetStaticPath("/down1", "download1")
 beego.SetStaticPath("/down2", "download2")
 ```
 
-
+用户访问URL`http://localhost:8080/down1/123.txt`会请求download1目录下的123.txt
 
