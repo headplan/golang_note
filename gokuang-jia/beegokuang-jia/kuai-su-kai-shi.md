@@ -151,9 +151,49 @@ func LogPV(urls string) bool {
 }
 ```
 
-总的来说 , 如果应用足够简单 , 就不需要Model了 , 如果模块开始多了 , 需要复用 , 需要逻辑分离 , 那么Model是必不可扫的 . 
+总的来说 , 如果应用足够简单 , 就不需要Model了 , 如果模块开始多了 , 需要复用 , 需要逻辑分离 , 那么Model是必不可扫的 .
 
 #### View编写
+
+在前面的Controller中 , Get里写过this.TplName = "index.tpl" , 设置显示的模板文件 , 默认支持tpl和html的后缀名 , 如果想设置其他后缀可以调用beego.AddTemplateExt接口设置 . 
+
+beego采用了Go语言默认的模板引擎 , 所以和Go的模板语法一样 , 详细可参考《Go Web编程》模板使用指南 : 
+
+```
+https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/07.4.md
+```
+
+**示例代码**
+
+```
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Beego</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    </head>
+
+    <body>
+        <header class="hero-unit" style="background-color:#A9F16C">
+            <div class="container">
+            <div class="row">
+              <div class="hero-text">
+                <h1>Welcome to Beego!</h1>
+                <p class="description">
+                    Beego is a simple & powerful Go web framework which is inspired by tornado and sinatra.
+                <br />
+                    Official website: <a href="http://{{.Website}}">{{.Website}}</a>
+                <br />
+                    Contact me: {{.Email}}
+                </p>
+              </div>
+            </div>
+            </div>
+        </header>
+    </body>
+</html>
+```
 
 #### 静态文件处理
 
