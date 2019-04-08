@@ -119,7 +119,7 @@ func (this *MainController) Get() {
 
 #### Model逻辑
 
-如果应用足够简单 , 那么Controller可以处理一切的逻辑 , 如果逻辑里面存在着可以复用的东西 , 那么就抽取出来变成一个模块 . 因此Model就是逐步抽象的过程 , 一般会在Model里面处理一些数据读取 , 例如 : 
+如果应用足够简单 , 那么Controller可以处理一切的逻辑 , 如果逻辑里面存在着可以复用的东西 , 那么就抽取出来变成一个模块 . 因此Model就是逐步抽象的过程 , 一般会在Model里面处理一些数据读取 , 例如 :
 
 ```go
 package models
@@ -150,6 +150,8 @@ func LogPV(urls string) bool {
     return true
 }
 ```
+
+总的来说 , 如果应用足够简单 , 就不需要Model了 , 如果模块开始多了 , 需要复用 , 需要逻辑分离 , 那么Model是必不可扫的 . 
 
 #### View编写
 
