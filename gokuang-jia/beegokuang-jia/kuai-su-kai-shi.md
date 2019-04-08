@@ -107,9 +107,15 @@ beego是一个RESTful的框架 , 所以请求默认是执行对应req.Method的�
 
 例如 , 上面的代码只是简单的赋值 , 最后一步 , this.TplName就是需要渲染的模板 , 这里指定了index.tpl , 如果不设置 , 会自动到Controller/&lt;方法名&gt;.tpl查找 . 例如 , 上面的方法会去找maincontroller/get.tpl\(文件 , 文件夹必须小写\) .
 
-用户设置了模板之后系统会自动的调用`Render`函数\(这个函数是在 beego.Controller 中实现的\) , 所以无需用户自己来调用渲染 . 
+用户设置了模板之后系统会自动的调用`Render`函数\(这个函数是在 beego.Controller 中实现的\) , 所以无需用户自己来调用渲染 .
 
-也可以不使用模板 , 直接用this.Ctx.WriteString输出字符串 . 
+也可以不使用模板 , 直接用this.Ctx.WriteString输出字符串 . 例如 : 
+
+```go
+func (this *MainController) Get() {
+    this.Ctx.WriteString("hello")
+}
+```
 
 #### Model逻辑
 
