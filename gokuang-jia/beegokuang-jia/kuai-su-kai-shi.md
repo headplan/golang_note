@@ -20,6 +20,10 @@ bee run
 
 #### 路由设置
 
+Go的执行过程
+
+![](/assets/gozhixingguocheng.png)
+
 先来看看入口文件main.go
 
 ```go
