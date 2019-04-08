@@ -95,13 +95,15 @@ func (this *MainController) Get() {
 }
 ```
 
-首先声明控制器MainController , 控制器中内嵌了beego.Controller , 也是Go的组合方式 , 也就是说 , MainController自动拥有了所有beego.Controller的方法 . 其中包括 : 
+首先声明控制器MainController , 控制器中内嵌了beego.Controller , 也是Go的组合方式 , 也就是说 , MainController自动拥有了所有beego.Controller的方法 . 其中包括 :
 
 ```
 Init、Prepare、Post、Get、Delete、Head...
 ```
 
 可以通过重写的方式来实现这些方法 , 上面的代码就是重写了Get方法 . 
+
+beego是一个RESTful的框架 , 所以请求默认是执行对应req.Method的方法 . 浏览器的是`GET`请求 , 那么默认就会执行`MainController`下的`Get`方法 , 这样上面写的Get方法就会被执行到 , 处理我们自己写的逻辑 . 
 
 #### Model逻辑
 
