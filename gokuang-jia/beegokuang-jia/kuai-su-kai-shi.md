@@ -155,9 +155,9 @@ func LogPV(urls string) bool {
 
 #### View编写
 
-在前面的Controller中 , Get里写过this.TplName = "index.tpl" , 设置显示的模板文件 , 默认支持tpl和html的后缀名 , 如果想设置其他后缀可以调用beego.AddTemplateExt接口设置 . 
+在前面的Controller中 , Get里写过this.TplName = "index.tpl" , 设置显示的模板文件 , 默认支持tpl和html的后缀名 , 如果想设置其他后缀可以调用beego.AddTemplateExt接口设置 .
 
-beego采用了Go语言默认的模板引擎 , 所以和Go的模板语法一样 , 详细可参考《Go Web编程》模板使用指南 : 
+beego采用了Go语言默认的模板引擎 , 所以和Go的模板语法一样 , 详细可参考《Go Web编程》模板使用指南 :
 
 ```
 https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/07.4.md
@@ -165,7 +165,7 @@ https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/07.4
 
 **示例代码**
 
-```
+```go
 <!DOCTYPE html>
 
 <html>
