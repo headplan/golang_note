@@ -195,7 +195,7 @@ https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/07.4
 </html>
 ```
 
-在控制器中 , 数据是赋值给data\(map类型\) , 然后在模板中就可以直接通过key访问`.Website`和`.Email`了
+在控制器中 , 数据是赋值给data\(map类型\) , 然后在模板中就可以直接通过key访问`.Website`和`.Email`了 . 
 
 #### 静态文件处理
 
