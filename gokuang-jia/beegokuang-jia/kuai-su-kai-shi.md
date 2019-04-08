@@ -199,10 +199,17 @@ https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/07.4
 
 #### 静态文件处理
 
-网页中包含的静态文件 , 图片 , js , css等的输出 , 需要注册URL前缀和映射的目录\(在/main.go文件中beego.Run\(\)之前加入\) : 
+网页中包含的静态文件 , 图片 , js , css等的输出 , 需要注册URL前缀和映射的目录\(在/main.go文件中beego.Run\(\)之前加入\) :
 
 ```go
 StaticDir["/static"] = "static"
+```
+
+用户可以设置多个静态文件处理目录 , 假如有多个文件下载目录download1 , download2 , 可以如下映射\(在/main.go文件中beego.Run\(\)之前加入\) : 
+
+```go
+beego.SetStaticPath("/down1", "download1")
+beego.SetStaticPath("/down2", "download2")
 ```
 
 
