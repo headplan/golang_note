@@ -60,7 +60,17 @@ func init() {
 beego.Router("/user", &controllers.UserController{})
 ```
 
-现在 , 通过访问/user就能执行UserController的逻辑了 . 
+现在 , 通过访问/user就能执行UserController的逻辑了 .
+
+**beego.Run执行后内部流程**
+
+* 解析配置文件 : 配置app.conf文件 , 配置开启的端口 , 是否开启session , 应用名称等信息 . 
+* 执行用户的hookfunc : 执行用户注册的hookfunc , 可以通过函数`AddAPPStartHook`注册自己的启动函数 . 
+* 是否开启session : 开启的话会全局初始化 . 
+* 是否编译模板 : 启动时根据配置把views目录下的所有模板进行预编译 , 存储在map里 , 提高模板运行效率 . 
+* 是否开启文档功能 : 根据 EnableDocs 配置判断是否开启内置的文档路由功能 . 
+* 是否启动管理模块 : 启动后会在8088端口做一个内部监听 , 可以通过这个端口查询QPS , CPU , 内存 , GC , goroutine , thread等统计信息 . 
+* 监听服务端口
 
 #### Controller运行机制
 
