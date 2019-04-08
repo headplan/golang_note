@@ -25,4 +25,5 @@
 * [Go框架](gokuang-jia.md)
   * [Beego框架](gokuang-jia/beegokuang-jia.md)
     * [安装](gokuang-jia/beegokuang-jia/an-zhuang.md)
+    * [快速开始](gokuang-jia/beegokuang-jia/kuai-su-kai-shi.md)
 
