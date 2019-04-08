@@ -95,6 +95,14 @@ func (this *MainController) Get() {
 }
 ```
 
+首先声明控制器MainController , 控制器中内嵌了beego.Controller , 也是Go的组合方式 , 也就是说 , MainController自动拥有了所有beego.Controller的方法 . 其中包括 : 
+
+```
+Init、Prepare、Post、Get、Delete、Head...
+```
+
+可以通过重写的方式来实现这些方法 , 上面的代码就是重写了Get方法 . 
+
 #### Model逻辑
 
 #### View编写
