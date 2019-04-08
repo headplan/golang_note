@@ -157,11 +157,11 @@ bee api [appname] [-tables=""] [-driver=mysql] [-conn="root:<password>@tcp(127.0
 
 **dockerize命令**
 
-通过Dockerfile文件来实现docker化应用 . 
+通过Dockerfile文件来实现docker化应用 .
 
 **bee工具配置文件**
 
-在 bee 工具的源码目录下有一个`bee.json`文件 , 这个文件是针对 bee 工具的一些行为进行配置 . 该功能还未完全开发完成 , 不过其中的一些选项已经可以使用 : 
+在 bee 工具的源码目录下有一个`bee.json`文件 , 这个文件是针对 bee 工具的一些行为进行配置 . 该功能还未完全开发完成 , 不过其中的一些选项已经可以使用 :
 
 ```
 "version": 0：配置文件版本，用于对比是否发生不兼容的配置格式版本。

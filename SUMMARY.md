@@ -26,4 +26,5 @@
   * [Beego框架](gokuang-jia/beegokuang-jia.md)
     * [安装](gokuang-jia/beegokuang-jia/an-zhuang.md)
     * [快速开始](gokuang-jia/beegokuang-jia/kuai-su-kai-shi.md)
+    * [Beego的MVC架构](gokuang-jia/beegokuang-jia/beegode-mvc-jia-gou.md)
 
