@@ -54,11 +54,13 @@ func init() {
 }
 ```
 
-其中的beego.Router映射URL到controller , 第一个参数是URL\(用户请求的地址\) , 这里注册的是`/`不带任何参数的URL , 第二个参数是对应的Controller , 也就是将把请求分发到对应控制器执行相应的逻辑 . 注册路由就可以用类似的方式 . 
+其中的beego.Router映射URL到controller , 第一个参数是URL\(用户请求的地址\) , 这里注册的是`/`不带任何参数的URL , 第二个参数是对应的Controller , 也就是将把请求分发到对应控制器执行相应的逻辑 . 注册路由就可以用类似的方式 .
 
 ```go
 beego.Router("/user", &controllers.UserController{})
 ```
+
+现在 , 通过访问/user就能执行UserController的逻辑了 . 
 
 #### Controller运行机制
 
