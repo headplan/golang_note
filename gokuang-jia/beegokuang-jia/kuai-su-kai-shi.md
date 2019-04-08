@@ -195,9 +195,15 @@ https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/07.4
 </html>
 ```
 
-在控制器中 , 数据是赋值给data\(map类型\) , 然后在模板中就可以直接通过key访问`.Website`和`.Email`了 . 
+在控制器中 , 数据是赋值给data\(map类型\) , 然后在模板中就可以直接通过key访问`.Website`和`.Email`了 .
 
 #### 静态文件处理
+
+网页中包含的静态文件 , 图片 , js , css等的输出 , 需要注册URL前缀和映射的目录\(在/main.go文件中beego.Run\(\)之前加入\) : 
+
+```go
+StaticDir["/static"] = "static"
+```
 
 
 
