@@ -75,6 +75,26 @@ beego.Router("/user", &controllers.UserController{})
 
 #### Controller运行机制
 
+**控制器源码**
+
+```go
+package controllers
+
+import (
+        "github.com/astaxie/beego"
+)
+
+type MainController struct {
+        beego.Controller
+}
+
+func (this *MainController) Get() {
+        this.Data["Website"] = "beego.me"
+        this.Data["Email"] = "astaxie@gmail.com"
+        this.TplName = "index.tpl"
+}
+```
+
 #### Model逻辑
 
 #### View编写
