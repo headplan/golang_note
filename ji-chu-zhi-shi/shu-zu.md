@@ -96,19 +96,21 @@ func TestArraySection(t *testing.T) {
 
 #### 多维数组
 
-声明
+**声明**
 
 ```
 var variable_name [SIZE1][SIZE2]...[SIZEN] variable_type
 ```
 
-例如
+**例如**
 
 ```
 var threedim [5][10][4]int
 ```
 
-注意 : 二维数组初始化 , 最后一行必须有逗号 , 不然会报错 , 也可以把结束的括号写在一样 . 
+**初始化**
+
+注意 : 二维数组初始化 , 最后一行必须有逗号 , 不然会报错 , 也可以把结束的括号写在一样 .
 
 ```
 a := [3][4]int{  
