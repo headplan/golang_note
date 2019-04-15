@@ -24,31 +24,38 @@ package test
 import "testing"
 
 func TestMap(t *testing.T) {
-	// 创建Map集合
-	var countryCapitalMap map[string]string
-	countryCapitalMap = make(map[string]string)
+    // 创建Map集合
+    var countryCapitalMap map[string]string
+    countryCapitalMap = make(map[string]string)
 
-	// 给Map插入key-value对,各个国家对应的首都
-	countryCapitalMap["France"] = "巴黎"
-	countryCapitalMap["Italy"] = "罗马"
-	countryCapitalMap["Japan"] = "东京"
-	countryCapitalMap["India"] = "新德里"
+    // 给Map插入key-value对,各个国家对应的首都
+    countryCapitalMap["France"] = "巴黎"
+    countryCapitalMap["Italy"] = "罗马"
+    countryCapitalMap["Japan"] = "东京"
+    countryCapitalMap["India"] = "新德里"
 
-	// 使用键输出地图值
-	for country := range countryCapitalMap {
-		t.Log(country, "首都是", countryCapitalMap[country]);
-	}
+    // 使用键输出地图值
+    for country := range countryCapitalMap {
+        t.Log(country, "首都是", countryCapitalMap[country]);
+    }
 
-	// 查看元素在集合中是否存在
-	capital, ok := countryCapitalMap["USA"]
-	t.Log(capital, ok)
+    // 查看元素在集合中是否存在
+    capital, ok := countryCapitalMap["USA"]
+    t.Log(capital, ok)
 
-	if (ok) {
-		t.Log(capital)
-	} else {
-		t.Log("不存在!")
-	}
+    if (ok) {
+        t.Log(capital)
+    } else {
+        t.Log("不存在!")
+    }
 }
+```
+
+**delete\(\) 函数**
+
+delete\(\)函数用于删除元素集合的元素 , 参数为map和其对应的key . 
+
+```
 
 ```
 
