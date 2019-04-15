@@ -16,7 +16,41 @@ var map_variable map[key_data_type]value_data_type
 map_variable := make(map[key_data_type]value_data_type)
 ```
 
-注 : 如果不初始化 map , 那么就会创建一个 nil map . nil map 不能用来存放键值对 . 
+注 : 如果不初始化 map , 那么就会创建一个 nil map . nil map 不能用来存放键值对 .
+
+```go
+package test
+
+import "testing"
+
+func TestMap(t *testing.T) {
+	// 创建Map集合
+	var countryCapitalMap map[string]string
+	countryCapitalMap = make(map[string]string)
+
+	// 给Map插入key-value对,各个国家对应的首都
+	countryCapitalMap["France"] = "巴黎"
+	countryCapitalMap["Italy"] = "罗马"
+	countryCapitalMap["Japan"] = "东京"
+	countryCapitalMap["India"] = "新德里"
+
+	// 使用键输出地图值
+	for country := range countryCapitalMap {
+		t.Log(country, "首都是", countryCapitalMap[country]);
+	}
+
+	// 查看元素在集合中是否存在
+	capital, ok := countryCapitalMap["USA"]
+	t.Log(capital, ok)
+
+	if (ok) {
+		t.Log(capital)
+	} else {
+		t.Log("不存在!")
+	}
+}
+
+```
 
 
 
