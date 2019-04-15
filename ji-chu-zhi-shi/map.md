@@ -16,5 +16,7 @@ var map_variable map[key_data_type]value_data_type
 map_variable := make(map[key_data_type]value_data_type)
 ```
 
+注 : 如果不初始化 map , 那么就会创建一个 nil map . nil map 不能用来存放键值对 . 
+
 
 
