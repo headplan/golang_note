@@ -18,6 +18,7 @@
   * [循环语句](ji-chu-zhi-shi/xun-huan-yu-ju.md)
   * [数组](ji-chu-zhi-shi/shu-zu.md)
   * [切片](ji-chu-zhi-shi/qie-pian.md)
+  * [Map集合](ji-chu-zhi-shi/map.md)
   * [函数](ji-chu-zhi-shi/han-shu.md)
   * [变量作用域](ji-chu-zhi-shi/bian-liang-zuo-yong-yu.md)
   * [指针](ji-chu-zhi-shi/zhi-zhen.md)
