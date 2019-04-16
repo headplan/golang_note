@@ -11,9 +11,12 @@ Map 是一种集合 , 所以可以像迭代数组和切片那样迭代它 . 不�
 ```go
 /* 声明变量，默认 map 是 nil */
 var map_variable map[key_data_type]value_data_type
+_map := map[string]int{"one":1,"two":2,"three":3}
+_map1 := map[string]int
+_map1["one"] = 1
 
 /* 使用 make 函数 */
-map_variable := make(map[key_data_type]value_data_type)
+map_variable := make(map[key_data_type]value_data_type,10) // 第二个参数Initial Capacity
 ```
 
 注 : 如果不初始化 map , 那么就会创建一个 nil map . nil map 不能用来存放键值对 .
@@ -57,26 +60,26 @@ delete\(\)函数用于删除元素集合的元素 , 参数为map和其对应的k
 
 ```go
 func TestDeleteMap(t *testing.T) {
-	// 创建Map集合
-	countryCapitalMap := map[string]string {
-		"France": "巴黎",
-		"Italy": "罗马",
-		"Japan": "东京",
-		"India": "新德里",
-	}
+    // 创建Map集合
+    countryCapitalMap := map[string]string {
+        "France": "巴黎",
+        "Italy": "罗马",
+        "Japan": "东京",
+        "India": "新德里",
+    }
 
-	for country := range countryCapitalMap {
-		t.Log(country, "首都是", countryCapitalMap[country])
-	}
+    for country := range countryCapitalMap {
+        t.Log(country, "首都是", countryCapitalMap[country])
+    }
 
-	// 删除元素
-	delete(countryCapitalMap,"Japan")
-	t.Log("法国条目被删除")
-	t.Log("删除元素后地图")
+    // 删除元素
+    delete(countryCapitalMap,"Japan")
+    t.Log("法国条目被删除")
+    t.Log("删除元素后地图")
 
-	for country := range countryCapitalMap {
-		t.Log(country, "首都是", countryCapitalMap[country])
-	}
+    for country := range countryCapitalMap {
+        t.Log(country, "首都是", countryCapitalMap[country])
+    }
 }
 ```
 
