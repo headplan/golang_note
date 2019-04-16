@@ -53,10 +53,31 @@ func TestMap(t *testing.T) {
 
 **delete\(\) 函数**
 
-delete\(\)函数用于删除元素集合的元素 , 参数为map和其对应的key . 
+delete\(\)函数用于删除元素集合的元素 , 参数为map和其对应的key .
 
-```
+```go
+func TestDeleteMap(t *testing.T) {
+	// 创建Map集合
+	countryCapitalMap := map[string]string {
+		"France": "巴黎",
+		"Italy": "罗马",
+		"Japan": "东京",
+		"India": "新德里",
+	}
 
+	for country := range countryCapitalMap {
+		t.Log(country, "首都是", countryCapitalMap[country])
+	}
+
+	// 删除元素
+	delete(countryCapitalMap,"Japan")
+	t.Log("法国条目被删除")
+	t.Log("删除元素后地图")
+
+	for country := range countryCapitalMap {
+		t.Log(country, "首都是", countryCapitalMap[country])
+	}
+}
 ```
 
 
