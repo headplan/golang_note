@@ -96,13 +96,28 @@ func TestDeleteMap(t *testing.T) {
 
 ```go
 func TestMapWithFuncValue(t *testing.T) {
-	m := map[int]func(op int) int{}
-	m[1] = func(op int) int { return op }
-	m[2] = func(op int) int { return op * op }
-	m[3] = func(op int) int { return op * op * op }
-	t.Log(m[1](2), m[2](2), m[3](2))
+    m := map[int]func(op int) int{}
+    m[1] = func(op int) int { return op }
+    m[2] = func(op int) int { return op * op }
+    m[3] = func(op int) int { return op * op * op }
+    t.Log(m[1](2), m[2](2), m[3](2))
 }
 ```
+
+#### 实现Set
+
+Go的内置集合中没有Set实现 , 可以map\[type\]bool
+
+1.元素的唯一性
+
+2.基本操作
+
+* 添加元素
+* 判断元素是否存在
+* 删除元素
+* 元素个数
+
+
 
 
 
