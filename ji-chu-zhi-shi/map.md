@@ -58,9 +58,7 @@ func TestMap(t *testing.T) {
 
 与其他主要编程语言的差异
 
-在访问的Key不存在时 , 仍会返回零值 , 不能通过返回nil来判断元素是否存在 . 
-
-
+在访问的Key不存在时 , 仍会返回零值 , 不能通过返回nil来判断元素是否存在 .
 
 **delete\(\) 函数**
 
@@ -90,6 +88,8 @@ func TestDeleteMap(t *testing.T) {
     }
 }
 ```
+
+#### Map与工厂模式
 
 
 
