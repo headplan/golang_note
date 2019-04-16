@@ -91,5 +91,8 @@ func TestDeleteMap(t *testing.T) {
 
 #### Map与工厂模式
 
+* Map的value可以是一个方法 . 
+* 与Go的Dock Type接口方式一起 , 可以方便的实现单一方法对象的工厂模式 . 
+
 
 
