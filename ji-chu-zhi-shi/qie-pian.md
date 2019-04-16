@@ -59,7 +59,7 @@ s :=[] int {1,2,3}
 s := arr[:]
 ```
 
-初始化切片s , 是数组arr的引用 . 
+初始化切片s , 是数组arr的引用 .
 
 ```
 s := arr[startIndex:endIndex]
@@ -95,5 +95,5 @@ s :=make([]int,len,cap)
 
 #### 切片共享存储结构
 
-![](/assets/gongxiangcunxhujiegou.png)
+![](/assets/qiepiangongxiangcunchujiegou.png)
 
