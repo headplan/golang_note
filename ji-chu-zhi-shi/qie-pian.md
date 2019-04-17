@@ -89,22 +89,30 @@ s1 := s[startIndex:endIndex]
 s :=make([]int,len,cap)
 ```
 
-通过内置函数make\(\)初始化切片s,\[\]int 标识为其元素类型为int的切片 . 
+通过内置函数make\(\)初始化切片s,\[\]int 标识为其元素类型为int的切片 .
 
 #### len\(\)函数和cap\(\)函数
 
-切片是可索引的 , 并且可以由len\(\)方法获取长度 . 
+切片是可索引的 , 并且可以由len\(\)方法获取长度 .
 
-切片提供了计算容量的方法cap\(\) , 可以测量切片最长可以达到多少 . 
+切片提供了计算容量的方法cap\(\) , 可以测量切片最长可以达到多少 .
 
 ```go
 func TestSliceGrowing(t *testing.T) {
-	s := []int{}
-	for i := 0; i < 10; i++ {
-		s = append(s, i)
-		t.Log(len(s), cap(s))
-	}
+    s := []int{}
+    for i := 0; i < 10; i++ {
+        s = append(s, i)
+        t.Log(len(s), cap(s))
+    }
 }
+```
+
+#### 空\(nil\)切片
+
+一个切片在未初始化之前默认为nil , 长度为0 : 
+
+```
+
 ```
 
 ---
