@@ -95,19 +95,36 @@ s :=make([]int,len,cap)
 
 #### 切片共享存储结构
 
+
+
 ![](/assets/qiepiangongxiangcunchujiegou.png)
 
 ```go
 func TestSliceShareMemory(t *testing.T) {
-	year := []string{"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
-	Q2 := year[3:6]
-	t.Log(Q2, len(Q2), cap(Q2))
-	summer := year[5:8]
-	t.Log(summer, len(summer), cap(summer))
+    year := []string{"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
+    Q2 := year[3:6]
+    t.Log(Q2, len(Q2), cap(Q2))
+    summer := year[5:8]
+    t.Log(summer, len(summer), cap(summer))
 
-	summer[0] = "Unknow"
-	t.Log(Q2)
-	t.Log(year)
+    summer[0] = "Unknow"
+    t.Log(Q2)
+    t.Log(year)
+}
+```
+
+#### 数组 vs. 切片
+
+1. 容量是否可伸缩
+2. 是否可以进行比较
+
+```go
+func TestSliceComparing(t *testing.T) {
+	a := []int{1,2,3,4}
+	b := []int{1,2,3,4}
+	if a == b {
+		t.Log("equal")
+	}
 }
 ```
 
