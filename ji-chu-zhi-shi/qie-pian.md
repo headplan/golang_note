@@ -95,8 +95,6 @@ s :=make([]int,len,cap)
 
 #### 切片共享存储结构
 
-
-
 ![](/assets/qiepiangongxiangcunchujiegou.png)
 
 ```go
@@ -122,11 +120,13 @@ func TestSliceShareMemory(t *testing.T) {
 func TestSliceComparing(t *testing.T) {
 	a := []int{1,2,3,4}
 	b := []int{1,2,3,4}
-	if a == b {
+	if a == nil {
 		t.Log("equal")
+	} else {
+		t.Log(b)
 	}
 }
 ```
 
-
+切片不可以比较 , 切片只可以跟nil比较 . 
 
