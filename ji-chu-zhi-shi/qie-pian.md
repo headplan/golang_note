@@ -109,10 +109,24 @@ func TestSliceGrowing(t *testing.T) {
 
 #### 空\(nil\)切片
 
-一个切片在未初始化之前默认为nil , 长度为0 : 
+一个切片在未初始化之前默认为nil , 长度为0 :
 
-```
+```go
+func TestSliceNil(t *testing.T) {
 
+	var num []int
+	//num := []int{}
+
+	printSlice(num)
+
+	if (num == nil) {
+		t.Log("切片是空的")
+	}
+}
+
+func printSlice(x []int) {
+	fmt.Print(len(x),cap(x),x)
+}
 ```
 
 ---
