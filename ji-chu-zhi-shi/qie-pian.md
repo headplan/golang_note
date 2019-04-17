@@ -113,20 +113,20 @@ func TestSliceShareMemory(t *testing.T) {
 
 #### 数组 vs. 切片
 
-1. 容量是否可伸缩
-2. 是否可以进行比较
+1. 容量是否可伸缩 , 数组的容量不可伸缩 , 切片可以 . 
+2. 是否可以进行比较 , 数组可以进行比较 , 切片不可以 , 切片只能跟nil比较 . 
 
 ```go
 func TestSliceComparing(t *testing.T) {
-	a := []int{1,2,3,4}
-	b := []int{1,2,3,4}
-	if a == nil {
-		t.Log("equal")
-	} else {
-		t.Log(b)
-	}
+    a := []int{1,2,3,4}
+    b := []int{1,2,3,4}
+    if a == nil {
+        t.Log("equal")
+    } else {
+        t.Log(b)
+    }
 }
 ```
 
-切片不可以比较 , 切片只可以跟nil比较 . 
+切片不可以比较 , 切片只可以跟nil比较 .
 
