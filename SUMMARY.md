@@ -29,6 +29,7 @@
   * [可变参数和defer](ji-chu-zhi-shi/ke-bian-can-shu-he-defer.md)
   * [行为的定义和实现](ji-chu-zhi-shi/xing-wei-de-ding-yi-he-shi-xian.md)
   * [递归函数](ji-chu-zhi-shi/di-gui-han-shu.md)
+* [并发编程](bing-fa-bian-cheng.md)
 * [Go框架](gokuang-jia.md)
   * [Beego框架](gokuang-jia/beegokuang-jia.md)
     * [安装](gokuang-jia/beegokuang-jia/an-zhuang.md)
