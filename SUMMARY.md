@@ -27,8 +27,11 @@
   * [函数](ji-chu-zhi-shi/han-shu.md)
   * [变量作用域](ji-chu-zhi-shi/bian-liang-zuo-yong-yu.md)
   * [可变参数和defer](ji-chu-zhi-shi/ke-bian-can-shu-he-defer.md)
-  * [行为的定义和实现](ji-chu-zhi-shi/xing-wei-de-ding-yi-he-shi-xian.md)
   * [递归函数](ji-chu-zhi-shi/di-gui-han-shu.md)
+  * [行为的定义和实现](ji-chu-zhi-shi/xing-wei-de-ding-yi-he-shi-xian.md)
+  * Go语言的相关接口
+  * 扩展与复用
+  * [不一样的接口类型 , 一样的多态](ji-chu-zhi-shi/bu-yi-yang-de-jie-kou-lei-xing-yi-yang-de-duo-tai.md)
 * [并发编程](bing-fa-bian-cheng.md)
 * [Go框架](gokuang-jia.md)
   * [Beego框架](gokuang-jia/beegokuang-jia.md)
