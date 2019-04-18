@@ -21,6 +21,7 @@
   * [结构体](ji-chu-zhi-shi/jie-gou-ti.md)
   * [切片](ji-chu-zhi-shi/qie-pian.md)
   * [Map集合](ji-chu-zhi-shi/map.md)
+  * [范围Range](ji-chu-zhi-shi/fan-wei-range.md)
   * [函数](ji-chu-zhi-shi/han-shu.md)
   * [变量作用域](ji-chu-zhi-shi/bian-liang-zuo-yong-yu.md)
 * [Go框架](gokuang-jia.md)
