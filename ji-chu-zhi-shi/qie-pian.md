@@ -114,19 +114,27 @@ func TestSliceGrowing(t *testing.T) {
 ```go
 func TestSliceNil(t *testing.T) {
 
-	var num []int
-	//num := []int{}
+    var num []int
+    //num := []int{}
 
-	printSlice(num)
+    printSlice(num)
 
-	if (num == nil) {
-		t.Log("切片是空的")
-	}
+    if (num == nil) {
+        t.Log("切片是空的")
+    }
 }
 
 func printSlice(x []int) {
-	fmt.Print(len(x),cap(x),x)
+    fmt.Print(len(x),cap(x),x)
 }
+```
+
+#### 切片截取
+
+可以通过设置下限及上限来设置截取切片_\[lower-bound:upper-bound\]_ , 实例如下 : 
+
+```
+
 ```
 
 ---
