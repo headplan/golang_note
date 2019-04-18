@@ -32,6 +32,7 @@
   * [Go语言的相关接口](ji-chu-zhi-shi/goyu-yan-de-xiang-guan-jie-kou.md)
   * [扩展与复用](ji-chu-zhi-shi/kuo-zhan-yu-fu-yong.md)
   * [不一样的接口类型 , 一样的多态](ji-chu-zhi-shi/bu-yi-yang-de-jie-kou-lei-xing-yi-yang-de-duo-tai.md)
+  * [编写好的错误处理](ji-chu-zhi-shi/bian-xie-hao-de-cuo-wu-chu-li.md)
 * [并发编程](bing-fa-bian-cheng.md)
 * [Go框架](gokuang-jia.md)
   * [Beego框架](gokuang-jia/beegokuang-jia.md)
