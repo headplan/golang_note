@@ -25,6 +25,8 @@
   * [字符串](ji-chu-zhi-shi/zi-fu-chuan.md)
   * [函数](ji-chu-zhi-shi/han-shu.md)
   * [变量作用域](ji-chu-zhi-shi/bian-liang-zuo-yong-yu.md)
+  * [可变参数和defer](ji-chu-zhi-shi/ke-bian-can-shu-he-defer.md)
+  * 行为的定义和实现
 * [Go框架](gokuang-jia.md)
   * [Beego框架](gokuang-jia/beegokuang-jia.md)
     * [安装](gokuang-jia/beegokuang-jia/an-zhuang.md)
