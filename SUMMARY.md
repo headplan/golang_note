@@ -34,6 +34,7 @@
   * [不一样的接口类型 , 一样的多态](ji-chu-zhi-shi/bu-yi-yang-de-jie-kou-lei-xing-yi-yang-de-duo-tai.md)
   * [编写好的错误处理](ji-chu-zhi-shi/bian-xie-hao-de-cuo-wu-chu-li.md)
   * [panic和recover](ji-chu-zhi-shi/paniche-recover.md)
+  * [构建可复用的模块\(包\)](ji-chu-zhi-shi/gou-jian-ke-fu-yong-de-mo-575728-530529.md)
 * [并发编程](bing-fa-bian-cheng.md)
 * [Go框架](gokuang-jia.md)
   * [Beego框架](gokuang-jia/beegokuang-jia.md)
