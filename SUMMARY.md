@@ -45,6 +45,7 @@
   * [任务的取消](bing-fa-bian-cheng/ren-wu-de-qu-xiao.md)
   * [Context与任务取消](bing-fa-bian-cheng/contextyu-ren-wu-qu-xiao.md)
   * [典型并发任务](bing-fa-bian-cheng/dian-xing-bing-fa-ren-wu.md)
+    * [只运行一次](bing-fa-bian-cheng/dian-xing-bing-fa-ren-wu/zhi-yun-xing-yi-ci.md)
 * [Go框架](gokuang-jia.md)
   * [Beego框架](gokuang-jia/beegokuang-jia.md)
     * [安装](gokuang-jia/beegokuang-jia/an-zhuang.md)
