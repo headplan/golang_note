@@ -50,6 +50,10 @@
     * [所有任务完成](bing-fa-bian-cheng/dian-xing-bing-fa-ren-wu/suo-you-ren-wu-wan-cheng.md)
     * [对象池](bing-fa-bian-cheng/dian-xing-bing-fa-ren-wu/dui-xiang-chi.md)
     * [sync.pool对象缓存](bing-fa-bian-cheng/dian-xing-bing-fa-ren-wu/syncpooldui-xiang-huan-cun.md)
+* [测试](ce-shi.md)
+  * [单元测试](ce-shi/dan-yuan-ce-shi.md)
+  * [Benchmark](ce-shi/benchmark.md)
+  * [BDD](ce-shi/bdd.md)
 * [Go框架](gokuang-jia.md)
   * [Beego框架](gokuang-jia/beegokuang-jia.md)
     * [安装](gokuang-jia/beegokuang-jia/an-zhuang.md)
@@ -62,5 +66,4 @@
     * 高级
     * 部署
     * 第三方库
-* [测试](ce-shi.md)
 
