@@ -60,6 +60,7 @@
   * [不安全编程](fan-she-he-unsafe/bu-an-quan-bian-cheng.md)
 * [常见架构模式的实现](chang-jian-jia-gou-mo-shi-de-shi-xian.md)
   * [实现pipe-filter framework](chang-jian-jia-gou-mo-shi-de-shi-xian/shi-xian-pipe-filterframework.md)
+  * [实现micro-kernel framework](chang-jian-jia-gou-mo-shi-de-shi-xian/shi-xian-micro-kernel-framework.md)
 * [Go框架](gokuang-jia.md)
   * [Beego框架](gokuang-jia/beegokuang-jia.md)
     * [安装](gokuang-jia/beegokuang-jia/an-zhuang.md)
