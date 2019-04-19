@@ -43,6 +43,7 @@
   * [多路选择和超时](bing-fa-bian-cheng/duo-lu-xuan-ze-he-chao-shi.md)
   * [channel的关闭和广播](bing-fa-bian-cheng/channelde-guan-bi-he-guang-bo.md)
   * [任务的取消](bing-fa-bian-cheng/ren-wu-de-qu-xiao.md)
+  * [Context与任务取消](bing-fa-bian-cheng/contextyu-ren-wu-qu-xiao.md)
 * [Go框架](gokuang-jia.md)
   * [Beego框架](gokuang-jia/beegokuang-jia.md)
     * [安装](gokuang-jia/beegokuang-jia/an-zhuang.md)
