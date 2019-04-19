@@ -63,7 +63,7 @@
   * [实现micro-kernel framework](chang-jian-jia-gou-mo-shi-de-shi-xian/shi-xian-micro-kernel-framework.md)
 * [常见任务](chang-jian-ren-wu.md)
   * [内置JSON解析](chang-jian-ren-wu/nei-zhi-json-jie-xi.md)
-  * easyjson
+  * [easyjson](chang-jian-ren-wu/easyjson.md)
   * [HTTP服务](chang-jian-ren-wu/httpfu-wu.md)
 * [Go框架](gokuang-jia.md)
   * [Beego框架](gokuang-jia/beegokuang-jia.md)
