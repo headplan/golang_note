@@ -39,7 +39,7 @@
 * [并发编程](bing-fa-bian-cheng.md)
   * [协程机制](bing-fa-bian-cheng/xie-cheng-ji-zhi.md)
   * [共享内存并发机制](bing-fa-bian-cheng/gong-xiang-nei-cun-bing-fa-ji-zhi.md)
-  * CSP并发机制
+  * [CSP并发机制](bing-fa-bian-cheng/cspbing-fa-ji-zhi.md)
   * [多路选择和超时](bing-fa-bian-cheng/duo-lu-xuan-ze-he-chao-shi.md)
 * [Go框架](gokuang-jia.md)
   * [Beego框架](gokuang-jia/beegokuang-jia.md)
