@@ -131,10 +131,32 @@ func printSlice(x []int) {
 
 #### 切片截取
 
-可以通过设置下限及上限来设置截取切片_\[lower-bound:upper-bound\]_ , 实例如下 : 
+可以通过设置下限及上限来设置截取切片_\[lower-bound:upper-bound\]_ , 实例如下 :
 
-```
+```go
+func TestSliceArr(t *testing.T) {
+	// 原始切片
+	num := []int{0,1,2,3,4,5,6,7,8}
+	printSlice(num)
 
+	// 子切片从索引1(包含)到索引4(包含)
+	t.Log(num[1:4])
+	// 默认下限为0
+	t.Log(num[:3])
+	// 默认上限为len(s)
+	t.Log(num[4:])
+
+	num1 := make([]int,0,5)
+	printSlice(num1)
+	num2 := num[:2]
+	printSlice(num2)
+	num3 := num[2:5]
+	printSlice(num3)
+}
+
+func printSlice(x []int) {
+	fmt.Print(len(x),cap(x),x)
+}
 ```
 
 ---
