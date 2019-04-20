@@ -135,27 +135,57 @@ func printSlice(x []int) {
 
 ```go
 func TestSliceArr(t *testing.T) {
-	// 原始切片
-	num := []int{0,1,2,3,4,5,6,7,8}
-	printSlice(num)
+    // 原始切片
+    num := []int{0,1,2,3,4,5,6,7,8}
+    printSlice(num)
 
-	// 子切片从索引1(包含)到索引4(包含)
-	t.Log(num[1:4])
-	// 默认下限为0
-	t.Log(num[:3])
-	// 默认上限为len(s)
-	t.Log(num[4:])
+    // 子切片从索引1(包含)到索引4(包含)
+    t.Log(num[1:4])
+    // 默认下限为0
+    t.Log(num[:3])
+    // 默认上限为len(s)
+    t.Log(num[4:])
 
-	num1 := make([]int,0,5)
-	printSlice(num1)
-	num2 := num[:2]
-	printSlice(num2)
-	num3 := num[2:5]
-	printSlice(num3)
+    num1 := make([]int,0,5)
+    printSlice(num1)
+    num2 := num[:2]
+    printSlice(num2)
+    num3 := num[2:5]
+    printSlice(num3)
 }
 
 func printSlice(x []int) {
-	fmt.Print(len(x),cap(x),x)
+    fmt.Print(len(x),cap(x),x)
+}
+```
+
+#### append\(\)和copy\(\)函数
+
+如果想增加切片的容量 , 必须创建一个新的更大的切片 , 把原来的切片内容都拷贝过来 . 
+
+```go
+func TestAppendCopySlice(t *testing.T) {
+	var num []int
+	t.Log(len(num), cap(num), num)
+
+	// 允许追加空切片
+	num = append(num, 0)
+	t.Log(len(num), cap(num), num)
+
+	// 向切片添加一个元素
+	num = append(num, 1)
+	t.Log(len(num), cap(num), num)
+
+	// 同时添加多个元素
+	num = append(num, 2, 3, 4, 5)
+	t.Log(len(num), cap(num), num)
+
+	// 创建切片是之前切片容量的两倍
+	num1 := make([]int, len(num), (cap(num))*2)
+
+	// 拷贝num的内容到num1
+	copy(num1, num)
+	t.Log(len(num1), cap(num1), num1)
 }
 ```
 
