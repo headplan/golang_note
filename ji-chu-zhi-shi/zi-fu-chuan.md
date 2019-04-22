@@ -17,7 +17,29 @@ Unicode UTF8
 
 #### 新的数据类型
 
-rune , 取出字符串中的Unicode . 将字符串转换为rune的切片 . 
+rune , 取出字符串中的Unicode . 将字符串转换为rune的切片 .
+
+```go
+func TestStrings(t *testing.T) {
+	var s string
+	t.Log(s) // 初始化默认是空字符""
+	s = "Hello"
+	t.Log(len(s))
+	// s[1] = "3" // string是不可变的byte slice,此行代码会报编译错误
+
+	s = "\xE4\xB8\xA5" // 可以存储任何二进制数据
+	// s = "\xE4\xBA\xB5\xFF" // 这是任意一个二进制数据,是不可见的,显示乱码
+	t.Log(s)
+	t.Log(len(s))
+
+	s = "中"
+	t.Log(len(s)) // 返回3,是byte数
+
+	c := []rune(s)
+	t.Logf("中 Unicode %x", c[0])
+	t.Logf("中 UTF8 %x", s)
+}
+```
 
 **编码与存储**
 
@@ -26,6 +48,14 @@ rune , 取出字符串中的Unicode . 将字符串转换为rune的切片 .
 | Unicode | 0x4E2D |
 | UTF-8 | 0xE4B8AD |
 | string/\[\]byte | \[0xE4,0xB8,0xAD\] |
+
+**遍历字符串中的rune**
+
+```
+
+```
+
+#### 常用字符串函数
 
 
 
