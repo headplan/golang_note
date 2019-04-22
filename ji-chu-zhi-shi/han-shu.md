@@ -18,6 +18,49 @@ func function_name( [parameter list] ) [return_types] {
 * return\_types : 返回类型 , 函数返回一列值 . return\_types是该列值的数据类型 . 有些功能不需要返回值 , 这种情况下return\_types不是必须的 . 
 * 函数体 : 函数定义的代码集合 . 
 
+```go
+// 函数返回两个数的最大值
+func max(num1, num2 int) int {
+    // 声明局部变量
+    var result int
+    if num1 > num2 {
+        result = num1
+    } else {
+        result = num2
+    }
+    return result
+}
+```
+
+#### 函数调用
+
+当创建函数时 , 定义了函数需要做什么 , 通过调用该函数来执行指定任务 . 
+
+调用函数 , 向函数传递参数 , 并返回值 , 例如 : 
+
+```go
+package test
+
+import "testing"
+
+func TestFunc(t *testing.T) {
+	t.Log(max(1,2))
+}
+
+// 函数返回两个数的最大值
+func max(num1, num2 int) int {
+	// 声明局部变量
+	var result int
+	if num1 > num2 {
+		result = num1
+	} else {
+		result = num2
+	}
+	return result
+}
+
+```
+
 
 
 
