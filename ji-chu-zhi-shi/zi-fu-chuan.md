@@ -53,16 +53,19 @@ func TestStrings(t *testing.T) {
 
 ```go
 func TestStringtoRune(t *testing.T) {
-	s := "走过南闯过北"
-	for _, c := range s {
-		t.Logf("%[1]c %[1]x", c)
-	}
+    s := "走过南闯过北"
+    for _, c := range s {
+        t.Logf("%[1]c %[1]x", c)
+    }
 }
 ```
 
-遍历string的时候 , 实际自动把string转成了rune再遍历 . 而不是根据len\(string\)的byte数组个数 . 
+遍历string的时候 , 实际自动把string转成了rune再遍历 . 而不是根据len\(string\)的byte数组个数 .
 
 #### 常用字符串函数
+
+* strings包 : [https://golang.org/pkg/strings/](https://golang.org/pkg/strings/)
+* strconv包 : [https://golang.org/pkg/strconv/](https://golang.org/pkg/strconv/)
 
 
 
