@@ -34,9 +34,9 @@ func max(num1, num2 int) int {
 
 #### 函数调用
 
-当创建函数时 , 定义了函数需要做什么 , 通过调用该函数来执行指定任务 . 
+当创建函数时 , 定义了函数需要做什么 , 通过调用该函数来执行指定任务 .
 
-调用函数 , 向函数传递参数 , 并返回值 , 例如 : 
+调用函数 , 向函数传递参数 , 并返回值 , 例如 :
 
 ```go
 package test
@@ -44,7 +44,34 @@ package test
 import "testing"
 
 func TestFunc(t *testing.T) {
-	t.Log(max(1,2))
+    t.Log(max(1,2))
+}
+
+// 函数返回两个数的最大值
+func max(num1, num2 int) int {
+    // 声明局部变量
+    var result int
+    if num1 > num2 {
+        result = num1
+    } else {
+        result = num2
+    }
+    return result
+}
+```
+
+#### 函数返回多个值
+
+```go
+package test
+
+import "testing"
+
+func TestFunc(t *testing.T) {
+	a, b := swap("Mahesh", "Kumar")
+
+	t.Log(max(1, 2))
+	t.Log(a, b)
 }
 
 // 函数返回两个数的最大值
@@ -59,9 +86,11 @@ func max(num1, num2 int) int {
 	return result
 }
 
+// 函数返回多个值
+func swap(x, y string) (string, string) {
+	return x, y
+}
 ```
-
-
 
 
 
