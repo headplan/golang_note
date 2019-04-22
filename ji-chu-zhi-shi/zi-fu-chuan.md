@@ -15,7 +15,17 @@ Unicode UTF8
 >
 > [http://www.ruanyifeng.com/blog/2007/10/ascii\_unicode\_and\_utf-8.html](http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html)
 
+#### 新的数据类型
 
+rune , 取出字符串中的Unicode . 将字符串转换为rune的切片 . 
+
+**编码与存储**
+
+| 字符 | 中 |
+| :--- | :--- |
+| Unicode | 0x4E2D |
+| UTF-8 | 0xE4B8AD |
+| string/\[\]byte | \[0xE4,0xB8,0xAD\] |
 
 
 
