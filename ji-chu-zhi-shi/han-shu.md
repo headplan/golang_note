@@ -68,29 +68,43 @@ package test
 import "testing"
 
 func TestFunc(t *testing.T) {
-	a, b := swap("Mahesh", "Kumar")
+    a, b := swap("Mahesh", "Kumar")
 
-	t.Log(max(1, 2))
-	t.Log(a, b)
+    t.Log(max(1, 2))
+    t.Log(a, b)
 }
 
 // 函数返回两个数的最大值
 func max(num1, num2 int) int {
-	// 声明局部变量
-	var result int
-	if num1 > num2 {
-		result = num1
-	} else {
-		result = num2
-	}
-	return result
+    // 声明局部变量
+    var result int
+    if num1 > num2 {
+        result = num1
+    } else {
+        result = num2
+    }
+    return result
 }
 
 // 函数返回多个值
 func swap(x, y string) (string, string) {
-	return x, y
+    return x, y
 }
 ```
+
+#### 函数参数
+
+函数如果使用参数 , 该变量可称为函数的形参 . 
+
+形参就像定义在函数体内的局部变量 . 
+
+调用函数 , 可以通过两种方式来传递参数 : 
+
+**值传递**
+
+值传递是指在调用函数时将实际参数复制一份传递到函数中 , 这样在函数中如果对参数进行修改 , 将不会影响到实际参数 . 
+
+**引用传递**
 
 
 
