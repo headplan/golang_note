@@ -110,26 +110,49 @@ func swap(x, y string) (string, string) {
 
 ```go
 func TestReferenceValue(t *testing.T) {
-	var a int = 100
-	var b int = 200
-	t.Log(a, b)
+    var a int = 100
+    var b int = 200
+    t.Log(a, b)
 
-	/**
-	 * 调用swap2()函数
-	 * &a 指向 a 指针，a 变量的地址
-	 * &b 指向 b 指针，b 变量的地址
-	 */
-	swap2(&a, &b)
-	t.Log(a, b)
+    /**
+     * 调用swap2()函数
+     * &a 指向 a 指针，a 变量的地址
+     * &b 指向 b 指针，b 变量的地址
+     */
+    swap2(&a, &b)
+    t.Log(a, b)
 }
 
 func swap2(x *int, y *int) {
-	var temp int // 保存x地址上的值
-	temp = *x    // 将y值赋给x
-	*x = *y      // 将y值赋给x
-	*y = temp    // 将temp值赋给y
+    var temp int // 保存x地址上的值
+    temp = *x    // 将y值赋给x
+    *x = *y      // 将y值赋给x
+    *y = temp    // 将temp值赋给y
 }
 ```
 
-默认情况下 , Go语言使用的是值传递 , 即在调用过程中不会影响到实际参数 .
+默认情况下 , Go语言使用的是值传递 , 即在调用过程中不会影响到实际参数 . 
+
+#### 函数用法
+
+* 函数作为值 : 函数定义后可作为值来使用
+
+```go
+func TestValueFunc(t *testing.T) {
+	getSquareRoot := func(x float64) float64 {
+		return math.Sqrt(x)
+	}
+
+	t.Log(getSquareRoot(9))
+}
+```
+
+* 闭包 : 闭包是匿名函数 , 可在动态编程中使用
+* 方法 : 方法就是一个包含了接受者的函数
+
+```
+
+```
+
+
 
