@@ -80,4 +80,5 @@
 * [Go进阶](gojin-jie.md)
   * [微服务概览与治理](gojin-jie/wei-fu-wu-gai-lan-yu-zhi-li.md)
     * [微服务概览](gojin-jie/wei-fu-wu-gai-lan-yu-zhi-li/wei-fu-wu-gai-lan.md)
+    * [微服务设计](gojin-jie/wei-fu-wu-gai-lan-yu-zhi-li/wei-fu-wu-she-ji.md)
 
