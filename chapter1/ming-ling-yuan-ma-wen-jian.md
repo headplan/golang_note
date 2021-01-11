@@ -126,5 +126,11 @@ func main() {
 }
 ```
 
+#### 运行命令源码文件并传入参数
+
+```go
+go run hello.go -name="Robert"
+```
+
 
 
