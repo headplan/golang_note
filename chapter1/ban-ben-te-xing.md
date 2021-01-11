@@ -1,6 +1,6 @@
-# 版本特性
+# Go版本回顾
 
-https://studygolang.com/articles/28435
+[https://studygolang.com/articles/28435](https://studygolang.com/articles/28435)
 
 Go1.5
 
