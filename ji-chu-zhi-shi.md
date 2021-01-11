@@ -8,6 +8,8 @@
 
 [https://golang.org/dl/](https://golang.org/dl/)
 
+https://golang.org/doc/install
+
 或者
 
 [https://golang.google.cn/dl/](https://golang.google.cn/dl/)
