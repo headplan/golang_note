@@ -3,9 +3,10 @@
 * [关于](README.md)
 * [Golang学习路线](chapter1.md)
   * [Go相关项目](chapter1/goxiang-mu-tui-jian.md)
-  * Go相关命令
+  * [Go相关命令](chapter1/goxiang-guan-ming-ling.md)
   * [Go版本回顾](chapter1/ban-ben-te-xing.md)
   * [工作区和GOPATH](chapter1/gong-zuo-qu-he-gopath.md)
+  * [命令源码文件](chapter1/ming-ling-yuan-ma-wen-jian.md)
 * [基础知识](ji-chu-zhi-shi.md)
   * [Hello World](ji-chu-zhi-shi/helloworld.md)
   * [基础语法](ji-chu-zhi-shi/ji-chu-yu-fa.md)
