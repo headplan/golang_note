@@ -132,5 +132,25 @@ func main() {
 go run hello.go -name="Robert"
 ```
 
+运行后打印到标准输出\(stdout\)的内容是
 
+```
+Hello, Robert!
+```
+
+查看该命令源码文件的参数说明
+
+```
+go run hello.go --help
+```
+
+运行后输出
+
+```
+Usage of /var/folders/10/xf44ybdx7jbb8s58whv3p3h80000gn/T/go-build249807913/b001/exe/hello:
+  -name string
+        set your name (default "everyone")
+```
+
+上面的路径是go run命令构建上述命令源码文件时临时生成的可执行文件的完整路径 . 
 
