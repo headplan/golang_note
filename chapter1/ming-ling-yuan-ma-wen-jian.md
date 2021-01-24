@@ -228,7 +228,7 @@ flag.CommandLine.Usage = func() {
 }
 ```
 
-继续执行go run命令 , 打印的结果和之前的一样 . 不过后面这种定制的方法更加灵活 , 比如可以在这里传给flag.NewFlagSet函数的第二个参数值是flag.PanicOnError等 . 
+继续执行go run命令 , 打印的结果和之前的一样 . 不过后面这种定制的方法更加灵活 , 比如可以在这里传给flag.NewFlagSet函数的第二个参数值是flag.PanicOnError等 .
 
 ```go
 const (
@@ -238,13 +238,17 @@ const (
 )
 ```
 
-上面的三个是预定义在flag包中的常量 , 上述的情况都会在我们调用flag.Parse函数时被触发 . 
+上面的三个是预定义在flag包中的常量 , 上述的情况都会在我们调用flag.Parse函数时被触发 .
 
-下面再进一步 , 我们索性不用全局的flag.CommandLine变量 , 转而自己创建一个私有的命令参数容器 . 我们在函数外再添加一个变量声明 : 
+下面再进一步 , 我们索性不用全局的flag.CommandLine变量 , 转而自己创建一个私有的命令参数容器 . 我们在函数外再添加一个变量声明 :
 
 ```go
-var cmdLine = flag.NewFlagSet("question", flag.ContinueOnError)
+var cmdLine = flag.NewFlagSet("myquestion", flag.ContinueOnError)
 ```
 
+然后 , 把对`flag.StringVar`的调用替换为对`cmdLine.StringVar`调用 , 再把`flag.Parse()`替换为`cmdLine.Parse(os.Args[1:])` . 
 
+> 其中的os.Args\[1:\]指的是我们给定的那些命令参数
+
+这样做的好处依然是更灵活地定制命令参数容器 . 但更重要的是 , 定制完全不会影响到那个全局变量flag.CommandLine . 
 
