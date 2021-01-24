@@ -216,16 +216,34 @@ flag.PrintDefaults()
         set your name (default "everyone")
 ```
 
-在调用flag包中的一些函数\(比如StringVar、Parse等等\)的时候 , 实际上是在调用flag.CommandLine变量的对应方法 .flag.CommandLine相当于默认情况下的命令参数容器 . 所以 , 通过对flag.CommandLine重新赋值 , 可以更深层次地定制当前命令源码文件的参数使用说明 .
+在调用flag包中的一些函数\(比如StringVar、Parse等等\)的时候 , 实际上是在调用flag.CommandLine变量的对应方法 . flag.CommandLine相当于默认情况下的命令参数容器 . 所以 , 通过对flag.CommandLine重新赋值 , 可以更深层次地定制当前命令源码文件的参数使用说明 .
 
 现在我们继续重构 , 删除前面的flag.Usage , 在init函数体的开始处添加 :
 
 ```go
 flag.CommandLine = flag.NewFlagSet("", flag.ExitOnError)
 flag.CommandLine.Usage = func() {
-  fmt.Fprintf(os.Stderr, "Usage of %s:\n", "question")
-  flag.PrintDefaults()
+    fmt.Fprintf(os.Stderr, "Usage of %s:\n", "question")
+    flag.PrintDefaults()
 }
+```
+
+继续执行go run命令 , 打印的结果和之前的一样 . 不过后面这种定制的方法更加灵活 , 比如可以在这里传给flag.NewFlagSet函数的第二个参数值是flag.PanicOnError等 . 
+
+```go
+const (
+    ContinueOnError ErrorHandling = iota // Return a descriptive error.
+    ExitOnError                          // Call os.Exit(2) or for -h/-help Exit(0).
+    PanicOnError                         // Call panic with a descriptive error. 运行时恐慌,之后再说
+)
+```
+
+上面的三个是预定义在flag包中的常量 , 上述的情况都会在我们调用flag.Parse函数时被触发 . 
+
+下面再进一步 , 我们索性不用全局的flag.CommandLine变量 , 转而自己创建一个私有的命令参数容器 . 我们在函数外再添加一个变量声明 : 
+
+```go
+var cmdLine = flag.NewFlagSet("question", flag.ContinueOnError)
 ```
 
 
