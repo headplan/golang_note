@@ -126,7 +126,7 @@ func main() {
 }
 ```
 
-#### 运行命令源码文件并传入参数
+#### 运行命令源码文件并传入参数并查看说明
 
 ```go
 go run hello.go -name="Robert"
@@ -153,4 +153,21 @@ Usage of /var/folders/10/xf44ybdx7jbb8s58whv3p3h80000gn/T/go-build249807913/b001
 ```
 
 上面的路径是go run命令构建上述命令源码文件时临时生成的可执行文件的完整路径 . 
+
+如果先构建命令源码文件再运行生成的可执行文件 , 结果就是这样的 : 
+
+```
+$ go build hello.go
+$ ./hello --help
+```
+
+输出结果为
+
+```
+Usage of ./hello:
+  -name string
+        set your name (default "everyone")
+```
+
+
 
