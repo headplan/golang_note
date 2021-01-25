@@ -64,7 +64,7 @@ go run demo.go hello_lib.go --name="test"
 像下面这样先构建当前的代码包再运行 :
 
 ```
-go build demo.go hello_lib.go
+go build ch1/demo
 ./demo --name="test"
 ```
 
@@ -80,7 +80,7 @@ go build demo.go hello_lib.go
 
 ```
 ./demo
-    ./lib
+    ./libs
         ./demo_lib.go
     ./demo.go
 ```
@@ -94,6 +94,41 @@ import "fmt"
 
 func Hello(name string) {
     fmt.Printf("Hello,%s!\n", name)
+}
+```
+
+#### 代码包的导入路径总会与其所在目录的相对路径一致吗 ? 
+
+库源码文件demo\_lib.go所在目录的相对路径是ch1/demo/libs , 而它却声明自己属于lib包 . 在这种情况下 , 该包的导入路径到底是哪个呢 ? 先安装一下这个拆分出来的代码包 : 
+
+```
+go install ch1/demo/libs
+```
+
+构建和安装使用相对路径 . 执行完成后 , 会得到
+
+```
+pkg/darwin_amd64/ch1/demo/libs.a
+```
+
+其中的darwin\_amd64就是工作区的平台相关目录 . 可以看到这里与源码文件所在目录的相对路径是对应的 . 
+
+```go
+package main
+
+import (
+    "ch1/demo/libs"
+    "flag"
+)
+
+var myName string
+
+func init() {
+    flag.StringVar(&myName, "name", "everyone", "set your name")
+}
+func main() {
+    flag.Parse()
+    lib.Hello(myName)
 }
 ```
 
