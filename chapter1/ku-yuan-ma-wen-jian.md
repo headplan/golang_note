@@ -40,5 +40,18 @@ func hello(name string) {
 
 这里的package main是因为在同一个目录下的源码文件都需要被声明为属于同一个代码包 . 如果该目录下有一个命令源码文件 , 那么为了让同在一个目录下的文件都通过编译 , 其他源码文件应该也声明属于main包 . 
 
+现在就可以运行了 : 
+
+```
+go run demo.go hello_lib.go --name="test"
+```
+
+像下面这样先构建当前的代码包再运行 : 
+
+```
+go build demo.go hello_lib.go
+./demo --name="test"
+```
+
 
 
