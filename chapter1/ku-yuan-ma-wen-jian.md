@@ -76,13 +76,25 @@ go build demo.go hello_lib.go
 
 #### 怎样把命令源码文件中的代码拆分到其他代码包
 
-新建一个lib文件夹 , 在demo文件夹下 . 复制前面的文件 . 
+新建一个lib文件夹 , 在demo文件夹下 . 复制前面的文件 .
 
 ```
 ./demo
     ./lib
         ./demo_lib.go
     ./demo.go
+```
+
+代码包的拆分还是很清晰 , 修改demo\_lib.go文件的package为lib
+
+```go
+package lib
+
+import "fmt"
+
+func Hello(name string) {
+    fmt.Printf("Hello,%s!\n", name)
+}
 ```
 
 
