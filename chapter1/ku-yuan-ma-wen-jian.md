@@ -38,5 +38,5 @@ func hello(name string) {
 }
 ```
 
-
+这里的package main是因为在同一个目录下的源码文件都需要被声明为属于同一个代码包 . 
 
