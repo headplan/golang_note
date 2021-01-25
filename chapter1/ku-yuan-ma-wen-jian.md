@@ -26,5 +26,17 @@ func main()  {
 }
 ```
 
+这里的函数hello声明在另一个文件中 , 新建文件`hello_lib.go`
+
+```go
+package main
+
+import "fmt"
+
+func hello(name string) {
+    fmt.Printf("Hello,%s!\n", name)
+}
+```
+
 
 
