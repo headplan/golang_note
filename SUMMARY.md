@@ -8,6 +8,7 @@
   * [工作区和GOPATH](chapter1/gong-zuo-qu-he-gopath.md)
   * [命令源码文件](chapter1/ming-ling-yuan-ma-wen-jian.md)
   * [库源码文件](chapter1/ku-yuan-ma-wen-jian.md)
+  * [关于程序实体](chapter1/guan-yu-cheng-xu-shi-ti.md)
 * [基础知识](ji-chu-zhi-shi.md)
   * [Hello World](ji-chu-zhi-shi/helloworld.md)
   * [基础语法](ji-chu-zhi-shi/ji-chu-yu-fa.md)
