@@ -34,13 +34,41 @@ yourName := flag.String("yourName", "yourSelf", "set your name")
 
 #### 类型推断和短变量声明
 
-通过 Go 语言自身的类型推断 , 可以省去对该变量的类型的声明 , 也就是上面提到的声明方式 . 
+通过 Go 语言自身的类型推断 , 可以省去对该变量的类型的声明 , 也就是上面提到的声明方式 .
 
 > 简单地说 , 类型推断是一种编程语言在编译期自动解释表达式类型的能力 .
 
-可以认为表达式类型就是对表达式进行求值后得到结果的类型 . 它只能用于对变量或常量的初始化 , 就像上述回答中描述的那样 . 对flag.String函数的调用其实就是一个调用表达式 , 而这个表达式的类型是\*string , 即字符串的指针类型 . 
+可以认为表达式类型就是对表达式进行求值后得到结果的类型 . 它只能用于对变量或常量的初始化 , 就像上述回答中描述的那样 . 对flag.String函数的调用其实就是一个调用表达式 , 而这个表达式的类型是\*string , 即字符串的指针类型 .
 
 > 只能在函数体内部使用**短变量声明**
 
-![](/assets/bianliangshengming.png)
+#### ![](/assets/bianliangshengming.png)Go语言的类型推断可以带来哪些好处 ? 
+
+```go
+package main
+
+import (
+	"flag"
+	"fmt"
+)
+
+func main() {
+	var name string
+	var myName = flag.String("myName", "mySelf", "set my name")
+	yourName := flag.String("yourName", "yourSelf", "set your name")
+	var hisName = getTheFlag()
+	flag.StringVar(&name, "name", "everyone", "set name")
+	flag.Parse()
+	fmt.Printf("Hello,%v\n", name)
+	fmt.Printf("Hello,%v\n", *myName)
+	fmt.Printf("Hello,%v\n", *yourName)
+	fmt.Printf("Hello,%v\n", *hisName)
+}
+
+func getTheFlag() *string {
+	return flag.String("hisName", "hisSelf", "set his name")
+}
+```
+
+
 
