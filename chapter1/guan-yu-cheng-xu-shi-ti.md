@@ -177,5 +177,22 @@ func main() {
 * 不论对变量重声明多少次 , 其类型必须始终如一 - 可重名变量之间不存在类似的限制 .
 * 变量重声明不存在代码嵌套关系 - 可重名变量所在的代码块之间 , 存在直接或间接的嵌套关系 .
 
+#### 类型断言
+
+前面说了可以重名变量 , 如果可重名变量的类型不同 , 就需要关注一下 . 必要时 , 还需要严格地检查它们的类型 . 
+
+```go
+package main
+
+import "fmt"
+
+var container = []string{"zero", "one", "two"}
+
+func main() {
+	container := map[int]string{0: "zero", 1: "one", 2: "two"}
+	fmt.Printf("The element is %q.\n", container[1])
+}
+```
+
 
 
