@@ -179,7 +179,7 @@ func main() {
 
 #### 类型断言
 
-前面说了可以重名变量 , 如果可重名变量的类型不同 , 就需要关注一下 . 必要时 , 还需要严格地检查它们的类型 . 
+前面说了可以重名变量 , 如果可重名变量的类型不同 , 就需要关注一下 . 必要时 , 还需要严格地检查它们的类型 .
 
 ```go
 package main
@@ -189,9 +189,15 @@ import "fmt"
 var container = []string{"zero", "one", "two"}
 
 func main() {
-	container := map[int]string{0: "zero", 1: "one", 2: "two"}
-	fmt.Printf("The element is %q.\n", container[1])
+    container := map[int]string{0: "zero", 1: "one", 2: "two"}
+    fmt.Printf("The element is %q.\n", container[1])
 }
+```
+
+上面的代码可以正常编译 , 但在打印其中元素之前 , 无法正确判断变量container的类型 . 需要使用“类型断言”表达式 . 
+
+```go
+value, ok := interface{}(container).([]string)
 ```
 
 
