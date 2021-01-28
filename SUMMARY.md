@@ -89,4 +89,5 @@
 * [Packages](packages.md)
   * [标准库Standard library](packages/biao-zhun-ku-standard-library.md)
     * [flag](packages/biao-zhun-ku-standard-library/flag.md)
+    * [fmt](packages/biao-zhun-ku-standard-library/fmt.md)
 
