@@ -42,32 +42,65 @@ yourName := flag.String("yourName", "yourSelf", "set your name")
 
 > 只能在函数体内部使用**短变量声明**
 
-#### ![](/assets/bianliangshengming.png)Go语言的类型推断可以带来哪些好处 ? 
+#### ![](/assets/bianliangshengming.png)Go语言的类型推断可以带来哪些好处 ?
+
+更新一下前面的示例代码
 
 ```go
 package main
 
 import (
-	"flag"
-	"fmt"
+    "flag"
+    "fmt"
 )
 
 func main() {
-	var name string
-	var myName = flag.String("myName", "mySelf", "set my name")
-	yourName := flag.String("yourName", "yourSelf", "set your name")
-	var hisName = getTheFlag()
-	flag.StringVar(&name, "name", "everyone", "set name")
-	flag.Parse()
-	fmt.Printf("Hello,%v\n", name)
-	fmt.Printf("Hello,%v\n", *myName)
-	fmt.Printf("Hello,%v\n", *yourName)
-	fmt.Printf("Hello,%v\n", *hisName)
+    var name string
+    var myName = flag.String("myName", "mySelf", "set my name")
+    yourName := flag.String("yourName", "yourSelf", "set your name")
+    var hisName = getTheFlag()
+    flag.StringVar(&name, "name", "everyone", "set name")
+    flag.Parse()
+    fmt.Printf("Hello,%v\n", name)
+    fmt.Printf("Hello,%v\n", *myName)
+    fmt.Printf("Hello,%v\n", *yourName)
+    fmt.Printf("Hello,%v\n", *hisName)
 }
 
 func getTheFlag() *string {
-	return flag.String("hisName", "hisSelf", "set his name")
+    return flag.String("hisName", "hisSelf", "set his name")
 }
+```
+
+用getTheFlag函数包裹\(或者说包装\)那个对flag.String函数的调用 , 并把其结果直接作为函数的结果 , 结果的类型是\*string . 
+
+这样一来var name = 右边的表达式 , 可以变为针对getTheFlag函数的调用表达式了 . 这实际上是对声明并赋值name变量的那行代码的重构 . 可以随意改变getTheFlag函数的内部实现 , 及其返回结果的类型 , 而不用修改main函数中的任何代码 . 
+
+**不显式地指定变量name的类型 , 使得它可以被赋予任何类型的值** . 构建时候 , Go语言会自动地更新变量name的类型 , 在动态的编程语言Python或PHP等中你一定见过这种场景 . 
+
+对于Go这种静态类型语言 , 这种类型的确定是在编译期完成的 , 因此不会对程序的运行效率产生任何影响 . 
+
+> Go 语言的类型推断可以明显提升程序的灵活性 , 使得代码重构变得更加容易 , 同时又不会给代码的维护带来额外负担\(实际上 , 它恰恰可以避免散弹式的代码修改\) , 更不会损失程序的运行效率 .
+
+#### 变量的重声明
+
+变量重声明是对已经声明过的变量再次声明 . 
+
+##### 变量重声明的前提条件
+
+* 由于变量的类型在其初始化时就已经确定了 , 所以对它再次声明时赋予的类型必须与其原本的类型相同 , 否则会产生编译错误 . 
+* 变量的重声明只可能发生在某一个代码块中 . 
+* 变量的重声明只有在使用短变量声明时才会发生 , 否则也无法通过编译 . 
+* 被"声明并赋值"的变量必须是多个 , 并且其中至少有一个是新的变量 . 这时才可以说对其中的旧变量进行了重声明 . 
+
+```go
+// 变量重声明
+var err error
+n, err := io.WriteString(os.Stdout, "Hello, everyone!\n")
+if err != nil {
+    fmt.Printf("Error: %v\n", err)
+}
+fmt.Printf("%d byte(s) were written.\n", n)
 ```
 
 
