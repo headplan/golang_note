@@ -194,11 +194,19 @@ func main() {
 }
 ```
 
-上面的代码可以正常编译 , 但在打印其中元素之前 , 无法正确判断变量container的类型 . 需要使用“类型断言”表达式 . 
+上面的代码可以正常编译 , 但在打印其中元素之前 , 无法正确判断变量container的类型 . 需要使用“类型断言”表达式 .
 
 ```go
 value, ok := interface{}(container).([]string)
 ```
+
+* `interface{}(container)`用来把container变量的值转换为空接口值
+* `.([]string)`用于判断前者的类型是否为切片类型` []string`
+* 表达式的结果可以被赋给两个变量 , value和ok . 
+
+> 变量ok是布尔\(bool\)类型的 , 它将代表类型判断的结果 , true或false . 如果是true , 那么被判断的值将会被自动转换为\[\]string类型的值 , 并赋给变量value , 否则value将被赋予nil\(即“空”\) .
+
+这里的ok也可以不写 , 只写一个value  , 但是当判断为否时就会引发异常 . 这种异常在 Go 语言中被叫做panic , 运行时恐慌 . 
 
 
 
