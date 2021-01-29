@@ -131,7 +131,7 @@ func swap2(x *int, y *int) {
 }
 ```
 
-默认情况下 , Go语言使用的是值传递 , 即在调用过程中不会影响到实际参数 . 
+默认情况下 , Go语言使用的是值传递 , 即在调用过程中不会影响到实际参数 .
 
 #### 函数用法
 
@@ -139,11 +139,11 @@ func swap2(x *int, y *int) {
 
 ```go
 func TestValueFunc(t *testing.T) {
-	getSquareRoot := func(x float64) float64 {
-		return math.Sqrt(x)
-	}
+    getSquareRoot := func(x float64) float64 {
+        return math.Sqrt(x)
+    }
 
-	t.Log(getSquareRoot(9))
+    t.Log(getSquareRoot(9))
 }
 ```
 
