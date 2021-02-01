@@ -184,16 +184,16 @@ func main() {
 ```go
 // 这里标红是因为前面test包下已经定义了这些常量
 const (
-	_Readable = 1 << iota
-	_Writable
-	_Executable
+    _Readable = 1 << iota
+    _Writable
+    _Executable
 )
 
 func TestCompareBin(t *testing.T) {
-	a := 7               // 二进制:0111
-	a = a &^ _Readable   // 清零可读操作
-	a = a &^ _Executable // 清零可执行操作
-	t.Log(a&_Readable == _Readable, a&_Writable == _Writable, a&_Executable == _Executable)
+    a := 7               // 二进制:0111
+    a = a &^ _Readable   // 清零可读操作
+    a = a &^ _Executable // 清零可执行操作
+    t.Log(a&_Readable == _Readable, a&_Writable == _Writable, a&_Executable == _Executable)
 }
 ```
 
@@ -212,6 +212,50 @@ func TestCompareBin(t *testing.T) {
 | 0 | 1 | 0 | 1 | 1 |
 | 1 | 1 | 1 | 1 | 0 |
 | 1 | 0 | 0 | 1 | 1 |
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+   var a int = 21
+   var c int
+
+   c =  a
+   fmt.Printf("第 1 行 - =  运算符实例，c 值为 = %d\n", c )
+
+   c +=  a
+   fmt.Printf("第 2 行 - += 运算符实例，c 值为 = %d\n", c )
+
+   c -=  a
+   fmt.Printf("第 3 行 - -= 运算符实例，c 值为 = %d\n", c )
+
+   c *=  a
+   fmt.Printf("第 4 行 - *= 运算符实例，c 值为 = %d\n", c )
+
+   c /=  a
+   fmt.Printf("第 5 行 - /= 运算符实例，c 值为 = %d\n", c )
+
+   c  = 200;
+
+   c <<=  2
+   fmt.Printf("第 6行  - <<= 运算符实例，c 值为 = %d\n", c )
+
+   c >>=  2
+   fmt.Printf("第 7 行 - >>= 运算符实例，c 值为 = %d\n", c )
+
+   c &=  2
+   fmt.Printf("第 8 行 - &= 运算符实例，c 值为 = %d\n", c )
+
+   c ^=  2
+   fmt.Printf("第 9 行 - ^= 运算符实例，c 值为 = %d\n", c )
+
+   c |=  2
+   fmt.Printf("第 10 行 - |= 运算符实例，c 值为 = %d\n", c )
+
+}
+```
 
 
 
