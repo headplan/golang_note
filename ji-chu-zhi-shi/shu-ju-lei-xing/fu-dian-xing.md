@@ -22,11 +22,27 @@ const e = .71828 // 0.71828
 const f = 1.     // 1
 ```
 
-很小或很大的数最好用科学计数法书写 , 通过 e 或 E 来指定指数部分 : 
+很小或很大的数最好用科学计数法书写 , 通过 e 或 E 来指定指数部分 :
 
 ```go
 const Avogadro = 6.02214129e23  // 阿伏伽德罗常数
 const Planck   = 6.62606957e-34 // 普朗克常数
+```
+
+用 Printf 函数打印浮点数时可以使用“%f”来控制保留几位小数
+
+```go
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func main() {
+	fmt.Printf("%f\n", math.Pi)
+	fmt.Printf("%.2f\n", math.Pi)
+}
 ```
 
 
