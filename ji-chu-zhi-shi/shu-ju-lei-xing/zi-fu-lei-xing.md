@@ -14,9 +14,9 @@ byte 类型是 uint8 的别名 , 对于只占用 1 个字节的传统 ASCII 编�
 var ch byte = 65 或 var ch byte = '\x41'
 ```
 
-Go语言同样支持Unicode\(UTF-8\) , 因此字符同样称为 Unicode 代码点或者 runes , 并在内存中使用 int 来表示 . 在文档中 , 一般使用格式 U+hhhh 来表示 , 其中 h 表示一个 16 进制数 . 
+Go语言同样支持Unicode\(UTF-8\) , 因此字符同样称为 Unicode 代码点或者 runes , 并在内存中使用 int 来表示 . 在文档中 , 一般使用格式 U+hhhh 来表示 , 其中 h 表示一个 16 进制数 .
 
-在书写Unicode字符时 , 需要在 16 进制数之前加上前缀\u或者\U . 因为 Unicode 至少占用 2 个字节 , 所以我们使用 int16 或者 int 类型来表示 . 如果需要使用到 4 字节 , 则使用\u前缀 , 如果需要使用到 8 个字节 , 则使用\U前缀 . 
+在书写Unicode字符时 , 需要在 16 进制数之前加上前缀\u或者\U . 因为 Unicode 至少占用 2 个字节 , 所以我们使用 int16 或者 int 类型来表示 . 如果需要使用到 4 字节 , 则使用\u前缀 , 如果需要使用到 8 个字节 , 则使用\U前缀 .
 
 ```go
 var ch int = '\u0041'
@@ -27,6 +27,14 @@ fmt.Printf("%c - %c - %c\n", ch, ch2, ch3) // character
 fmt.Printf("%X - %X - %X\n", ch, ch2, ch3) // UTF-8 bytes
 fmt.Printf("%U - %U - %U", ch, ch2, ch3)   // UTF-8 code point
 ```
+
+格式化说明符`%c`用于表示字符 , 当和字符配合使用时 , `%v`或`%d`会输出用于表示该字符的整数 , `%U`输出格式为 U+hhhh 的字符串 . 
+
+Unicode 包中内置了一些用于测试字符的函数 , 这些函数的返回值都是一个布尔值 , 如下所示\(其中 ch 代表字符\) : 
+
+* 判断是否为字母 : unicode.IsLetter\(ch\)
+* 判断是否为数字 : unicode.IsDigit\(ch\)
+* 判断是否为空白符号 : unicode.IsSpace\(ch\)
 
 
 
