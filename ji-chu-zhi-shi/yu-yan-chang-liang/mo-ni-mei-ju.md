@@ -18,7 +18,7 @@ var weapon Weapon = Blower
 fmt.Println(weapon)
 ```
 
-iota 不仅可以生成每次增加 1 的枚举值 . 还可以利用 iota 来做一些强大的枚举常量值生成器 . 
+iota 不仅可以生成每次增加 1 的枚举值 . 还可以利用 iota 来做一些强大的枚举常量值生成器 .
 
 ```go
 const (
@@ -29,6 +29,35 @@ const (
 )
 fmt.Printf("%d %d %d\n", FlagRed, FlagGreen, FlagBlue)
 fmt.Printf("%b %b %b\n", FlagRed, FlagGreen, FlagBlue)
+```
+
+#### 将枚举值转换为字符串
+
+```go
+package main
+import "fmt"
+// 声明芯片类型
+type ChipType int
+const (
+    None ChipType = iota
+    CPU    // 中央处理器
+    GPU    // 图形处理器
+)
+func (c ChipType) String() string {
+    switch c {
+    case None:
+        return "None"
+    case CPU:
+        return "CPU"
+    case GPU:
+        return "GPU"
+    }
+    return "N/A"
+}
+func main() {
+    // 输出CPU的值并以整型格式显示
+    fmt.Printf("%s %d", CPU, CPU)
+}
 ```
 
 
