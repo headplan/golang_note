@@ -99,4 +99,5 @@
     * [fmt](packages/biao-zhun-ku-standard-library/fmt.md)
     * [strconv](packages/biao-zhun-ku-standard-library/strconv.md)
     * [strings](packages/biao-zhun-ku-standard-library/strings.md)
+  * [Go Tools](packages/go-tools.md)
 
