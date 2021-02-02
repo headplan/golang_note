@@ -65,15 +65,15 @@ func main() {
 }
 ```
 
- 运行命令 : 
+运行命令 :
 
 ```
 go run -gcflags "-m -l" main.go
 ```
 
-使用 go run 运行程序时 , `-gcflags`参数是编译参数 . 其中`-m`表示进行内存分配分析 , `-l`表示避免程序内联 , 也就是避免进行程序优化 . 
+使用 go run 运行程序时 , `-gcflags`参数是编译参数 . 其中`-m`表示进行内存分配分析 , `-l`表示避免程序内联 , 也就是避免进行程序优化 .
 
-运行结果如下 : 
+运行结果如下 :
 
 ```go
 # command-line-arguments
@@ -81,6 +81,34 @@ go run -gcflags "-m -l" main.go
 ./test_const.go:22:13: a escapes to heap
 ./test_const.go:22:22: dummy(0) escapes to heap
 0 0
+```
+
+程序运行结果分析 : 
+
+* 代码的第 29 行的变量 a 逃逸到堆
+* dummy\(0\) 调用逃逸到堆
+
+上面例子中变量 c 是整型 , 其值通过 dummy\(\) 的返回值“逃出”了 dummy\(\) 函数 . 变量 c 的值被复制并作为 dummy\(\) 函数的返回值返回 , 即使变量 c 在 dummy\(\) 函数中分配的内存被释放 , 也不会影响 main\(\) 中使用 dummy\(\) 返回的值 . 变量 c 使用栈分配不会影响结果 . 
+
+#### 取地址发生逃逸
+
+使用结构体做数据 . 
+
+```go
+package main
+import "fmt"
+// 声明空结构体测试结构体逃逸情况
+type Data struct {
+}
+func dummy() *Data {
+    // 实例化c为Data类型
+    var c Data
+    //返回函数局部变量地址
+    return &c
+}
+func main() {
+    fmt.Println(dummy())
+}
 ```
 
 
