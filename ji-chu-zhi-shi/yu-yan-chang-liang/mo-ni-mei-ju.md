@@ -1,11 +1,11 @@
 # 模拟枚举
 
-Go语言现阶段没有枚举类型 , 可以使用const+iota 来模拟枚举类型 : 
+Go语言现阶段没有枚举类型 , 可以使用const+iota 来模拟枚举类型 :
 
 ```go
 type Weapon int
 const (
-     Arrow Weapon = iota    // 开始生成枚举值, 默认为0
+     Arrow Weapon = iota    // 开始生成枚举值,默认为0
      Shuriken
      SniperRifle
      Rifle
@@ -16,6 +16,19 @@ fmt.Println(Arrow, Shuriken, SniperRifle, Rifle, Blower)
 // 使用枚举类型并赋初值
 var weapon Weapon = Blower
 fmt.Println(weapon)
+```
+
+iota 不仅可以生成每次增加 1 的枚举值 . 还可以利用 iota 来做一些强大的枚举常量值生成器 . 
+
+```go
+const (
+    FlagNone = 1 << iota
+    FlagRed
+    FlagGreen
+    FlagBlue
+)
+fmt.Printf("%d %d %d\n", FlagRed, FlagGreen, FlagBlue)
+fmt.Printf("%b %b %b\n", FlagRed, FlagGreen, FlagBlue)
 ```
 
 
