@@ -22,6 +22,7 @@
     * [变量](ji-chu-zhi-shi/yu-yan-bian-liang.md)
     * [变量作用域](ji-chu-zhi-shi/bian-liang-zuo-yong-yu.md)
     * [常量](ji-chu-zhi-shi/yu-yan-chang-liang.md)
+      * [模拟枚举](ji-chu-zhi-shi/yu-yan-chang-liang/mo-ni-mei-ju.md)
     * [类型转换](ji-chu-zhi-shi/lei-xing-zhuan-huan.md)
     * [运算符](ji-chu-zhi-shi/yun-suan-fu.md)
       * [位运算权限判断](ji-chu-zhi-shi/wei-yun-suan-quan-xian-pan-duan.md)
