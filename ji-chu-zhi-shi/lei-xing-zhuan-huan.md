@@ -42,7 +42,7 @@ func main() {
 }
 ```
 
-结果显示 a 的类型是 main.NewInt , 表示 main 包下定义的 NewInt 类型 , a2 类型是 int , IntAlias 类型只会在代码中存在 , 编译完成时 , 不会有 IntAlias 类型 . 
+结果显示 a 的类型是 main.NewInt , 表示 main 包下定义的 NewInt 类型 , a2 类型是 int , IntAlias 类型只会在代码中存在 , 编译完成时 , 不会有 IntAlias 类型 .
 
 #### 非本地类型不能定义方法
 
@@ -57,6 +57,55 @@ type MyDuration = time.Duration
 func (m MyDuration) EasySet(a string) {
 }
 func main() {
+}
+```
+
+编译上面代码报错
+
+```
+cannot define new methods on non-local type time.Duration
+```
+
+不能在一个非本地的类型 time.Duration 上定义新方法 , 非本地类型指的就是 time.Duration 不是在 main 包中定义的 , 而是在 time 包中定义的 , 与 main 包不在同一个包中 , 因此不能为不在一个包中的类型定义方法 . 
+
+#### 在结构体成员嵌入时使用别名
+
+```go
+package main
+import (
+    "fmt"
+    "reflect"
+)
+// 定义商标结构
+type Brand struct {
+}
+// 为商标结构添加Show()方法
+func (t Brand) Show() {
+}
+// 为Brand定义一个别名FakeBrand
+type FakeBrand = Brand
+// 定义车辆结构
+type Vehicle struct {
+    // 嵌入两个结构
+    FakeBrand
+    Brand
+}
+func main() {
+    // 声明变量a为车辆类型
+    var a Vehicle
+   
+    // 指定调用FakeBrand的Show
+    a.FakeBrand.Show()
+    // 取a的类型反射对象
+    ta := reflect.TypeOf(a)
+    // 遍历a的所有成员
+    for i := 0; i < ta.NumField(); i++ {
+        // a的成员信息
+        f := ta.Field(i)
+        // 打印成员的字段名和类型
+        fmt.Printf("FieldName: %v, FieldType: %v\n", f.Name, f.Type.
+            Name())
+    }
 }
 ```
 
