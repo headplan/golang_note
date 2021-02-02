@@ -19,6 +19,7 @@
       * [布尔类型](ji-chu-zhi-shi/shu-ju-lei-xing/bu-er-lei-xing.md)
       * [字符串](ji-chu-zhi-shi/zi-fu-chuan.md)
       * [字符类型](ji-chu-zhi-shi/shu-ju-lei-xing/zi-fu-lei-xing.md)
+    * [类型别名](ji-chu-zhi-shi/lei-xing-bie-ming.md)
     * [变量](ji-chu-zhi-shi/yu-yan-bian-liang.md)
     * [变量作用域](ji-chu-zhi-shi/bian-liang-zuo-yong-yu.md)
     * [常量](ji-chu-zhi-shi/yu-yan-chang-liang.md)
