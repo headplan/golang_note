@@ -24,7 +24,7 @@
     * [常量](ji-chu-zhi-shi/yu-yan-chang-liang.md)
     * [类型转换](ji-chu-zhi-shi/lei-xing-zhuan-huan.md)
     * [运算符](ji-chu-zhi-shi/yun-suan-fu.md)
-    * [位运算权限判断](ji-chu-zhi-shi/wei-yun-suan-quan-xian-pan-duan.md)
+      * [位运算权限判断](ji-chu-zhi-shi/wei-yun-suan-quan-xian-pan-duan.md)
   * [流程控制](ji-chu-zhi-shi/liu-cheng-kong-zhi.md)
     * [条件语句](ji-chu-zhi-shi/tiao-jian-yu-ju.md)
     * [循环语句](ji-chu-zhi-shi/xun-huan-yu-ju.md)
