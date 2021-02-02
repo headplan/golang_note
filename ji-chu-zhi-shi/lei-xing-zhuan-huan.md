@@ -66,7 +66,7 @@ func main() {
 cannot define new methods on non-local type time.Duration
 ```
 
-不能在一个非本地的类型 time.Duration 上定义新方法 , 非本地类型指的就是 time.Duration 不是在 main 包中定义的 , 而是在 time 包中定义的 , 与 main 包不在同一个包中 , 因此不能为不在一个包中的类型定义方法 . 
+不能在一个非本地的类型 time.Duration 上定义新方法 , 非本地类型指的就是 time.Duration 不是在 main 包中定义的 , 而是在 time 包中定义的 , 与 main 包不在同一个包中 , 因此不能为不在一个包中的类型定义方法 .
 
 #### 在结构体成员嵌入时使用别名
 
@@ -93,7 +93,7 @@ type Vehicle struct {
 func main() {
     // 声明变量a为车辆类型
     var a Vehicle
-   
+
     // 指定调用FakeBrand的Show
     a.FakeBrand.Show()
     // 取a的类型反射对象
@@ -109,5 +109,14 @@ func main() {
 }
 ```
 
+代码输出 : 
 
+```
+FieldName: FakeBrand, FieldType: Brand
+FieldName: Brand, FieldType: Brand
+```
+
+FakeBrand 是 Brand 的一个别名 , 在 Vehicle 中嵌入 FakeBrand 和 Brand 并不意味着嵌入两个 Brand , FakeBrand 的类型会以名字的方式保留在 Vehicle 的成员中 . 
+
+但是在调用 Show\(\) 方法时 , 因为两个类型都有 Show\(\) 方法 , 会发生歧义 , 而编译报错 . 证明 FakeBrand 的本质确实是 Brand 类型 . 
 
