@@ -77,7 +77,7 @@ fmt.Println(s) //输出 “hello, world!”
 
 #### 新的数据类型
 
-Go语言中字符串的内部实现使用 UTF-8 编码 , 通过 rune 类型 , 可以方便地对每个 UTF-8 字符进行访问 . 当然 , Go语言也支持按照传统的 ASCII 码方式逐字符进行访问 , 只对纯 ASCII 码的字符串有效 .  
+Go语言中字符串的内部实现使用 UTF-8 编码 , 通过 rune 类型 , 可以方便地对每个 UTF-8 字符进行访问 . 当然 , Go语言也支持按照传统的 ASCII 码方式逐字符进行访问 , 只对纯 ASCII 码的字符串有效 .
 
 rune , 取出字符串中的Unicode . 将字符串转换为rune的切片 .
 
@@ -123,6 +123,19 @@ func TestStringtoRune(t *testing.T) {
 ```
 
 遍历string的时候 , 实际自动把string转成了rune再遍历 . 而不是根据len\(string\)的byte数组个数 .
+
+#### 定义多行字符串
+
+在Go语言中 , 使用双引号书写字符串的方式是字符串常见表达方式之一 , 被称为字符串字面量\(string literal\) , 这种双引号字面量不能跨行 , 如果想要在源码中嵌入一个多行字符串时 , 就必须使用`````反引号 , 代码如下 : 
+
+```go
+const str = `第一行
+第二行
+第三行
+\r\n
+`
+fmt.Println(str)
+```
 
 #### 常用字符串函数
 
