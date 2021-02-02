@@ -42,5 +42,23 @@ func main() {
 }
 ```
 
+结果显示 a 的类型是 main.NewInt , 表示 main 包下定义的 NewInt 类型 , a2 类型是 int , IntAlias 类型只会在代码中存在 , 编译完成时 , 不会有 IntAlias 类型 . 
+
+#### 非本地类型不能定义方法
+
+```go
+package main
+import (
+    "time"
+)
+// 定义time.Duration的别名为MyDuration
+type MyDuration = time.Duration
+// 为MyDuration添加一个函数
+func (m MyDuration) EasySet(a string) {
+}
+func main() {
+}
+```
+
 
 
