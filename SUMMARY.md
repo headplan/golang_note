@@ -100,4 +100,5 @@
     * [strconv](packages/biao-zhun-ku-standard-library/strconv.md)
     * [strings](packages/biao-zhun-ku-standard-library/strings.md)
   * [Go Tools](packages/go-tools.md)
+    * [godoc](packages/go-tools/godoc.md)
 
