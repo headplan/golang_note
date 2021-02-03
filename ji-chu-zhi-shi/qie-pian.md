@@ -161,31 +161,31 @@ func printSlice(x []int) {
 
 #### append\(\)和copy\(\)函数
 
-如果想增加切片的容量 , 必须创建一个新的更大的切片 , 把原来的切片内容都拷贝过来 . 
+如果想增加切片的容量 , 必须创建一个新的更大的切片 , 把原来的切片内容都拷贝过来 .
 
 ```go
 func TestAppendCopySlice(t *testing.T) {
-	var num []int
-	t.Log(len(num), cap(num), num)
+    var num []int
+    t.Log(len(num), cap(num), num)
 
-	// 允许追加空切片
-	num = append(num, 0)
-	t.Log(len(num), cap(num), num)
+    // 允许追加空切片
+    num = append(num, 0)
+    t.Log(len(num), cap(num), num)
 
-	// 向切片添加一个元素
-	num = append(num, 1)
-	t.Log(len(num), cap(num), num)
+    // 向切片添加一个元素
+    num = append(num, 1)
+    t.Log(len(num), cap(num), num)
 
-	// 同时添加多个元素
-	num = append(num, 2, 3, 4, 5)
-	t.Log(len(num), cap(num), num)
+    // 同时添加多个元素
+    num = append(num, 2, 3, 4, 5)
+    t.Log(len(num), cap(num), num)
 
-	// 创建切片是之前切片容量的两倍
-	num1 := make([]int, len(num), (cap(num))*2)
+    // 创建切片是之前切片容量的两倍
+    num1 := make([]int, len(num), (cap(num))*2)
 
-	// 拷贝num的内容到num1
-	copy(num1, num)
-	t.Log(len(num1), cap(num1), num1)
+    // 拷贝num的内容到num1
+    copy(num1, num)
+    t.Log(len(num1), cap(num1), num1)
 }
 ```
 
@@ -226,5 +226,7 @@ func TestSliceComparing(t *testing.T) {
 }
 ```
 
-切片不可以比较 , 切片只可以跟nil比较 .
+> 切片不可以比较 , 切片只可以跟nil比较 .
+
+
 
