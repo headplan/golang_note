@@ -99,7 +99,7 @@ s1 := s[startIndex:endIndex]
 s :=make([]int,len,cap)
 ```
 
-通过内置函数make\(\)初始化切片s,\[\]int 标识为其元素类型为int的切片 .
+通过内置函数make\(\)初始化切片s,\[\]int 标识为其元素类型为int的切片 . len 指的是为这个类型分配多少个元素 , cap 为预分配的元素数量 , 这个值设定后不影响 len , 只是能提前分配空间 , 降低多次分配空间造成的性能问题 . 
 
 #### len\(\)函数和cap\(\)函数
 
@@ -264,7 +264,7 @@ func main() {
 dir1 := path[:sepIndex:sepIndex]
 ```
 
-新的代码使用了 Full Slice Expression\(全切片表达式\) , 最后一个参数叫Limited Capacity\(有限容量\) . 于是 , 后续的`append()`操作会导致重新分配内存 . 
+新的代码使用了 Full Slice Expression\(全切片表达式\) , 最后一个参数叫Limited Capacity\(有限容量\) . 于是 , 后续的`append()`操作会导致重新分配内存 .
 
 #### 数组 vs. 切片
 
