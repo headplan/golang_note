@@ -230,9 +230,29 @@ a = append(a, 1)
 a[2] = 42
 ```
 
-在这段代码中 , 把 a\[1:16\] 的切片赋给 b , 此时 , a 和 b 的内存空间是共享的 . 然后 , 对 a 做了一个 append\(\)的操作 , 这个操作会让 a 重新分配内存 , 这就会导致 a 和 b 不再共享 . 
+在这段代码中 , 把 a\[1:16\] 的切片赋给 b , 此时 , a 和 b 的内存空间是共享的 . 然后 , 对 a 做了一个 append\(\)的操作 , 这个操作会让 a 重新分配内存 , 这就会导致 a 和 b 不再共享 .
+
+**注意**
 
 append\(\)这个函数在 cap 不够用的时候 , 就会重新分配内存以扩大容量 , 如果够用 , 就不会重新分配内存了 . 
+
+```go
+func main() {
+    path := []byte("AAAA/BBBBBBBBB")
+    sepIndex := bytes.IndexByte(path,'/')
+
+    dir1 := path[:sepIndex]
+    dir2 := path[sepIndex+1:]
+
+    fmt.Println("dir1 =>",string(dir1)) //prints: dir1 => AAAA
+    fmt.Println("dir2 =>",string(dir2)) //prints: dir2 => BBBBBBBBB
+
+    dir1 = append(dir1,"suffix"...)
+
+    fmt.Println("dir1 =>",string(dir1)) //prints: dir1 => AAAAsuffix
+    fmt.Println("dir2 =>",string(dir2)) //prints: dir2 => uffixBBBB
+}
+```
 
 #### 数组 vs. 切片
 
