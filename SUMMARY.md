@@ -23,6 +23,7 @@
     * [变量](ji-chu-zhi-shi/yu-yan-bian-liang.md)
       * [变量作用域](ji-chu-zhi-shi/bian-liang-zuo-yong-yu.md)
       * [变量逃逸分析](ji-chu-zhi-shi/bian-liang-tao-yi-fen-xi.md)
+      * [变量的声明周期](ji-chu-zhi-shi/bian-liang-de-sheng-ming-zhou-qi.md)
     * [常量](ji-chu-zhi-shi/yu-yan-chang-liang.md)
       * [模拟枚举](ji-chu-zhi-shi/yu-yan-chang-liang/mo-ni-mei-ju.md)
     * [类型转换](ji-chu-zhi-shi/lei-xing-zhuan-huan.md)
