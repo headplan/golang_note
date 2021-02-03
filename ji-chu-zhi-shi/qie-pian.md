@@ -234,7 +234,7 @@ a[2] = 42
 
 **注意**
 
-append\(\)这个函数在 cap 不够用的时候 , 就会重新分配内存以扩大容量 , 如果够用 , 就不会重新分配内存了 . 
+append\(\)这个函数在 cap 不够用的时候 , 就会重新分配内存以扩大容量 , 如果够用 , 就不会重新分配内存了 .
 
 ```go
 func main() {
@@ -253,6 +253,10 @@ func main() {
     fmt.Println("dir2 =>",string(dir2)) //prints: dir2 => uffixBBBB
 }
 ```
+
+在这个例子中 , dir1 和 dir2 共享内存 , 虽然 dir1 有一个 append\(\) 操作 , 但是因为 cap 足够 , 于是数据扩展到了dir2 的空间 . 下面是相关的图示\(注意上图中 dir1 和 dir2 结构体中的 cap 和 len 的变化\)
+
+![](/assets/neicungongxiang.png)
 
 #### 数组 vs. 切片
 
