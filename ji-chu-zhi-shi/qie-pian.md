@@ -258,6 +258,14 @@ func main() {
 
 ![](/assets/neicungongxiang.png)
 
+要解决这个问题 , 只需要修改一行代码
+
+```
+dir1 := path[:sepIndex:sepIndex]
+```
+
+新的代码使用了 Full Slice Expression\(全切片表达式\) , 最后一个参数叫Limited Capacity\(有限容量\) . 于是 , 后续的`append()`操作会导致重新分配内存 . 
+
 #### 数组 vs. 切片
 
 1. 容量是否可伸缩 , 数组的容量不可伸缩 , 切片可以 . 
