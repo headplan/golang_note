@@ -39,6 +39,7 @@
     * [切片](ji-chu-zhi-shi/qie-pian.md)
       * [共享存储结构](ji-chu-zhi-shi/qie-pian/gong-xiang-cun-chu-jie-gou.md)
       * [切片的append和copy](ji-chu-zhi-shi/qie-pian/qie-piande-append-he-copy.md)
+      * [从切片中删除元素](ji-chu-zhi-shi/qie-pian/cong-qie-pian-zhong-shan-chu-yuan-su.md)
     * [Map集合](ji-chu-zhi-shi/map.md)
     * [范围Range](ji-chu-zhi-shi/fan-wei-range.md)
   * [函数](ji-chu-zhi-shi/han-shu.md)

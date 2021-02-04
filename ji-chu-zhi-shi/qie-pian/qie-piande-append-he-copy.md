@@ -71,9 +71,9 @@ copy(slice2, slice1) // 只会复制slice1的前3个元素到slice2中
 copy(slice1, slice2) // 只会复制slice2的3个元素到slice1的前3个位置
 ```
 
-虽然通过循环复制切片元素更直接 , 不过内置的copy\(\)函数使用起来更加方便 , copy\(\)函数的第一个参数是要复制的目标slice , 第二个参数是源slice , 两个slice可以共享同一个底层数组 , 甚至有重叠也没有问题 . 
+虽然通过循环复制切片元素更直接 , 不过内置的copy\(\)函数使用起来更加方便 , copy\(\)函数的第一个参数是要复制的目标slice , 第二个参数是源slice , 两个slice可以共享同一个底层数组 , 甚至有重叠也没有问题 .
 
-通过代码演示对切片的引用和复制操作后对切片元素的影响 : 
+通过代码演示对切片的引用和复制操作后对切片元素的影响 :
 
 ```go
 package main
@@ -81,7 +81,6 @@ package main
 import "fmt"
 
 func main() {
-
     // 设置元素数量为1000
     const elementCount = 1000
 
