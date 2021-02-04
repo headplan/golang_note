@@ -48,5 +48,23 @@ a = a[:len(a)-1] // 删除尾部1个元素
 a = a[:len(a)-N] // 删除尾部N个元素
 ```
 
+删除开头的元素和删除尾部的元素都可以认为是删除中间元素操作的特殊情况 , 下面来看一个示例 . 
+
+```go
+package main
+import "fmt"
+func main() {
+    seq := []string{"a", "b", "c", "d", "e"}
+    // 指定删除位置
+    index := 2
+    // 查看删除位置之前的元素和之后的元素
+    fmt.Println(seq[:index], seq[index+1:])
+    // 将删除点前后的元素连接起来
+    seq = append(seq[:index], seq[index+1:]...)
+    fmt.Println(seq)
+}
+```
+
+  
 
 
