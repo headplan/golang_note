@@ -54,6 +54,23 @@ a = append(a[:i], append([]int{x}, a[i:]...)...) // 在第i个位置插入x
 a = append(a[:i], append([]int{1,2,3}, a[i:]...)...) // 在第i个位置插入切片
 ```
 
+#### 切片复制
+
+Go语言的内置函数copy\(\)可以将一个数组切片复制到另一个数组切片中 , 如果加入的两个数组切片不一样大 , 就会按照其中较小的那个数组切片的元素个数进行复制 . 
+
+```
+copy( destSlice, srcSlice []T) int
+```
+
+其中 srcSlice 为数据来源切片 , destSlice 为复制的目标\(也就是将 srcSlice 复制到 destSlice\) , 目标切片必须分配过空间且足够承载复制的元素个数 , 并且来源和目标的类型必须一致 , copy\(\) 函数的返回值表示实际发生复制的元素个数 . 
+
+```go
+slice1 := []int{1, 2, 3, 4, 5}
+slice2 := []int{5, 4, 3}
+copy(slice2, slice1) // 只会复制slice1的前3个元素到slice2中
+copy(slice1, slice2) // 只会复制slice2的3个元素到slice1的前3个位置
+```
+
 ---
 
 #### Golang中的三个点 '...' 的用法
@@ -70,7 +87,7 @@ a = append(a[:i], append([]int{x}, a[i:]...)...) // 在第i个位置插入x
 a = append(a[:i], append([]int{1,2,3}, a[i:]...)...) // 在第i个位置插入切片
 ```
 
-还用于函数有多个不定参数的情况 , 可以接受多个不确定数量的参数 : 
+还用于函数有多个不定参数的情况 , 可以接受多个不确定数量的参数 :
 
 ```go
 func test1(args ...string) { //可以接受任意个string参数
