@@ -37,6 +37,7 @@
     * [指针](ji-chu-zhi-shi/zhi-zhen.md)
     * [数组](ji-chu-zhi-shi/shu-zu.md)
     * [切片](ji-chu-zhi-shi/qie-pian.md)
+      * [共享存储结构](ji-chu-zhi-shi/qie-pian/gong-xiang-cun-chu-jie-gou.md)
     * [Map集合](ji-chu-zhi-shi/map.md)
     * [范围Range](ji-chu-zhi-shi/fan-wei-range.md)
   * [函数](ji-chu-zhi-shi/han-shu.md)

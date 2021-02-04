@@ -99,7 +99,7 @@ s1 := s[startIndex:endIndex]
 s :=make([]int,len,cap)
 ```
 
-通过内置函数make\(\)初始化切片s,\[\]int 标识为其元素类型为int的切片 . len 指的是为这个类型分配多少个元素 , cap 为预分配的元素数量 , 这个值设定后不影响 len , 只是能提前分配空间 , 降低多次分配空间造成的性能问题 . 
+通过内置函数make\(\)初始化切片s,\[\]int 标识为其元素类型为int的切片 . len 指的是为这个类型分配多少个元素 , cap 为预分配的元素数量 , 这个值设定后不影响 len , 只是能提前分配空间 , 降低多次分配空间造成的性能问题 .
 
 #### len\(\)函数和cap\(\)函数
 
@@ -200,71 +200,6 @@ func TestAppendCopySlice(t *testing.T) {
 ```
 
 ---
-
-#### 切片共享存储结构
-
-熟悉 C/C++ 的同学一定会知道在结构体里用数组指针的问题 , **数据会发生共享** .
-
-![](/assets/qiepiangongxiangcunchujiegou.png)
-
-```go
-func TestSliceShareMemory(t *testing.T) {
-    year := []string{"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
-    Q2 := year[3:6]
-    t.Log(Q2, len(Q2), cap(Q2))
-    summer := year[5:8]
-    t.Log(summer, len(summer), cap(summer))
-
-    summer[0] = "Unknow"
-    t.Log(Q2)
-    t.Log(year)
-}
-```
-
-##### 数据append操作
-
-```go
-a := make([]int, 32)
-b := a[1:16]
-a = append(a, 1)
-a[2] = 42
-```
-
-在这段代码中 , 把 a\[1:16\] 的切片赋给 b , 此时 , a 和 b 的内存空间是共享的 . 然后 , 对 a 做了一个 append\(\)的操作 , 这个操作会让 a 重新分配内存 , 这就会导致 a 和 b 不再共享 .
-
-**注意**
-
-append\(\)这个函数在 cap 不够用的时候 , 就会重新分配内存以扩大容量 , 如果够用 , 就不会重新分配内存了 .
-
-```go
-func main() {
-    path := []byte("AAAA/BBBBBBBBB")
-    sepIndex := bytes.IndexByte(path,'/')
-
-    dir1 := path[:sepIndex]
-    dir2 := path[sepIndex+1:]
-
-    fmt.Println("dir1 =>",string(dir1)) //prints: dir1 => AAAA
-    fmt.Println("dir2 =>",string(dir2)) //prints: dir2 => BBBBBBBBB
-
-    dir1 = append(dir1,"suffix"...)
-
-    fmt.Println("dir1 =>",string(dir1)) //prints: dir1 => AAAAsuffix
-    fmt.Println("dir2 =>",string(dir2)) //prints: dir2 => uffixBBBB
-}
-```
-
-在这个例子中 , dir1 和 dir2 共享内存 , 虽然 dir1 有一个 append\(\) 操作 , 但是因为 cap 足够 , 于是数据扩展到了dir2 的空间 . 下面是相关的图示\(注意上图中 dir1 和 dir2 结构体中的 cap 和 len 的变化\)
-
-![](/assets/neicungongxiang.png)
-
-要解决这个问题 , 只需要修改一行代码
-
-```
-dir1 := path[:sepIndex:sepIndex]
-```
-
-新的代码使用了 Full Slice Expression\(全切片表达式\) , 最后一个参数叫Limited Capacity\(有限容量\) . 于是 , 后续的`append()`操作会导致重新分配内存 .
 
 #### 数组 vs. 切片
 
