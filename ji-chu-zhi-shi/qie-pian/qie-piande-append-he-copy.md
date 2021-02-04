@@ -70,5 +70,15 @@ a = append(a[:i], append([]int{x}, a[i:]...)...) // 在第i个位置插入x
 a = append(a[:i], append([]int{1,2,3}, a[i:]...)...) // 在第i个位置插入切片
 ```
 
+还用于函数有多个不定参数的情况 , 可以接受多个不确定数量的参数 : 
+
+```go
+func test1(args ...string) { //可以接受任意个string参数
+    for _, v:= range args{
+        fmt.Println(v)
+    }
+}
+```
+
 
 
