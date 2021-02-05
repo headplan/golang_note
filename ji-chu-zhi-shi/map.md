@@ -2,11 +2,11 @@
 
 Map 是一种无序的键值对的集合 . Map 最重要的一点是通过 key 来快速检索数据 , key 类似于索引 , 指向数据的值 .
 
-Map 是一种集合 , 所以可以像迭代数组和切片那样迭代它 . 不过 , Map 是无序的 , 无法决定它的返回顺序 , 这是因为 Map 是使用 hash 表来实现的 . 这个结构也称为关联数组或字典 , 在其他编程语言中也称为字典\(Python\)、hash和HashTable等 . 
+Map 是一种集合 , 所以可以像迭代数组和切片那样迭代它 . 不过 , Map 是无序的 , 无法决定它的返回顺序 , 这是因为 Map 是使用 hash 表来实现的 . 这个结构也称为关联数组或字典 , 在其他编程语言中也称为字典\(Python\)、hash和HashTable等 .
 
 #### 定义 Map
 
-可以使用内建函数 make 也可以使用 map 关键字来定义 Map :
+map 是引用类型 , 可以使用内建函数 make 也可以使用 map 关键字来定义 Map :
 
 ```go
 /* 声明变量，默认 map 是 nil */
@@ -18,6 +18,10 @@ _map1["one"] = 1
 /* 使用 make 函数 */
 map_variable := make(map[key_data_type]value_data_type,10) // 第二个参数Initial Capacity
 ```
+
+和数组不同 , map 可以根据新增的 key-value 动态的伸缩 , 因此它不存在固定长度或者最大限制 , 但是也可以选择标明 map 的初始容量 capacity . 
+
+当 map 增长到容量上限的时候 , 如果再增加新的 key-value , map 的大小会自动加 1 , 所以出于性能的考虑 , 对于大的 map 或者会快速扩张的 map , 即使只是大概知道容量 , 也最好先标明 . 
 
 注 : 如果不初始化 map , 那么就会创建一个 nil map . nil map 不能用来存放键值对 .
 
