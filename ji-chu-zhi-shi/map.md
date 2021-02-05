@@ -19,9 +19,9 @@ _map1["one"] = 1
 map_variable := make(map[key_data_type]value_data_type,10) // 第二个参数Initial Capacity
 ```
 
-和数组不同 , map 可以根据新增的 key-value 动态的伸缩 , 因此它不存在固定长度或者最大限制 , 但是也可以选择标明 map 的初始容量 capacity . 
+和数组不同 , map 可以根据新增的 key-value 动态的伸缩 , 因此它不存在固定长度或者最大限制 , 但是也可以选择标明 map 的初始容量 capacity .
 
-当 map 增长到容量上限的时候 , 如果再增加新的 key-value , map 的大小会自动加 1 , 所以出于性能的考虑 , 对于大的 map 或者会快速扩张的 map , 即使只是大概知道容量 , 也最好先标明 . 
+当 map 增长到容量上限的时候 , 如果再增加新的 key-value , map 的大小会自动加 1 , 所以出于性能的考虑 , 对于大的 map 或者会快速扩张的 map , 即使只是大概知道容量 , 也最好先标明 .
 
 注 : 如果不初始化 map , 那么就会创建一个 nil map . nil map 不能用来存放键值对 .
 
@@ -58,13 +58,24 @@ func TestMap(t *testing.T) {
 }
 ```
 
-**Map元素的访问**
+#### 用切片作为 map 的值
+
+既然一个 key 只能对应一个 value , 而 value 又是一个原始类型 , 那么如果一个 key 要对应多个值时 , 可以使用切片 . 
+
+例如 , 当我们要处理 unix 机器上的所有进程 , 以父进程\(pid 为整形\)作为 key , 所有的子进程\(以所有子进程的 pid 组成的切片\)作为 value . 通过将 value 定义为 \[\]int 类型或者其他类型的切片 , 就可以优雅的解决这个问题 , 示例代码如下所示 : 
+
+```
+mp1 := make(map[int][]int)
+mp2 := make(map[int]*[]int)
+```
+
+#### **Map元素的访问**
 
 与其他主要编程语言的差异
 
 在访问的Key不存在时 , 仍会返回零值 , 不能通过返回nil来判断元素是否存在 .
 
-**delete\(\) 函数**
+#### **delete\(\) 函数**
 
 delete\(\)函数用于删除元素集合的元素 , 参数为map和其对应的key .
 
