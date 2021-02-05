@@ -2,7 +2,7 @@
 
 Map 是一种无序的键值对的集合 . Map 最重要的一点是通过 key 来快速检索数据 , key 类似于索引 , 指向数据的值 .
 
-Map 是一种集合 , 所以可以像迭代数组和切片那样迭代它 . 不过 , Map 是无序的 , 无法决定它的返回顺序 , 这是因为 Map 是使用 hash 表来实现的 .
+Map 是一种集合 , 所以可以像迭代数组和切片那样迭代它 . 不过 , Map 是无序的 , 无法决定它的返回顺序 , 这是因为 Map 是使用 hash 表来实现的 . 这个结构也称为关联数组或字典 , 在其他编程语言中也称为字典\(Python\)、hash和HashTable等 . 
 
 #### 定义 Map
 
@@ -119,33 +119,33 @@ Go的内置集合中没有Set实现 , 可以map\[type\]bool
 
 ```go
 func TestMapWithFuncValue(t *testing.T) {
-	m := map[int]func(op int) int{}
-	m[1] = func(op int) int { return op }
-	m[2] = func(op int) int { return op * op }
-	m[3] = func(op int) int { return op * op * op }
-	t.Log(m[1](2), m[2](2), m[3](2))
+    m := map[int]func(op int) int{}
+    m[1] = func(op int) int { return op }
+    m[2] = func(op int) int { return op * op }
+    m[3] = func(op int) int { return op * op * op }
+    t.Log(m[1](2), m[2](2), m[3](2))
 }
 
 func TestMapForSet(t *testing.T) {
-	mySet := map[int]bool{}
-	mySet[1] = true
+    mySet := map[int]bool{}
+    mySet[1] = true
 
-	n := 1
-	if mySet[n] {
-		t.Logf("%d is existing", n)
-	} else {
-		t.Logf("%d is not existing", n)
-	}
-	mySet[3] = true
-	t.Log(len(mySet));
-	delete(mySet, 1)
+    n := 1
+    if mySet[n] {
+        t.Logf("%d is existing", n)
+    } else {
+        t.Logf("%d is not existing", n)
+    }
+    mySet[3] = true
+    t.Log(len(mySet));
+    delete(mySet, 1)
 
-	n = 1
-	if mySet[n] {
-		t.Logf("%d is existing", n)
-	} else {
-		t.Logf("%d is not existing", n)
-	}
+    n = 1
+    if mySet[n] {
+        t.Logf("%d is existing", n)
+    } else {
+        t.Logf("%d is not existing", n)
+    }
 }
 ```
 
