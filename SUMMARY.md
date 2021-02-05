@@ -42,6 +42,7 @@
       * [从切片中删除元素](ji-chu-zhi-shi/qie-pian/cong-qie-pian-zhong-shan-chu-yuan-su.md)
       * [范围Range](ji-chu-zhi-shi/fan-wei-range.md)
     * [Map集合](ji-chu-zhi-shi/map.md)
+      * [遍历map](ji-chu-zhi-shi/map/bian-li-map.md)
   * [函数](ji-chu-zhi-shi/han-shu.md)
   * [结构体](ji-chu-zhi-shi/jie-gou-ti.md)
   * [可变参数和defer](ji-chu-zhi-shi/ke-bian-can-shu-he-defer.md)
