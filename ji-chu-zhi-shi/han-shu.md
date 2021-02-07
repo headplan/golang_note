@@ -108,7 +108,7 @@ func swap(x, y string) (string, string) {
 
 ##### 同一种类型返回值
 
-如果返回值是同一种类型 , 则用括号将多个返回值类型括起来 , 用逗号分隔每个返回值的类型 . 
+如果返回值是同一种类型 , 则用括号将多个返回值类型括起来 , 用逗号分隔每个返回值的类型 .
 
 ```go
 func typedTwoValues() (int, int) {
@@ -117,6 +117,20 @@ func typedTwoValues() (int, int) {
 func main() {
     a, b := typedTwoValues()
     fmt.Println(a, b)
+}
+```
+
+##### 带有变量名的返回值
+
+Go语言支持对返回值进行命名 , 这样返回值就和参数一样拥有参数变量名和类型 . 命名的返回值变量的默认值为类型的默认值 , 即数值为 0 , 字符串为空字符串 , 布尔为 false、指针为 nil 等 . 
+
+下面代码中的函数拥有两个整型返回值 , 函数声明时将返回值命名为 a 和 b
+
+```go
+func namedRetValues() (a, b int) {
+    a = 1
+    b = 2
+    return
 }
 ```
 
