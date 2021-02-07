@@ -5,7 +5,7 @@
 #### 函数定义
 
 ```go
-func function_name( [parameter list] ) [return_types] {
+func function_name( [parameter list] ) ( [return_types] ) {
    函数体
 }
 ```
@@ -17,6 +17,8 @@ func function_name( [parameter list] ) [return_types] {
 * parameter list : 参数列表 , 参数就像一个占位符 , 当函数被调用时 , 可以将值传递给参数 , 这个值被称为实际参数 . 参数列表指定的是参数类型 , 顺序 , 及参数个数 . 参数是可选的 , 也就是说函数也可以不包含参数 . 
 * return\_types : 返回类型 , 函数返回一列值 . return\_types是该列值的数据类型 . 有些功能不需要返回值 , 这种情况下return\_types不是必须的 . 
 * 函数体 : 函数定义的代码集合 . 
+
+形式参数列表描述了函数的参数名以及参数类型 , 这些参数作为局部变量 , 其值由参数调用者提供 , 返回值列表描述了函数返回值的变量名以及类型 , 如果函数返回一个无名变量或者没有返回值 , 返回值列表的括号是可以省略的 . 
 
 ```go
 // 函数返回两个数的最大值
@@ -33,6 +35,28 @@ func max(num1, num2 int) int {
 ```
 
 > 当函数执行到代码块最后一行`}`之前或者 return 语句的时候会退出 , 其中 return 语句可以带有零个或多个参数 , 这些参数将作为返回值供调用者使用 , 简单的 return 语句也可以用来结束 for 的死循环 , 或者结束一个协程\(goroutine\) .
+
+如果一个函数在声明时 , 包含返回值列表 , 那么该函数必须以 return 语句结尾 , 除非函数明显无法运行到结尾处 , 例如函数在结尾时调用了 panic 异常或函数中存在无限循环 . 
+
+如果一组形参或返回值有相同的类型 , 不必为每个形参都写出参数类型 : 
+
+```go
+func f(i, j, k int, s, t string) { /* ... */ }
+func f(i int, j int, k int, s string, t string) { /* ... */ }
+```
+
+空白标识符`_`可以强调某个参数未被使用
+
+```go
+func add(x int, y int) int {return x + y}
+func sub(x, y int) (z int) { z = x - y; return}
+func first(x int, _ int) int { return x }
+func zero(int, int) int { return 0 }
+fmt.Printf("%T\n", add) // "func(int, int) int"
+fmt.Printf("%T\n", sub) // "func(int, int) int"
+fmt.Printf("%T\n", first) // "func(int, int) int"
+fmt.Printf("%T\n", zero) // "func(int, int) int"
+```
 
 #### 函数调用
 
