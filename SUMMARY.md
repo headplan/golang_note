@@ -43,6 +43,7 @@
       * [范围Range](ji-chu-zhi-shi/fan-wei-range.md)
     * [Map集合](ji-chu-zhi-shi/map.md)
       * [遍历map](ji-chu-zhi-shi/map/bian-li-map.md)
+      * [map元素的删除和清空](ji-chu-zhi-shi/map/mapyuan-su-de-shan-chu-he-qing-kong.md)
   * [函数](ji-chu-zhi-shi/han-shu.md)
   * [结构体](ji-chu-zhi-shi/jie-gou-ti.md)
   * [可变参数和defer](ji-chu-zhi-shi/ke-bian-can-shu-he-defer.md)
