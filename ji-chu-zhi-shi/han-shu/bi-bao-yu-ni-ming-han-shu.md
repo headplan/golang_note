@@ -85,11 +85,41 @@ func main() {
 }
 ```
 
-匿名函数作为回调函数的设计在Go语言的系统包中也比较常见 , 例如 strings 包中就有类似的设计 : 
+匿名函数作为回调函数的设计在Go语言的系统包中也比较常见 , 例如 strings 包中就有类似的设计 :
 
 ```go
 func TrimFunc(s string, f func(rune) bool) string {
     return TrimRightFunc(TrimLeftFunc(s, f), f)
+}
+```
+
+#### 使用匿名函数实现操作封装
+
+```go
+package main
+import (
+    "flag"
+    "fmt"
+)
+var skillParam = flag.String("skill", "", "skill to perform")
+func main() {
+    flag.Parse()
+    var skill = map[string]func(){
+        "fire": func() {
+            fmt.Println("chicken fire")
+        },
+        "run": func() {
+            fmt.Println("soldier run")
+        },
+        "fly": func() {
+            fmt.Println("angel fly")
+        },
+    }
+    if f, ok := skill[*skillParam]; ok {
+        f()
+    } else {
+        fmt.Println("skill not found")
+    }
 }
 ```
 
