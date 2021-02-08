@@ -49,6 +49,7 @@
     * [函数参数](ji-chu-zhi-shi/han-shu/han-shu-can-shu.md)
     * [闭包与匿名函数](ji-chu-zhi-shi/han-shu/bi-bao-yu-ni-ming-han-shu.md)
     * [defer延迟执行](ji-chu-zhi-shi/han-shu/deferyan-chi-zhi-xing.md)
+    * [示例 - 将秒转换为具体的时间](ji-chu-zhi-shi/han-shu/shi-li-jiang-miao-zhuan-huan-wei-ju-ti-de-shi-jian.md)
   * [结构体](ji-chu-zhi-shi/jie-gou-ti.md)
   * [可变参数和defer](ji-chu-zhi-shi/ke-bian-can-shu-he-defer.md)
   * [递归函数](ji-chu-zhi-shi/di-gui-han-shu.md)
