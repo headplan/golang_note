@@ -168,7 +168,7 @@ foo()
 
 #### 示例 : 闭包的记忆效应
 
-被捕获到闭包中的变量让闭包本身拥有了记忆效应 , 闭包中的逻辑可以修改闭包捕获的变量 , 变量会跟随闭包生命期一直存在 , 闭包本身就如同变量一样拥有了记忆效应 . 
+被捕获到闭包中的变量让闭包本身拥有了记忆效应 , 闭包中的逻辑可以修改闭包捕获的变量 , 变量会跟随闭包生命期一直存在 , 闭包本身就如同变量一样拥有了记忆效应 .
 
 ```go
 package main
@@ -176,36 +176,38 @@ package main
 import "fmt"
 
 func Accumulate(value int) func() int {
-	// 返回一个闭包
-	return func() int {
-		// 累加
-		value++
-		// 返回一个累加值
-		return value
-	}
+    // 返回一个闭包
+    return func() int {
+        // 累加
+        value++
+        // 返回一个累加值
+        return value
+    }
 }
 
 func main() {
-	// 创建一个累加器,初始值为1
-	accumulator := Accumulate(1)
+    // 创建一个累加器,初始值为1
+    accumulator := Accumulate(1)
 
-	// 累加1并打印
-	fmt.Println(accumulator())
-	fmt.Println(accumulator())
+    // 累加1并打印
+    fmt.Println(accumulator())
+    fmt.Println(accumulator())
 
-	// 打印累加器的函数地址
-	fmt.Printf("%p\n", &accumulator)
+    // 打印累加器的函数地址
+    fmt.Printf("%p\n", &accumulator)
 
-	// 创建一个累加器,初始值为1
-	accumulator2 := Accumulate(10)
+    // 创建一个累加器,初始值为1
+    accumulator2 := Accumulate(10)
 
-	// 累加1并打印
-	fmt.Println(accumulator2())
+    // 累加1并打印
+    fmt.Println(accumulator2())
 
-	// 打印累加器的函数地址
-	fmt.Printf("%p\n", &accumulator2)
+    // 打印累加器的函数地址
+    fmt.Printf("%p\n", &accumulator2)
 }
 ```
 
+对比输出的日志发现 accumulator 与 accumulator2 输出的函数地址不同 , 因此它们是两个不同的闭包实例 . 
 
+每调用一次 accumulator 都会自动对引用的变量进行累加 . 
 
