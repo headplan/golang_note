@@ -207,7 +207,39 @@ func main() {
 }
 ```
 
-对比输出的日志发现 accumulator 与 accumulator2 输出的函数地址不同 , 因此它们是两个不同的闭包实例 . 
+对比输出的日志发现 accumulator 与 accumulator2 输出的函数地址不同 , 因此它们是两个不同的闭包实例 .
 
 每调用一次 accumulator 都会自动对引用的变量进行累加 . 
+
+#### 示例 : 闭包实现生成器
+
+闭包的记忆效应被用于实现类似于设计模式中工厂模式的生成器 : 
+
+```go
+package main
+
+import "fmt"
+
+// 创建一个玩家生成器,输入名称,输出生成器
+func playerGen(name string) func() (string, int) {
+	// 血量一直为150
+	hp := 150
+	// 返回创建的闭包
+	return func() (string, int) {
+		// 将变量引用到闭包中
+		return name, hp
+	}
+}
+
+func main() {
+	// 创建一个玩家生成器
+	generator := playerGen("high noon")
+	// 返回玩家的名字和血量
+	name, hp := generator()
+	// 打印值
+	fmt.Println(name, hp)
+}
+```
+
+
 
