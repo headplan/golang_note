@@ -47,6 +47,7 @@
       * [map的多键索引](ji-chu-zhi-shi/map/mapde-duo-jian-suo-yin.md)
   * [函数](ji-chu-zhi-shi/han-shu.md)
     * [函数参数](ji-chu-zhi-shi/han-shu/han-shu-can-shu.md)
+      * [可变参数](ji-chu-zhi-shi/han-shu/han-shu-can-shu/ke-bian-can-shu.md)
     * [闭包与匿名函数](ji-chu-zhi-shi/han-shu/bi-bao-yu-ni-ming-han-shu.md)
     * [defer延迟执行](ji-chu-zhi-shi/han-shu/deferyan-chi-zhi-xing.md)
     * [示例 - 将秒转换为具体的时间](ji-chu-zhi-shi/han-shu/shi-li-jiang-miao-zhuan-huan-wei-ju-ti-de-shi-jian.md)
