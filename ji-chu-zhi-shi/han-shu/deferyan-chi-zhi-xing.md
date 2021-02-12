@@ -35,13 +35,39 @@ func main() {
 
 #### 使用延迟执行语句在函数退出时释放资源
 
-处理业务或逻辑中涉及成对的操作是一件比较烦琐的事情 , 比如打开和关闭文件、接收请求和回复请求、加锁和解锁等 . 在这些操作中 , 最容易忽略的就是在每个函数退出处正确地释放和关闭资源 . 
+处理业务或逻辑中涉及成对的操作是一件比较烦琐的事情 , 比如打开和关闭文件、接收请求和回复请求、加锁和解锁等 . 在这些操作中 , 最容易忽略的就是在每个函数退出处正确地释放和关闭资源 .
 
-defer 语句正好是在函数退出时执行的语句 , 所以使用 defer 能非常方便地处理资源释放问题 . 
+defer 语句正好是在函数退出时执行的语句 , 所以使用 defer 能非常方便地处理资源释放问题 .
 
 #### 使用延迟并发解锁
 
-在下面的例子中会在函数中并发使用 map , 为防止竞态问题 , 使用 sync.Mutex 进行加锁 :  
+在下面的例子中会在函数中并发使用 map , 为防止竞态问题 , 使用 sync.Mutex 进行加锁 :
+
+```go
+package main
+
+import "sync"
+
+var (
+    // 声明一个map
+    valueByKey = make(map[string]int)
+    // 保证使用map时的并发安全的互斥锁
+    valueByKeyGuard sync.Mutex
+)
+
+func readValue(key string) int {
+    // 对共享资源加锁
+    valueByKeyGuard.Lock()
+    // 取值
+    v := valueByKey[key]
+    // 对共享资源解锁
+    valueByKeyGuard.Unlock()
+
+    return v
+}
+```
+
+使用 defer 语句对上面的语句进行简化 : 
 
 ```go
 package main
@@ -58,12 +84,10 @@ var (
 func readValue(key string) int {
 	// 对共享资源加锁
 	valueByKeyGuard.Lock()
-	// 取值
-	v := valueByKey[key]
-	// 对共享资源解锁
-	valueByKeyGuard.Unlock()
+	// 延迟到函数结束时调用,对共享资源解锁
+	defer valueByKeyGuard.Unlock()
 
-	return v
+	return valueByKey[key]
 }
 ```
 
