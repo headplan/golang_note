@@ -24,12 +24,40 @@ func Dial(network, address string) (Conn, error) {
 }
 ```
 
-在 io 包中的 Writer 接口也拥有错误返回 : 
+在 io 包中的 Writer 接口也拥有错误返回 :
 
 ```go
 type Writer interface {
     Write(p []byte) (n int, err error)
 }
+```
+
+io 包中还有 Closer 接口 , 只有一个错误返回 : 
+
+```go
+type Closer interface {
+    Close() error
+}
+```
+
+#### 错误接口的定义格式
+
+error 是 Go 系统声明的接口类型 : 
+
+```go
+type error interface {
+    Error() string
+}
+```
+
+所有符合 Error\(\)string 格式的方法 , 都能实现错误接口 , Error\(\) 方法返回错误的具体描述 , 使用者可以通过这个字符串知道发生了什么错误 . 
+
+#### 自定义一个错误
+
+返回错误前 , 需要定义会产生哪些可能的错误 , 在Go语言中 , 使用 errors 包进行错误的定义 : 
+
+```go
+var err = errors.New("this is an error")
 ```
 
 
