@@ -67,7 +67,7 @@ func readValue(key string) int {
 }
 ```
 
-使用 defer 语句对上面的语句进行简化 : 
+使用 defer 语句对上面的语句进行简化 :
 
 ```go
 package main
@@ -75,20 +75,59 @@ package main
 import "sync"
 
 var (
-	// 声明一个map
-	valueByKey = make(map[string]int)
-	// 保证使用map时的并发安全的互斥锁
-	valueByKeyGuard sync.Mutex
+    // 声明一个map
+    valueByKey = make(map[string]int)
+    // 保证使用map时的并发安全的互斥锁
+    valueByKeyGuard sync.Mutex
 )
 
 func readValue(key string) int {
-	// 对共享资源加锁
-	valueByKeyGuard.Lock()
-	// 延迟到函数结束时调用,对共享资源解锁
-	defer valueByKeyGuard.Unlock()
+    // 对共享资源加锁
+    valueByKeyGuard.Lock()
+    // 延迟到函数结束时调用,对共享资源解锁
+    defer valueByKeyGuard.Unlock()
 
-	return valueByKey[key]
+    return valueByKey[key]
 }
+```
+
+#### 使用延迟释放文件句柄
+
+文件的操作需要经过打开文件、获取和操作文件资源、关闭资源几个过程 , 如果在操作完毕后不关闭文件资源 , 进程将一直无法释放文件资源 , 在下面的例子中将实现根据文件名获取文件大小的函数 , 函数中需要打开文件、获取文件大小和关闭文件等操作 , 由于每一步系统操作都需要进行错误处理 , 而每一步处理都会造成一次可能的退出 , 因此就需要在退出时释放资源 , 而我们需要密切关注在函数退出处正确地释放文件资源 , 参考下面的代码 : 
+
+```go
+package main
+
+import "os"
+
+func fileSize(filename string) int64 {
+	// 根据文件名打开文件,返回文件句柄和错误
+	f, err := os.Open(filename)
+
+	// 如果打开时发生错误,返回文件大小为0
+	if err != nil {
+		return 0
+	}
+
+	// 取文件状态信息
+	info, err := f.Stat()
+	
+	// 如果获取信息时发生错误,关闭文件并返回文件大小为0
+	if err != nil {
+		f.Close()
+		return 0
+	}
+	
+	// 取文件大小
+	size := info.Size()
+	
+	// 关闭文件
+	f.Close()
+	
+	// 返回文件大小
+	return size
+}
+
 ```
 
 
