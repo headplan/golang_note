@@ -56,6 +56,7 @@
     * [实例化结构体](ji-chu-zhi-shi/jie-gou-ti/shi-li-hua-jie-gou-ti.md)
     * [初始化结构体的成员变量](ji-chu-zhi-shi/jie-gou-ti/chu-shi-hua-jie-gou-ti-de-cheng-yuan-bian-liang.md)
     * [构造函数](ji-chu-zhi-shi/jie-gou-ti/gou-zao-han-shu.md)
+    * [方法和接收器](ji-chu-zhi-shi/jie-gou-ti/fang-fa-he-jie-shou-qi.md)
   * [错误处理](ji-chu-zhi-shi/cuo-wu-yu-ce-shi.md)
   * [行为的定义和实现](ji-chu-zhi-shi/xing-wei-de-ding-yi-he-shi-xian.md)
   * [Go语言的相关接口](ji-chu-zhi-shi/goyu-yan-de-xiang-guan-jie-kou.md)
