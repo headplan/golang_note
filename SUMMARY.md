@@ -118,4 +118,6 @@
     * [strings](packages/biao-zhun-ku-standard-library/strings.md)
   * [Go Tools](packages/go-tools.md)
     * [godoc](packages/go-tools/godoc.md)
+* [Go语言周边](goyu-yan-zhou-bian.md)
+  * [Go语言爱好者周刊](goyu-yan-zhou-bian/goyu-yan-ai-hao-zhe-zhou-kan.md)
 
