@@ -118,27 +118,27 @@ package main
 import "fmt"
 
 func printMsgType(msg *struct{
-	id int
-	data string
+    id int
+    data string
 }) {
-	// 使用动词%T打印msg的类型
-	fmt.Printf("%T\n", msg)
-	fmt.Print(msg.id,msg.data)
+    // 使用动词%T打印msg的类型
+    fmt.Printf("%T\n", msg)
+    fmt.Print(msg.id,msg.data)
 }
 
 func main() {
-	// 实例化一个匿名结构体
-	msg := &struct {
-		id int
-		data string
-	}{
-		1024,
-		"hello",
-	}
+    // 实例化一个匿名结构体
+    msg := &struct {
+        id int
+        data string
+    }{
+        1024,
+        "hello",
+    }
 
-	printMsgType(msg)
+    printMsgType(msg)
 }
 ```
 
-
+匿名结构体的类型名是结构体包含字段成员的详细描述 , 匿名结构体在使用时需要重新定义 , 造成大量重复的代码 , 因此开发中较少使用 . 
 
