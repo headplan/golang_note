@@ -53,6 +53,7 @@
     * [示例 - 将秒转换为具体的时间](ji-chu-zhi-shi/han-shu/shi-li-jiang-miao-zhuan-huan-wei-ju-ti-de-shi-jian.md)
   * [结构体](ji-chu-zhi-shi/jie-gou-ti.md)
     * [结构体的定义](ji-chu-zhi-shi/jie-gou-ti/jie-gou-ti-ding-yi.md)
+    * [实例化结构体](ji-chu-zhi-shi/jie-gou-ti/shi-li-hua-jie-gou-ti.md)
   * [错误处理](ji-chu-zhi-shi/cuo-wu-yu-ce-shi.md)
   * [行为的定义和实现](ji-chu-zhi-shi/xing-wei-de-ding-yi-he-shi-xian.md)
   * [Go语言的相关接口](ji-chu-zhi-shi/goyu-yan-de-xiang-guan-jie-kou.md)
