@@ -74,7 +74,7 @@ tank.HealthPoint = 300
 ins := &T{}
 ```
 
-其中 : 
+其中 :
 
 * T 表示结构体类型 . 
 * ins 为结构体的实例 , 类型为 \*T , 是指针类型 . 
@@ -90,6 +90,24 @@ cmd := &Command{}
 cmd.Name = "version"
 cmd.Var = &version
 cmd.Comment = "show version"
+```
+
+取地址实例化是最广泛的一种结构体实例化方式 , 可以使用函数封装上面的初始化过程 : 
+
+```go
+func newCommand(name string, varref *int, comment string) *Command {
+    return &Command{
+        Name:    name,
+        Var:     varref,
+        Comment: comment,
+    }
+}
+
+cmd = newCommand(
+    "version",
+    &version,
+    "show version",
+)
 ```
 
 
