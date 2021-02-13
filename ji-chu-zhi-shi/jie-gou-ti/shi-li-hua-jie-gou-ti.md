@@ -64,14 +64,32 @@ tank.HealthPoint = 300
 
 在 C/C++ 语言中 , 使用 new 实例化类型后 , 访问其成员变量时必须使用`->`操作符 .
 
-在Go语言中 , 访问结构体指针的成员变量时可以继续使用`.` , 这是因为Go语言为了方便开发者访问结构体指针的成员变量 , 使用了语法糖\(Syntactic sugar\)技术 , 将 ins.Name 形式转换为`(*ins).Name` . 
+在Go语言中 , 访问结构体指针的成员变量时可以继续使用`.` , 这是因为Go语言为了方便开发者访问结构体指针的成员变量 , 使用了语法糖\(Syntactic sugar\)技术 , 将 ins.Name 形式转换为`(*ins).Name` .
 
 #### 取结构体的地址实例化
 
-在Go语言中 , 对结构体进行`&`取地址操作时 , 视为对该类型进行一次 new 的实例化操作 , 取地址格式如下 : 
+在Go语言中 , 对结构体进行`&`取地址操作时 , 视为对该类型进行一次 new 的实例化操作 , 取地址格式如下 :
 
 ```go
 ins := &T{}
+```
+
+其中 : 
+
+* T 表示结构体类型 . 
+* ins 为结构体的实例 , 类型为 \*T , 是指针类型 . 
+
+```go
+type Command struct {
+    Name    string    // 指令名称
+    Var     *int      // 指令绑定的变量
+    Comment string    // 指令的注释
+}
+var version int = 1
+cmd := &Command{}
+cmd.Name = "version"
+cmd.Var = &version
+cmd.Comment = "show version"
 ```
 
 
