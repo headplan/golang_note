@@ -64,3 +64,5 @@ func NewBlackCat(color string) *BlackCat {
 
 这个例子中 , Cat 结构体类似于面向对象中的“基类” , BlackCat 嵌入 Cat 结构体 , 类似于面向对象中的“派生” , 实例化时 , BlackCat 中的 Cat 也会一并被实例化 . 
 
+总之 , Go语言中没有提供构造函数相关的特殊机制 , 用户根据自己的需求 , 将参数使用函数传递到结构体构造参数中即可完成构造函数的任务 . 
+
