@@ -27,12 +27,18 @@ type 类型名 struct {
 * 字段1、字段2…… : 表示结构体字段名 , 结构体中的字段名必须唯一 . 
 * 字段1类型、字段2类型…… : 表示结构体各个字段的类型 . 
 
-定义示例 : 
+定义示例 :
 
 ```go
 type Point struct {
     X int
     Y int
+}
+```
+
+```go
+type Color struct {
+    R, G, B byte
 }
 ```
 
