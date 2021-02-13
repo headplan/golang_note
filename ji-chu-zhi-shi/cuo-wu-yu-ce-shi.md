@@ -1,4 +1,4 @@
-# 错误处理与测试
+# 错误处理
 
 Go语言的错误处理思想及设计包含以下特征 :
 
@@ -32,7 +32,7 @@ type Writer interface {
 }
 ```
 
-io 包中还有 Closer 接口 , 只有一个错误返回 : 
+io 包中还有 Closer 接口 , 只有一个错误返回 :
 
 ```go
 type Closer interface {
@@ -42,7 +42,7 @@ type Closer interface {
 
 #### 错误接口的定义格式
 
-error 是 Go 系统声明的接口类型 : 
+error 是 Go 系统声明的接口类型 :
 
 ```go
 type error interface {
@@ -50,11 +50,11 @@ type error interface {
 }
 ```
 
-所有符合 Error\(\)string 格式的方法 , 都能实现错误接口 , Error\(\) 方法返回错误的具体描述 , 使用者可以通过这个字符串知道发生了什么错误 . 
+所有符合 Error\(\)string 格式的方法 , 都能实现错误接口 , Error\(\) 方法返回错误的具体描述 , 使用者可以通过这个字符串知道发生了什么错误 .
 
 #### 自定义一个错误
 
-返回错误前 , 需要定义会产生哪些可能的错误 , 在Go语言中 , 使用 errors 包进行错误的定义 : 
+返回错误前 , 需要定义会产生哪些可能的错误 , 在Go语言中 , 使用 errors 包进行错误的定义 :
 
 ```go
 var err = errors.New("this is an error")

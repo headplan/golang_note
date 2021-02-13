@@ -42,10 +42,30 @@ type Color struct {
 }
 ```
 
-结构体的定义只是一种内存布局的描述 , 只有当结构体实例化时 , 才会真正地分配内存 . 
+结构体的定义只是一种内存布局的描述 , 只有当结构体实例化时 , 才会真正地分配内存 .
 
-```
+```go
+package main
 
+import "fmt"
+
+type Books struct {
+	title   string
+	author  string
+	subject string
+	bookId  int
+}
+
+func main() {
+	// 创建一个新的结构体
+	fmt.Println(Books{"Go语言", "Google", "Go语言教程", 123456})
+
+	// 使用key=>value格式创建
+	fmt.Println(Books{title:"Go语言", author: "Google", subject: "Go语言教程", bookId: 123456})
+
+	// 忽略的字段为0或空
+	fmt.Println(Books{title: "Go语言", author: "Google"})
+}
 ```
 
 
