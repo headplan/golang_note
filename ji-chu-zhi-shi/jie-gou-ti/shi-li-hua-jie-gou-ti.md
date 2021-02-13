@@ -92,7 +92,7 @@ cmd.Var = &version
 cmd.Comment = "show version"
 ```
 
-取地址实例化是最广泛的一种结构体实例化方式 , 可以使用函数封装上面的初始化过程 : 
+取地址实例化是最广泛的一种结构体实例化方式 , 可以使用函数封装上面的初始化过程 :
 
 ```go
 func newCommand(name string, varref *int, comment string) *Command {
