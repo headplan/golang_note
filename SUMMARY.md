@@ -120,4 +120,5 @@
     * [godoc](packages/go-tools/godoc.md)
 * [Go语言周边](goyu-yan-zhou-bian.md)
   * [Go语言爱好者周刊](goyu-yan-zhou-bian/goyu-yan-ai-hao-zhe-zhou-kan.md)
+  * [Go语言学习笔记](goyu-yan-zhou-bian/goyu-yan-xue-xi-bi-ji.md)
 
