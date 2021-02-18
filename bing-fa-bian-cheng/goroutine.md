@@ -67,15 +67,15 @@ func main() {
 
 ![](/assets/goroutine.png)
 
-Go 程序在启动时 , 运行时\(runtime\)会默认为 main\(\) 函数创建一个 goroutine . 在 main\(\) 函数的 goroutine 中执行到 go running 语句时 , 归属于 running\(\) 函数的 goroutine 被创建 , running\(\) 函数开始在自己的 goroutine 中执行 . 此时 , main\(\) 继续执行 , 两个 goroutine 通过 Go 程序的调度机制同时运作 . 
+Go 程序在启动时 , 运行时\(runtime\)会默认为 main\(\) 函数创建一个 goroutine . 在 main\(\) 函数的 goroutine 中执行到 go running 语句时 , 归属于 running\(\) 函数的 goroutine 被创建 , running\(\) 函数开始在自己的 goroutine 中执行 . 此时 , main\(\) 继续执行 , 两个 goroutine 通过 Go 程序的调度机制同时运作 .
 
 #### 使用匿名函数创建goroutine
 
-go关键字后也可以为匿名函数或闭包启动goroutine . 
+go关键字后也可以为匿名函数或闭包启动goroutine .
 
 ##### 使用匿名函数创建goroutine的格式
 
-使用匿名函数或闭包创建 goroutine 时 , 除了将函数定义部分写在 go 的后面之外 , 还需要加上匿名函数的调用参数 , 格式如下 : 
+使用匿名函数或闭包创建 goroutine 时 , 除了将函数定义部分写在 go 的后面之外 , 还需要加上匿名函数的调用参数 , 格式如下 :
 
 ```go
 go func(参数列表){
@@ -83,8 +83,38 @@ go func(参数列表){
 }(调用参数列表)
 ```
 
-  
+其中 : 
 
+* 参数列表 : 函数体内的参数变量列表 . 
+* 函数体 : 匿名函数的代码 . 
+* 调用参数列表 : 启动 goroutine 时 , 需要向匿名函数传递的调用参数 . 
+
+##### 使用匿名函数创建goroutine的例子
+
+在`main()`函数中创建一个匿名函数并为匿名函数启动 goroutine . 匿名函数没有参数 . 代码将并行执行定时打印计数的效果 : 
+
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	go func() {
+		var times int
+		for {
+			times++
+			fmt.Println("tick", times)
+			time.Sleep(time.Second)
+		}
+	}()
+
+	var input string
+	fmt.Scanln(&input)
+}
+```
 
 
 
