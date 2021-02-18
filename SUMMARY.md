@@ -59,6 +59,9 @@
     * [方法和接收器](ji-chu-zhi-shi/jie-gou-ti/fang-fa-he-jie-shou-qi.md)
     * [为任意类型添加方法](ji-chu-zhi-shi/jie-gou-ti/wei-ren-yi-lei-xing-tian-jia-fang-fa.md)
   * [接口](ji-chu-zhi-shi/jie-kou.md)
+    * [接口声明](ji-chu-zhi-shi/jie-kou/jie-kou-sheng-ming.md)
+    * 接口类型
+    * 实现接口的条件
   * [错误处理](ji-chu-zhi-shi/cuo-wu-yu-ce-shi.md)
   * [行为的定义和实现](ji-chu-zhi-shi/xing-wei-de-ding-yi-he-shi-xian.md)
   * [Go语言的相关接口](ji-chu-zhi-shi/goyu-yan-de-xiang-guan-jie-kou.md)
