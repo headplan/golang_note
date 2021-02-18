@@ -69,6 +69,7 @@
   * [不一样的接口类型 , 一样的多态](ji-chu-zhi-shi/bu-yi-yang-de-jie-kou-lei-xing-yi-yang-de-duo-tai.md)
   * [编写好的错误处理](ji-chu-zhi-shi/bian-xie-hao-de-cuo-wu-chu-li.md)
 * [并发编程](bing-fa-bian-cheng.md)
+  * [Go语言并发简述](bing-fa-bian-cheng/goyu-yan-bing-fa-jian-shu.md)
   * [协程机制](bing-fa-bian-cheng/xie-cheng-ji-zhi.md)
   * [共享内存并发机制](bing-fa-bian-cheng/gong-xiang-nei-cun-bing-fa-ji-zhi.md)
   * [CSP并发机制](bing-fa-bian-cheng/cspbing-fa-ji-zhi.md)
