@@ -83,7 +83,7 @@ go func(参数列表){
 }(调用参数列表)
 ```
 
-其中 : 
+其中 :
 
 * 参数列表 : 函数体内的参数变量列表 . 
 * 函数体 : 匿名函数的代码 . 
@@ -91,30 +91,40 @@ go func(参数列表){
 
 ##### 使用匿名函数创建goroutine的例子
 
-在`main()`函数中创建一个匿名函数并为匿名函数启动 goroutine . 匿名函数没有参数 . 代码将并行执行定时打印计数的效果 : 
+在`main()`函数中创建一个匿名函数并为匿名函数启动 goroutine . 匿名函数没有参数 . 代码将并行执行定时打印计数的效果 :
 
 ```go
 package main
 
 import (
-	"fmt"
-	"time"
+    "fmt"
+    "time"
 )
 
 func main() {
-	go func() {
-		var times int
-		for {
-			times++
-			fmt.Println("tick", times)
-			time.Sleep(time.Second)
-		}
-	}()
+    go func() {
+        var times int
+        for {
+            times++
+            fmt.Println("tick", times)
+            time.Sleep(time.Second)
+        }
+    }()
 
-	var input string
-	fmt.Scanln(&input)
+    var input string
+    fmt.Scanln(&input)
 }
 ```
+
+#### 提示
+
+所有 goroutine 在 main\(\) 函数结束时会一同结束 . 
+
+goroutine 虽然类似于线程概念 , 但是从调度性能上没有线程细致 , 而细致程度取决于 Go 程序的 goroutine 调度器的实现和运行环境 . 
+
+终止 goroutine 的最好方法就是自然返回 goroutine 对应的函数 . 虽然可以用 golang.org/x/net/context 包进行 goroutine 生命期深度控制 , 但这种方法仍然处于内部试验阶段 , 并不是官方推荐的特性 . 
+
+截止 Go 1.9 版本 , 暂时没有标准接口获取 goroutine 的 ID . 
 
 
 
