@@ -56,7 +56,7 @@ func main() {
 }
 ```
 
-代码说明如下 : 
+代码说明如下 :
 
 * 第 12 行 , 使用 for 形成一个无限循环 . 
 * 第 13 行 , times 变量在循环中不断自增 . 
@@ -66,6 +66,25 @@ func main() {
 * 第 29 行 , 接受用户输入 , 直到按 Enter 键时将输入的内容写入 input 变量中并返回 , 整个程序终止 . 
 
 ![](/assets/goroutine.png)
+
+Go 程序在启动时 , 运行时\(runtime\)会默认为 main\(\) 函数创建一个 goroutine . 在 main\(\) 函数的 goroutine 中执行到 go running 语句时 , 归属于 running\(\) 函数的 goroutine 被创建 , running\(\) 函数开始在自己的 goroutine 中执行 . 此时 , main\(\) 继续执行 , 两个 goroutine 通过 Go 程序的调度机制同时运作 . 
+
+#### 使用匿名函数创建goroutine
+
+go关键字后也可以为匿名函数或闭包启动goroutine . 
+
+##### 使用匿名函数创建goroutine的格式
+
+使用匿名函数或闭包创建 goroutine 时 , 除了将函数定义部分写在 go 的后面之外 , 还需要加上匿名函数的调用参数 , 格式如下 : 
+
+```go
+go func(参数列表){
+    函数体
+}(调用参数列表)
+```
+
+  
+
 
 
 
