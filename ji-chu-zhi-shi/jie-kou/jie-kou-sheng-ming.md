@@ -32,5 +32,15 @@ type writer interface{
 }
 ```
 
+#### 开发中常见的接口及写法
+
+Go语言提供的很多包中都有接口 : 
+
+```go
+type Writer interface {
+    Write(p []byte) (n int, err error)
+}
+```
+
 
 
