@@ -37,7 +37,7 @@ type ReadWriter interface {
 }
 ```
 
-或者使用混合的风格 : 
+或者使用混合的风格 :
 
 ```go
 type ReadWriter interface { 
@@ -46,5 +46,5 @@ type ReadWriter interface {
 }
 ```
 
-
+上面3种定义方式都是一样的效果 . 方法的顺序变化也没有影响 , 唯一重要的就是这个集合里面的方法 . 
 
