@@ -34,7 +34,7 @@ type writer interface{
 
 #### 开发中常见的接口及写法
 
-Go语言提供的很多包中都有接口 : 
+Go语言提供的很多包中都有接口 :
 
 ```go
 type Writer interface {
@@ -42,5 +42,39 @@ type Writer interface {
 }
 ```
 
+这个接口可以调用`Write()`方法写入一个字节数组\(\[\]byte\) , 返回值告知写入字节数\(n int\)和可能发生的错误\(err error\) . 
 
+类似的 , 还有将一个对象以字符串形式展现的接口 , 只要实现了这个接口的类型 , 在调用`String()`方法时 , 都可以获得对象对应的字符串 . 在 fmt 包中定义如下 : 
+
+```go
+type Stringer interface {
+    String() string
+}
+```
+
+Stringer 接口在Go语言中的使用频率非常高 , 功能类似于Java或者C\#语言里的ToString 的操作 . 
+
+我们一直使用两个函数来进行字符串的格式化 : 
+
+* fmt.Printf它会把结果写到标准输出
+* fmt.Sprintf它会把结果以字符串的形式返回
+
+这两个函数都是用了另一个函数fmt.Fprintf来进行封装 . 
+
+```go
+package fmt
+
+func Fprintf(w io.Writer, format string, args ...interface{}) (int, error)
+
+func Printf(format string, args ...interface{}) (int, error) {
+	return Fprintf(os.Stdout, format, args...)
+}
+func Sprintf(format string, args ...interface{}) string {
+	var buf bytes.Buffer
+	Fprintf(&buf, format, args...)
+	return buf.String()
+}
+```
+
+Go语言的每个接口中的方法数量不会很多 . Go语言希望通过一个接口精准描述它自己的功能 , 而通过多个接口的嵌入和组合的方式将简单的接口扩展为复杂的接口 . 
 
