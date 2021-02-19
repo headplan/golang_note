@@ -1,10 +1,10 @@
 # 并发通信
 
-在工程上 , 有两种最常见的并发通信模型 : 共享数据和消息 . 
+在工程上 , 有两种最常见的并发通信模型 : 共享数据和消息 .
 
-共享数据是指多个并发单元分别保持对同一个数据的引用 , 实现对该数据的共享 . 被共享的数据可能有多种形式 , 比如内存数据块、磁盘文件、网络数据等 . 在实际工程应用中最常见的无疑是内存了 , 也就是常说的共享内存 . 
+共享数据是指多个并发单元分别保持对同一个数据的引用 , 实现对该数据的共享 . 被共享的数据可能有多种形式 , 比如内存数据块、磁盘文件、网络数据等 . 在实际工程应用中最常见的无疑是内存了 , 也就是常说的共享内存 .
 
-先看看我们在C语言中通常是怎么处理线程间数据共享的 : 
+先看看我们在C语言中通常是怎么处理线程间数据共享的 :
 
 ```c
 #include <stdio.h>
@@ -37,6 +37,43 @@ void *count()
     counter++;
     printf("Counter value: %d\n",counter);
     pthread_mutex_unlock( &mutex1 );
+}
+```
+
+现在我们尝试将这段C语言代码直接翻译为Go语言代码 : 
+
+```go
+package main
+
+import (
+	"fmt"
+	"runtime"
+	"sync"
+)
+
+var counter int = 0
+
+func Count(lock *sync.Mutex)  {
+	lock.Lock()
+	counter++
+	fmt.Println(counter)
+	lock.Unlock()
+}
+
+func main() {
+	lock := &sync.Mutex{}
+	for i := 0; i < 10; i++ {
+		go Count(lock)
+	}
+	for {
+		lock.Lock()
+		c := counter
+		lock.Unlock()
+		runtime.Gosched()
+		if c >= 10 {
+			break
+		}
+	}
 }
 ```
 
