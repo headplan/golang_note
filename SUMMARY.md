@@ -70,7 +70,7 @@
   * [编写好的错误处理](ji-chu-zhi-shi/bian-xie-hao-de-cuo-wu-chu-li.md)
 * [并发编程](bing-fa-bian-cheng.md)
   * [Go语言并发简述](bing-fa-bian-cheng/goyu-yan-bing-fa-jian-shu.md)
-  * [goroutine](bing-fa-bian-cheng/goroutine.md)
+  * [轻量级线程goroutine](bing-fa-bian-cheng/goroutine.md)
   * [并发通信](bing-fa-bian-cheng/bing-fa-tong-xin.md)
   * [协程机制](bing-fa-bian-cheng/xie-cheng-ji-zhi.md)
   * [共享内存并发机制](bing-fa-bian-cheng/gong-xiang-nei-cun-bing-fa-ji-zhi.md)
