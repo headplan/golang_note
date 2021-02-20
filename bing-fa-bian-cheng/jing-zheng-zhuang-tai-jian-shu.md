@@ -72,44 +72,89 @@ Found 1 data race(s)
 
 ### 锁住共享资源
 
-Go语言提供了传统的同步 goroutine 的机制 , 就是对共享资源加锁 . atomic 和 sync 包里的一些函数就可以对共享的资源进行加锁操作 . 
+Go语言提供了传统的同步 goroutine 的机制 , 就是对共享资源加锁 . atomic 和 sync 包里的一些函数就可以对共享的资源进行加锁操作 .
 
 #### 原子函数
 
-原子函数能够以很底层的加锁机制来同步访问整型变量和指针 : 
+原子函数能够以很底层的加锁机制来同步访问整型变量和指针 :
+
+```go
+package main
+
+import (
+    "fmt"
+    "runtime"
+    "sync"
+    "sync/atomic"
+)
+
+var (
+    counter int64
+    wg      sync.WaitGroup
+)
+
+func main() {
+    wg.Add(2)
+    go incCounter(1)
+    go incCounter(2)
+
+    wg.Wait() // 等待goroutine结束
+    fmt.Println(counter)
+}
+
+func incCounter(id int) {
+    defer wg.Done()
+    for count := 0; count < 2; count++ {
+        atomic.AddInt64(&counter, 1) // 安全的对counter加1
+        runtime.Gosched()
+    }
+}
+```
+
+上述代码中使用了 atmoic 包的 AddInt64 函数 , 这个函数会同步整型值的加法 , 方法是强制同一时刻只能有一个 gorountie 运行并完成这个加法操作 . 当 goroutine 试图去调用任何原子函数时 , 这些 goroutine 都会自动根据所引用的变量做同步处理 . 
+
+另外两个有用的原子函数是 LoadInt64 和 StoreInt64 . 这两个函数提供了一种安全地读和写一个整型值的方式 . 下面是代码就使用了 LoadInt64 和 StoreInt64 函数来创建一个同步标志 , 这个标志可以向程序里多个 goroutine 通知某个特殊状态 . 
 
 ```go
 package main
 
 import (
 	"fmt"
-	"runtime"
 	"sync"
 	"sync/atomic"
+	"time"
 )
 
 var (
-	counter int64
-	wg      sync.WaitGroup
+	shutdown int64
+	wg       sync.WaitGroup
 )
 
 func main() {
 	wg.Add(2)
-	go incCounter(1)
-	go incCounter(2)
-
-	wg.Wait() // 等待goroutine结束
-	fmt.Println(counter)
+	go doWork("A")
+	go doWork("B")
+	time.Sleep(1 * time.Second)
+	fmt.Println("Shutdown Now")
+	atomic.StoreInt64(&shutdown, 1)
+	wg.Wait()
 }
 
-func incCounter(id int) {
+func doWork(name string) {
 	defer wg.Done()
-	for count := 0; count < 2; count++ {
-		atomic.AddInt64(&counter, 1) // 安全的对counter加1
-		runtime.Gosched()
+
+	for {
+		fmt.Printf("Doing %s Work\n", name)
+		time.Sleep(250 * time.Millisecond)
+
+		if atomic.LoadInt64(&shutdown) == 1 {
+			fmt.Printf("Shutting %s Down\n", name)
+			break
+		}
 	}
 }
+
 ```
 
-上述代码中使用了 atmoic 包的 AddInt64 函数 , 这个函数会同步整型值的加法 , 方法是强制同一时刻只能有一个 gorountie 运行并完成这个加法操作 . 当 goroutine 试图去调用任何原子函数时 , 这些 goroutine 都会自动根据所引用的变量做同步处理 . 
+
 
