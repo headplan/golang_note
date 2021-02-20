@@ -155,53 +155,51 @@ func doWork(name string) {
 }
 ```
 
-上面代码中 main 函数使用 StoreInt64 函数来安全地修改 shutdown 变量的值 . 如果哪个 doWork goroutine 试图在 main 函数调用 StoreInt64 的同时调用 LoadInt64 函数 , 那么原子函数会将这些调用互相同步 , 保证这些操作都是安全的 , 不会进入竞争状态 . 
+上面代码中 main 函数使用 StoreInt64 函数来安全地修改 shutdown 变量的值 . 如果哪个 doWork goroutine 试图在 main 函数调用 StoreInt64 的同时调用 LoadInt64 函数 , 那么原子函数会将这些调用互相同步 , 保证这些操作都是安全的 , 不会进入竞争状态 .
 
 #### 互斥锁
 
-另一种同步访问共享资源的方式是使用互斥锁 , 互斥锁这个名字来自互斥的概念 . 互斥锁用于在代码上创建一个临界区 , 保证同一时间只有一个 goroutine 可以执行这个临界代码 . 
+另一种同步访问共享资源的方式是使用互斥锁 , 互斥锁这个名字来自互斥的概念 . 互斥锁用于在代码上创建一个临界区 , 保证同一时间只有一个 goroutine 可以执行这个临界代码 .
 
 ```go
 package main
 
 import (
-	"fmt"
-	"runtime"
-	"sync"
+    "fmt"
+    "runtime"
+    "sync"
 )
 
 var (
-	counter int64
-	wg      sync.WaitGroup
-	mutex   sync.Mutex
+    counter int64
+    wg      sync.WaitGroup
+    mutex   sync.Mutex
 )
 
 func main() {
-	wg.Add(2)
-	go incCounter(1)
-	go incCounter(2)
-	wg.Wait()
-	fmt.Println(counter)
+    wg.Add(2)
+    go incCounter(1)
+    go incCounter(2)
+    wg.Wait()
+    fmt.Println(counter)
 }
 
 func incCounter(id int) {
-	defer wg.Done()
+    defer wg.Done()
 
-	for count := 0; count < 2; count++ {
-		// 同一时刻只允许一个goroutine进入这个临界区
-		mutex.Lock()
-		{
-			value := counter
-			runtime.Gosched()
-			value++
-			counter = value
-		}
-		mutex.Unlock() // 释放锁,允许其他正在等待的goroutine进入临界区
-	}
+    for count := 0; count < 2; count++ {
+        // 同一时刻只允许一个goroutine进入这个临界区
+        mutex.Lock()
+        {
+            value := counter
+            runtime.Gosched()
+            value++
+            counter = value
+        }
+        mutex.Unlock() // 释放锁,允许其他正在等待的goroutine进入临界区
+    }
 }
 ```
 
-
-
-
+同一时刻只有一个 goroutine 可以进入临界区 . 之后直到调用 Unlock 函数之后 , 其他 goroutine 才能进去临界区 . 当调用 runtime.Gosched 函数强制将当前 goroutine 退出当前线程后 , 调度器会再次分配这个 goroutine 继续运行 . 
 
