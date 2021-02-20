@@ -111,50 +111,97 @@ func incCounter(id int) {
 }
 ```
 
-上述代码中使用了 atmoic 包的 AddInt64 函数 , 这个函数会同步整型值的加法 , 方法是强制同一时刻只能有一个 gorountie 运行并完成这个加法操作 . 当 goroutine 试图去调用任何原子函数时 , 这些 goroutine 都会自动根据所引用的变量做同步处理 . 
+上述代码中使用了 atmoic 包的 AddInt64 函数 , 这个函数会同步整型值的加法 , 方法是强制同一时刻只能有一个 gorountie 运行并完成这个加法操作 . 当 goroutine 试图去调用任何原子函数时 , 这些 goroutine 都会自动根据所引用的变量做同步处理 .
 
-另外两个有用的原子函数是 LoadInt64 和 StoreInt64 . 这两个函数提供了一种安全地读和写一个整型值的方式 . 下面是代码就使用了 LoadInt64 和 StoreInt64 函数来创建一个同步标志 , 这个标志可以向程序里多个 goroutine 通知某个特殊状态 . 
+另外两个有用的原子函数是 LoadInt64 和 StoreInt64 . 这两个函数提供了一种安全地读和写一个整型值的方式 . 下面是代码就使用了 LoadInt64 和 StoreInt64 函数来创建一个同步标志 , 这个标志可以向程序里多个 goroutine 通知某个特殊状态 .
+
+```go
+package main
+
+import (
+    "fmt"
+    "sync"
+    "sync/atomic"
+    "time"
+)
+
+var (
+    shutdown int64
+    wg       sync.WaitGroup
+)
+
+func main() {
+    wg.Add(2)
+    go doWork("A")
+    go doWork("B")
+    time.Sleep(1 * time.Second)
+    fmt.Println("Shutdown Now")
+    atomic.StoreInt64(&shutdown, 1)
+    wg.Wait()
+}
+
+func doWork(name string) {
+    defer wg.Done()
+
+    for {
+        fmt.Printf("Doing %s Work\n", name)
+        time.Sleep(250 * time.Millisecond)
+
+        if atomic.LoadInt64(&shutdown) == 1 {
+            fmt.Printf("Shutting %s Down\n", name)
+            break
+        }
+    }
+}
+```
+
+上面代码中 main 函数使用 StoreInt64 函数来安全地修改 shutdown 变量的值 . 如果哪个 doWork goroutine 试图在 main 函数调用 StoreInt64 的同时调用 LoadInt64 函数 , 那么原子函数会将这些调用互相同步 , 保证这些操作都是安全的 , 不会进入竞争状态 . 
+
+#### 互斥锁
+
+另一种同步访问共享资源的方式是使用互斥锁 , 互斥锁这个名字来自互斥的概念 . 互斥锁用于在代码上创建一个临界区 , 保证同一时间只有一个 goroutine 可以执行这个临界代码 . 
 
 ```go
 package main
 
 import (
 	"fmt"
+	"runtime"
 	"sync"
-	"sync/atomic"
-	"time"
 )
 
 var (
-	shutdown int64
-	wg       sync.WaitGroup
+	counter int64
+	wg      sync.WaitGroup
+	mutex   sync.Mutex
 )
 
 func main() {
 	wg.Add(2)
-	go doWork("A")
-	go doWork("B")
-	time.Sleep(1 * time.Second)
-	fmt.Println("Shutdown Now")
-	atomic.StoreInt64(&shutdown, 1)
+	go incCounter(1)
+	go incCounter(2)
 	wg.Wait()
+	fmt.Println(counter)
 }
 
-func doWork(name string) {
+func incCounter(id int) {
 	defer wg.Done()
 
-	for {
-		fmt.Printf("Doing %s Work\n", name)
-		time.Sleep(250 * time.Millisecond)
-
-		if atomic.LoadInt64(&shutdown) == 1 {
-			fmt.Printf("Shutting %s Down\n", name)
-			break
+	for count := 0; count < 2; count++ {
+		// 同一时刻只允许一个goroutine进入这个临界区
+		mutex.Lock()
+		{
+			value := counter
+			runtime.Gosched()
+			value++
+			counter = value
 		}
+		mutex.Unlock() // 释放锁,允许其他正在等待的goroutine进入临界区
 	}
 }
-
 ```
+
+
 
 
 
