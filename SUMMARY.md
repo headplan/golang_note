@@ -77,7 +77,6 @@
   * [并发和并行的区别](bing-fa-bian-cheng/bing-fa-he-bing-xing-de-qu-bie.md)
   * [goroutine和coroutine的区别](bing-fa-bian-cheng/goroutinehe-coroutine-de-qu-bie.md)
   * [goroutine之间通信的管道](bing-fa-bian-cheng/goroutinezhi-jian-tong-xin-de-guan-dao.md)
-  * [协程机制](bing-fa-bian-cheng/xie-cheng-ji-zhi.md)
 * [测试](ce-shi.md)
   * [编写测试程序](ji-chu-zhi-shi/bian-xie-ce-shi-cheng-xu.md)
   * [单元测试](ce-shi/dan-yuan-ce-shi.md)
