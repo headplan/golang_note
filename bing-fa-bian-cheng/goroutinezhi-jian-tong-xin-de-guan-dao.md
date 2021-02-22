@@ -88,17 +88,17 @@ func main() {
 }
 ```
 
-运行代码 , 报错 : 
+运行代码 , 报错 :
 
 ```
 fatal error: all goroutines are asleep - deadlock!
 ```
 
-报错的意思是 : 运行时发现所有的 goroutine\(包括main\)都处于等待 goroutine . 也就是说所有 goroutine 中的 channel 并没有形成发送和接收对应的代码 . 
+报错的意思是 : 运行时发现所有的 goroutine\(包括main\)都处于等待 goroutine . 也就是说所有 goroutine 中的 channel 并没有形成发送和接收对应的代码 .
 
 #### 使用通道接收数据
 
-通道接收同样使用`<-`操作符 , 通道接收有如下特性 : 
+通道接收同样使用`<-`操作符 , 通道接收有如下特性 :
 
 * 通道的收发操作在不同的两个 goroutine 间进行 ; 
   * 由于通道的数据在没有接收方处理时 , 数据发送方会持续阻塞 , 因此通道的接收必定在另外一个 goroutine 中进行 . 
@@ -111,17 +111,17 @@ fatal error: all goroutines are asleep - deadlock!
 
 ##### 阻塞接收数据
 
-阻塞模式接收数据时 , 将接收变量作为`<-`操作符的左值 , 格式如下 : 
+阻塞模式接收数据时 , 将接收变量作为`<-`操作符的左值 , 格式如下 :
 
 ```
-data := <-ch 
+data := <-ch
 ```
 
-执行该语句时将会阻塞 , 直到接收到数据并赋值给 data 变量 . 
+执行该语句时将会阻塞 , 直到接收到数据并赋值给 data 变量 .
 
 ##### 非阻塞接收数据
 
-使用非阻塞方式从通道接收数据时 , 语句不会发生阻塞 , 格式如下 : 
+使用非阻塞方式从通道接收数据时 , 语句不会发生阻塞 , 格式如下 :
 
 ```
 data, ok := <-ch
@@ -130,19 +130,19 @@ data, ok := <-ch
 * data : 表示接收到的数据 . 未接收到数据时 , data 为通道类型的零值 . 
 * ok : 表示是否接收到数据 . 
 
-非阻塞的通道接收方法可能造成高的 CPU 占用 , 因此使用非常少 . 如果需要实现接收超时检测 , 可以配合 select 和计时器 channel 进行 . 
+非阻塞的通道接收方法可能造成高的 CPU 占用 , 因此使用非常少 . 如果需要实现接收超时检测 , 可以配合 select 和计时器 channel 进行 .
 
 ##### 接收任意数据 , 忽略接收的数据
 
-阻塞接收数据后 , 忽略从通道返回的数据 , 格式如下 : 
+阻塞接收数据后 , 忽略从通道返回的数据 , 格式如下 :
 
 ```
 <-ch
 ```
 
-执行该语句时将会发生阻塞 , 直到接收到数据 , 但接收到的数据会被忽略 . 这个方式实际上只是通过通道在 goroutine 间阻塞收发实现并发同步 . 
+执行该语句时将会发生阻塞 , 直到接收到数据 , 但接收到的数据会被忽略 . 这个方式实际上只是通过通道在 goroutine 间阻塞收发实现并发同步 .
 
-使用通道做并发同步的写法 : 
+使用通道做并发同步的写法 :
 
 ```go
 package main
@@ -150,28 +150,34 @@ package main
 import "fmt"
 
 func main() {
-	// 构建一个通道
-	ch := make(chan string)
+    // 构建一个通道
+    ch := make(chan string)
 
-	// 开启一个并发匿名函数
-	go func() {
-		fmt.Println("start goroutine")
-		// 通过通道通知main的goroutine
-		ch <- "hello"
-		fmt.Println("exit goroutine")
-	}()
+    // 开启一个并发匿名函数
+    go func() {
+        fmt.Println("start goroutine")
+        // 通过通道通知main的goroutine
+        ch <- "hello"
+        fmt.Println("exit goroutine")
+    }()
 
-	fmt.Println("wait goroutine")
+    fmt.Println("wait goroutine")
 
-	// 等待匿名goroutine
-	data := <-ch
-	fmt.Println("all done", data)
+    // 等待匿名goroutine
+    data := <-ch
+    fmt.Println("all done", data)
 }
-
 ```
 
-  
+##### 循环接收
 
+通道的数据接收可以借用 for range 语句进行多个元素的接收操作 , 格式如下 : 
+
+```go
+for data := range ch {
+
+}
+```
 
 
 
