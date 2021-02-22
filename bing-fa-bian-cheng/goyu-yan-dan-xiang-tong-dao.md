@@ -36,14 +36,23 @@ var chReadOnly <-chan int = ch
 <-chReadOnly
 ```
 
-上面代码编译正常 , 运行也是正确的 . 但是 , 一个不能写入数据只能读取的通道是毫无意义的 . 
+上面代码编译正常 , 运行也是正确的 . 但是 , 一个不能写入数据只能读取的通道是毫无意义的 .
 
 #### time包中的单向通道
 
-time 包中的计时器会返回一个 timer 实例 , 代码如下 : 
+time 包中的计时器会返回一个 timer 实例 , 代码如下 :
 
 ```go
 timer := time.NewTimer(time.Second)
+```
+
+timer的Timer类型定义如下 : 
+
+```go
+type Timer struct {
+    C <-chan Time
+    r runtimeTimer
+}
 ```
 
 
