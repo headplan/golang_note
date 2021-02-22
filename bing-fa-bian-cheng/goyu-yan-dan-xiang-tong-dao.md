@@ -28,12 +28,22 @@ var chSendOnly chan<- int = ch
 var chRecvOnly <-chan int = ch
 ```
 
-使用 make 创建通道时 , 也可以创建一个只写入或只读取的通道 : 
+使用 make 创建通道时 , 也可以创建一个只写入或只读取的通道 :
 
 ```go
 ch := make(<-chan int)
 var chReadOnly <-chan int = ch
 <-chReadOnly
+```
+
+上面代码编译正常 , 运行也是正确的 . 但是 , 一个不能写入数据只能读取的通道是毫无意义的 . 
+
+#### time包中的单向通道
+
+time 包中的计时器会返回一个 timer 实例 , 代码如下 : 
+
+```go
+timer := time.NewTimer(time.Second)
 ```
 
 
