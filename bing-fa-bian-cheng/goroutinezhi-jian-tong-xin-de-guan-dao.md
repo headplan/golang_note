@@ -171,11 +171,50 @@ func main() {
 
 ##### 循环接收
 
-通道的数据接收可以借用 for range 语句进行多个元素的接收操作 , 格式如下 : 
+通道的数据接收可以借用 for range 语句进行多个元素的接收操作 , 格式如下 :
 
 ```go
 for data := range ch {
 
+}
+```
+
+通道 ch 是可以进行遍历的 , 遍历的结果就是接收到的数据 . 数据类型就是通道的数据类型 . 通过 for 遍历获得的变量只有一个 , 即上面例子中的 data . 
+
+代码示例 : 
+
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	// 构建一个通过
+	ch := make(chan int)
+
+	// 开启一个并发匿名函数
+	go func() {
+		// 从3循环到0
+		for i := 3; i >= 0; i-- {
+			// 发送3到0之间的数值
+			ch <- i
+			// 每次发送完时等待
+			time.Sleep(time.Second)
+		}
+	}()
+
+	// 遍历接收通道数据
+	for data := range ch {
+		// 打印通道数据
+		fmt.Println(data)
+		// 当遇到数据0时,退出接收循环
+		if data == 0 {
+			break
+		}
+	}
 }
 ```
 
