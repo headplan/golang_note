@@ -46,7 +46,7 @@ time 包中的计时器会返回一个 timer 实例 , 代码如下 :
 timer := time.NewTimer(time.Second)
 ```
 
-timer的Timer类型定义如下 : 
+timer的Timer类型定义如下 :
 
 ```go
 type Timer struct {
@@ -55,5 +55,23 @@ type Timer struct {
 }
 ```
 
+第 2 行中 C 通道的类型就是一种只能读取的单向通道 . 如果此处不进行通道方向约束 , 一旦外部向通道写入数据 , 将会造成其他使用到计时器的地方逻辑产生混乱 . 
 
+因此 , 单向通道有利于代码接口的严谨性 . 
+
+#### 关闭 channel
+
+关闭 channel 非常简单 , 直接使用Go语言内置的 close\(\) 函数即可 : 
+
+```go
+close(ch)
+```
+
+在介绍了如何关闭 channel 之后就多了一个问题 : 如何判断一个 channel 是否已经被关闭 ? 可以在读取的时候使用多重返回值的方式 : 
+
+```go
+x, ok := <-ch
+```
+
+这个用法与 map 中的按键获取 value 的过程比较类似 , 只需要看第二个 bool 返回值即可 , 如果返回值是 false 则表示 ch 已经被关闭 . 
 
