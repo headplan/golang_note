@@ -126,4 +126,5 @@
   * [Go语言爱好者周刊](goyu-yan-zhou-bian/goyu-yan-ai-hao-zhe-zhou-kan.md)
   * [Go语言学习笔记](goyu-yan-zhou-bian/goyu-yan-xue-xi-bi-ji.md)
   * [Go语言采坑文章](goyu-yan-zhou-bian/wen-zhang-shou-cang.md)
+    * 慎用&lt;-time.After\(\)容易导致内存泄漏
 
