@@ -114,6 +114,8 @@
   * [微服务概览与治理](gojin-jie/wei-fu-wu-gai-lan-yu-zhi-li.md)
     * [微服务概览](gojin-jie/wei-fu-wu-gai-lan-yu-zhi-li/wei-fu-wu-gai-lan.md)
     * [微服务设计](gojin-jie/wei-fu-wu-gai-lan-yu-zhi-li/wei-fu-wu-she-ji.md)
+    * [gRPC&服务发现](gojin-jie/wei-fu-wu-gai-lan-yu-zhi-li/grpcfu-wu-fa-xian.md)
+    * [多集群&多租户](gojin-jie/wei-fu-wu-gai-lan-yu-zhi-li/duo-ji-7fa426-duo-zu-hu.md)
 * [Packages](packages.md)
   * [标准库Standard library](packages/biao-zhun-ku-standard-library.md)
     * [flag](packages/biao-zhun-ku-standard-library/flag.md)
