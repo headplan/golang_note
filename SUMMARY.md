@@ -81,6 +81,7 @@
   * [Go语言单向通道](bing-fa-bian-cheng/goyu-yan-dan-xiang-tong-dao.md)
   * [Go语言无缓冲的通道](bing-fa-bian-cheng/goyu-yan-wu-huan-chong-de-tong-dao.md)
   * [Go语言带缓冲的通道](bing-fa-bian-cheng/goyu-yan-dai-huan-chong-de-tong-dao.md)
+  * [Go语言channel超时机制](bing-fa-bian-cheng/goyu-yanchannel-chao-shi-ji-zhi.md)
 * [测试](ce-shi.md)
   * [编写测试程序](ji-chu-zhi-shi/bian-xie-ce-shi-cheng-xu.md)
   * [单元测试](ce-shi/dan-yuan-ce-shi.md)
