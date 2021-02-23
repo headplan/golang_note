@@ -14,6 +14,8 @@
 
 ### 微服务起源
 
+![](/assets/fuwuduibi.png)
+
 大家经常谈论的是一个叫SOA\(面向服务的架构模式\) , 它和微服务又是什么关系 ? 你可以把微服务想成是 SOA 的一种实践 .
 
 > You should instead think of Microservices as a specific approach for SOA in the same way that XP or Scrum are specific approaches for Agile software development.
