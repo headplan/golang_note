@@ -35,11 +35,13 @@ BFF本质上可以理解为是一个API聚合器
 
 ![](/assets/apijuheqi.png)
 
-继续演进 , 跨横切面\(Cross-Cutting Concerns\)的功能 , 需要协调更新框架升级发版\(路由、认证、限流、安全\) , 因此全部上沉 , 引入了 API Gateway , 把业务集成度高的 BFF 层和通用功能服务层 API Gateway 进行了分层处理 . 
+继续演进 , 跨横切面\(Cross-Cutting Concerns\)的功能 , 需要协调更新框架升级发版\(路由、认证、限流、安全\) , 因此全部上沉 , 引入了 API Gateway , 把业务集成度高的 BFF 层和通用功能服务层 API Gateway 进行了分层处理 .
 
-在新的架构中 , 网关承担了重要的角色 , 它是解耦拆分和后续升级迁移的利器 . 在网关的配合下 , 单块 BFF 实现了解耦拆分 , 各业务线团队可以独立开发和交付各自的微服务 , 研发效率大大提升 . 另外 , 把跨横切面逻辑从 BFF 剥离到网关上去以后 , BFF 的开发人员可以更加专注业务逻辑交付 , 实现了架构上的关注分离\(Separation of Concerns\) . 
+在新的架构中 , 网关承担了重要的角色 , 它是解耦拆分和后续升级迁移的利器 . 在网关的配合下 , 单块 BFF 实现了解耦拆分 , 各业务线团队可以独立开发和交付各自的微服务 , 研发效率大大提升 . 另外 , 把跨横切面逻辑从 BFF 剥离到网关上去以后 , BFF 的开发人员可以更加专注业务逻辑交付 , 实现了架构上的关注分离\(Separation of Concerns\) .
 
-业务流量实际为 : 
+业务流量实际为 :
 
 移动端 -&gt; API Gateway -&gt; BFF -&gt; Mircoservice , 在FE Web业务中 , BFF 可以是 nodejs 来做服务端渲染\(SSR , Server-Side Rendering\) , 注意这里忽略了上游的 CDN、4/7层负载均衡\(ELB\) . 
+
+![](/assets/wangguan4.png)
 
