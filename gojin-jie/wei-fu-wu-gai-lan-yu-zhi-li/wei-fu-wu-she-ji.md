@@ -63,9 +63,24 @@ BFF本质上可以理解为是一个API聚合器
 
 CQRS将应用程序分为两部分 : 命令端和查询端 . 命令端处理程序创建 , 更新和删除请求 , 并在数据更改时发出事件 . 查询端通过针对一个或多个物化视图执行查询来处理查询 , 这些物化视图通过订阅数据更改时发出的事件流而保持最新 .
 
-在稿件服务演进过程中 , 我们发现围绕着创作稿件、审核稿件、最终发布稿件有大量的逻辑揉在一块 , 其中稿件本身的状态也有非常多种 , 但是最终前台用户只关注稿件能否查看 , 我们依赖稿件数据库 binlog 以及订阅 binlog 的中间件 canal , 将我们的稿件结果发布到消息队列 kafka 中 , 最终消费数据独立组建一个稿件查阅结果数据库 , 并对外提供一个独立查询服务 , 来拆分复杂架构和业务 . 
+在稿件服务演进过程中 , 我们发现围绕着创作稿件、审核稿件、最终发布稿件有大量的逻辑揉在一块 , 其中稿件本身的状态也有非常多种 , 但是最终前台用户只关注稿件能否查看 , 我们依赖稿件数据库 binlog 以及订阅 binlog 的中间件 canal , 将我们的稿件结果发布到消息队列 kafka 中 , 最终消费数据独立组建一个稿件查阅结果数据库 , 并对外提供一个独立查询服务 , 来拆分复杂架构和业务 .
 
-我们架构也从 Polling publisher -&gt; Transaction log tailing 进行了演进\(Pull vs Push\) . 
+我们架构也从 Polling publisher -&gt; Transaction log tailing 进行了演进\(Pull vs Push\) .
 
 ![](/assets/weihuwuhuawen2.png)
+
+#### Mircoservice 安全
+
+对于外网的请求来说 , 我们通常在 API Gateway 进行统一的认证拦截 , 一旦认证成功 , 我们会使用 JWT 方式通过 RPC 元数据传递的方式带到 BFF 层 , BFF 校验 Token 完整性后把身份信息注入到应用的 Context 中 , BFF 到其他下层的微服务 , 建议是直接在 RPC Request 中带入用户身份信息\(UserID\)请求服务 . 
+
+* API Gateway -&gt; BFF -&gt; Service
+* Biz Auth  -&gt; JWT -&gt; Request Args
+
+对于服务内部 , 一般要区分身份认证和授权 . 
+
+* Full Trust
+* Half Trust
+* Zero Trust
+
+![](/assets/weifuwuanquan.png)
 
