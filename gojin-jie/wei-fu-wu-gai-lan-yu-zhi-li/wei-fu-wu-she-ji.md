@@ -24,12 +24,14 @@ BFF 可以认为是一种适配服务 , 将后端的微服务进行适配\(主�
 
 ![](/assets/wangguan2.png)
 
-最致命的一个问题是整个 app-interface 属于 single point of failure , 严重代码缺陷或者流量洪峰可能引发集群宕机 . 
+最致命的一个问题是整个 app-interface 属于 single point of failure , 严重代码缺陷或者流量洪峰可能引发集群宕机 .
 
 * 单个模块也会导致后续业务集成复杂度高 , 根据康威法则 , 单块的无线BFF和多团队之间就出现不匹配问题 , 团队之间沟通协调成本高 , 交付效率低下 . 
 * 很多跨横切面逻辑 , 比如安全认证 , 日志监控 , 限流熔断等 . 随着时间的推移 , 代码变得越来越复杂 , 技术债越堆越多 . 
 
 ![](/assets/wangguan3.png)
 
+BFF本质上可以理解为是一个API聚合器
 
+![](/assets/apijuheqi.png)
 
