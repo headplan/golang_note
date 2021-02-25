@@ -41,7 +41,23 @@ BFF本质上可以理解为是一个API聚合器
 
 业务流量实际为 :
 
-移动端 -&gt; API Gateway -&gt; BFF -&gt; Mircoservice , 在FE Web业务中 , BFF 可以是 nodejs 来做服务端渲染\(SSR , Server-Side Rendering\) , 注意这里忽略了上游的 CDN、4/7层负载均衡\(ELB\) . 
+移动端 -&gt; API Gateway -&gt; BFF -&gt; Mircoservice , 在FE Web业务中 , BFF 可以是 nodejs 来做服务端渲染\(SSR , Server-Side Rendering\) , 注意这里忽略了上游的 CDN、4/7层负载均衡\(ELB\) .
 
 ![](/assets/wangguan4.png)
+
+#### Mircoservice 划分
+
+微服务架构时遇到的第一个问题就是如何划分服务的边界 . 在实际项目中通常会采用两种不同的方式划分服务边界 , 即通过业务职能\(Business Capability\)或是DDD的限界上下文\(Bounded Context\) . 
+
+**Business Capability**
+
+由公司内部不同部门提供的职能 . 例如客户服务部门提供客户服务的职能 , 财务部门提供财务相关的职能 . 
+
+**Bounded Context**
+
+限界上下文是 DDD 中用来划分不同业务边界的元素 , 这里业务边界的含义是“解决不同业务问题”的问题域和对应的解决方案域 , 为了解决某种类型的业务问题 , 贴近领域知识 , 也就是业务 . 
+
+这本质上也促进了组织结构的演进 : Service per team
+
+
 
