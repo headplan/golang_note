@@ -35,16 +35,26 @@ Go 1.14 Go Modules 终于可以投入生产了 . 除非你有特定的理由不�
 >
 > golint - [https://github.com/golang/lint/](https://github.com/golang/lint/)
 
-更多关于包的命名和组织以及其他代码结构的建议 : 
+更多关于包的命名和组织以及其他代码结构的建议 :
 
 * [GopherCon EU 2018: Peter Bourgon - Best Practices for Industrial Programming](https://www.youtube.com/watch?v=PTE4VJIdHPg)
-  * https://www.youtube.com/watch?v=PTE4VJIdHPg
+  * [https://www.youtube.com/watch?v=PTE4VJIdHPg](https://www.youtube.com/watch?v=PTE4VJIdHPg)
 * [GopherCon Russia 2018: Ashley McNamara + Brian Ketelsen - Go best practices.](https://www.youtube.com/watch?v=MzTcsI6tn-0)
-  * https://www.youtube.com/watch?v=MzTcsI6tn-0
+  * [https://www.youtube.com/watch?v=MzTcsI6tn-0](https://www.youtube.com/watch?v=MzTcsI6tn-0)
 * [GopherCon 2017: Edward Muller - Go Anti-Patterns](https://www.youtube.com/watch?v=ltqV6pDKZD8)
-  * https://www.youtube.com/watch?v=ltqV6pDKZD8
+  * [https://www.youtube.com/watch?v=ltqV6pDKZD8](https://www.youtube.com/watch?v=ltqV6pDKZD8)
 * [GopherCon 2018: Kat Zien - How Do You Structure Your Go Apps](https://www.youtube.com/watch?v=oL6JBUk6tj0)
-  * https://www.youtube.com/watch?v=oL6JBUk6tj0
+  * [https://www.youtube.com/watch?v=oL6JBUk6tj0](https://www.youtube.com/watch?v=oL6JBUk6tj0)
 
+#### /cmd
 
+本项目的主干 . 
+
+每个应用程序的目录名应该与你想要的可执行文件的名称相匹配\(例如 , `/cmd/myapp`\) . 
+
+不要在这个目录中放置太多代码 . 如果你认为代码可以导入并在其他项目中使用 , 那么它应该位于 `/pkg`目录中 . 如果代码不是可重用的 , 或者你不希望其他人重用它 , 请将该代码放到 `/internal`目录中 . 你会惊讶于别人会怎么做 , 所以要明确你的意图 . 
+
+通常有一个小的`main`函数 , 从`/internal`和 `/pkg`目录导入和调用代码 , 除此之外没有别的东西 . 
+
+![](/assets/cmd.png)
 
