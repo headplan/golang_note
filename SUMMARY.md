@@ -119,7 +119,7 @@
   * [异常处理](gojin-jie/yi-chang-chu-li.md)
   * [并行编程](gojin-jie/bing-xing-bian-cheng.md)
   * [Go工程化实践](gojin-jie/gogong-cheng-hua-shi-jian.md)
-    * 工程项目结构
+    * [工程项目结构](gojin-jie/gogong-cheng-hua-shi-jian/gong-cheng-xiang-mu-jie-gou.md)
     * API设计
     * 配置管理
     * 包管理
