@@ -31,8 +31,20 @@ Go 1.14 Go Modules 终于可以投入生产了 . 除非你有特定的理由不�
 * [Style guideline for Go packages](https://rakyll.org/style-packages)\(rakyll/JBD\)
 * [https://medium.com/golang-learn/go-project-layout-e5213cdcfaa2](https://medium.com/golang-learn/go-project-layout-e5213cdcfaa2)
 
-* gofmt - [https://golang.org/cmd/gofmt/](https://golang.org/cmd/gofmt/)
-* golint - [https://github.com/golang/lint/](https://github.com/golang/lint/)
+> gofmt - [https://golang.org/cmd/gofmt/](https://golang.org/cmd/gofmt/)
+>
+> golint - [https://github.com/golang/lint/](https://github.com/golang/lint/)
+
+更多关于包的命名和组织以及其他代码结构的建议 : 
+
+* [GopherCon EU 2018: Peter Bourgon - Best Practices for Industrial Programming](https://www.youtube.com/watch?v=PTE4VJIdHPg)
+  * https://www.youtube.com/watch?v=PTE4VJIdHPg
+* [GopherCon Russia 2018: Ashley McNamara + Brian Ketelsen - Go best practices.](https://www.youtube.com/watch?v=MzTcsI6tn-0)
+  * https://www.youtube.com/watch?v=MzTcsI6tn-0
+* [GopherCon 2017: Edward Muller - Go Anti-Patterns](https://www.youtube.com/watch?v=ltqV6pDKZD8)
+  * https://www.youtube.com/watch?v=ltqV6pDKZD8
+* [GopherCon 2018: Kat Zien - How Do You Structure Your Go Apps](https://www.youtube.com/watch?v=oL6JBUk6tj0)
+  * https://www.youtube.com/watch?v=oL6JBUk6tj0
 
 
 
