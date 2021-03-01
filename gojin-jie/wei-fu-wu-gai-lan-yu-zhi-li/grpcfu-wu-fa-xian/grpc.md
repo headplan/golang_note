@@ -32,19 +32,25 @@ gRPC 默认使用 protocol buffers , 这是 Google 开源的一套成熟的结�
 
 > [https://developers.google.com/protocol-buffers/docs/overview](https://developers.google.com/protocol-buffers/docs/overview)
 
+使用protocol buffers时 , 第一步是在原始文件中定义序列化的数据的结构 : 这是一个扩展名为.proto的普通文本文件 . 数据被构造为messages消息 , 其中每个消息都是包含一系列称为字段的键值对的信息的小逻辑记录 . 下面是一个简单的示例 : 
+
+```php
+message Person {
+  string name = 1;
+  int32 id = 2;
+  bool has_ponycopter = 3;
+}
+```
+
 ##### Protocol buffers 版本
 
-尽管 protocol buffers 对于开源用户来说已经存在了一段时间 , 例子内使用的却一种名叫 proto3 的新风格的 protocol buffers , 它拥有轻量简化的语法、一些有用的新功能 , 并且支持更多新语言 . 当前针对 Java 和 C++ 发布了 beta 版本 , 针对 JavaNano\(即 Android Java\)发布 alpha 版本 , 在protocol buffers Github 源码库里有 Ruby 支持 , 在golang/protobuf Github 源码库里还有针对 Go 语言的生成器 , 对更多语言的支持正在开发中 . 你可以在 proto3 语言指南里找到更多内容 , 在与当前默认版本的发布说明比较 , 看到两者的主要不同点 . 更多关于 proto3 的文档很快就会出现 . 虽然你可以使用 proto2 \(当前默认的 protocol buffers 版本\) , 我们通常建议你在 gRPC 里使用 proto3 , 因为这样你可以使用 gRPC 支持全部范围的的语言 , 并且能避免 proto2 客户端与 proto3 服务端交互时出现的兼容性问题 , 反之亦然 . 
+尽管 protocol buffers 对于开源用户来说已经存在了一段时间 , 例子内使用的却一种名叫 proto3 的新风格的 protocol buffers , 它拥有轻量简化的语法、一些有用的新功能 , 并且支持更多新语言 . 当前针对 Java 和 C++ 发布了 beta 版本 , 针对 JavaNano\(即 Android Java\)发布 alpha 版本 , 在protocol buffers Github 源码库里有 Ruby 支持 , 在golang/protobuf Github 源码库里还有针对 Go 语言的生成器 , 对更多语言的支持正在开发中 . 你可以在 proto3 语言指南里找到更多内容 , 在与当前默认版本的发布说明比较 , 看到两者的主要不同点 . 更多关于 proto3 的文档很快就会出现 . 虽然你可以使用 proto2 \(当前默认的 protocol buffers 版本\) , 我们通常建议你在 gRPC 里使用 proto3 , 因为这样你可以使用 gRPC 支持全部范围的的语言 , 并且能避免 proto2 客户端与 proto3 服务端交互时出现的兼容性问题 , 反之亦然 .
 
-> https://developers.google.com/protocol-buffers/docs/proto3
+> [https://developers.google.com/protocol-buffers/docs/proto3](https://developers.google.com/protocol-buffers/docs/proto3)
 >
-> https://github.com/golang/protobuf
+> [https://github.com/golang/protobuf](https://github.com/golang/protobuf)
 >
-> https://github.com/protocolbuffers/protobuf
-
-
-
-
+> [https://github.com/protocolbuffers/protobuf](https://github.com/protocolbuffers/protobuf)
 
 
 
