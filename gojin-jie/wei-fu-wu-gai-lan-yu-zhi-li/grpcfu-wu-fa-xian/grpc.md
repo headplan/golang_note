@@ -32,9 +32,9 @@ gRPC 默认使用 protocol buffers , 这是 Google 开源的一套成熟的结�
 
 > [https://developers.google.com/protocol-buffers/docs/overview](https://developers.google.com/protocol-buffers/docs/overview)
 
-使用protocol buffers时 , 第一步是在原始文件中定义序列化的数据的结构 : 这是一个扩展名为.proto的普通文本文件 . 数据被构造为messages消息 , 其中每个消息都是包含一系列称为字段的键值对的信息的小逻辑记录 . 下面是一个简单的示例 : 
+使用protocol buffers时 , 第一步是在原始文件中定义序列化的数据的结构 : 这是一个扩展名为.proto的普通文本文件 . 数据被构造为messages消息 , 其中每个消息都是包含一系列称为字段的键值对的信息的小逻辑记录 . 下面是一个简单的示例 :
 
-```php
+```go
 message Person {
   string name = 1;
   int32 id = 2;
