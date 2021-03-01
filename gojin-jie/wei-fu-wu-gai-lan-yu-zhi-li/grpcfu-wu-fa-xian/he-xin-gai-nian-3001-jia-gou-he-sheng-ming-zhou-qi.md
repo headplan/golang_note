@@ -22,12 +22,26 @@ message HelloResponse {
 }
 ```
 
-gRPC 允许你定义四类服务方法 : 
+gRPC 允许你定义四类服务方法 :
 
-单项 RPC , 即客户端发送一个请求给服务端 , 从服务端获取一个应答 , 就像一次普通的函数调用 . 
+* 单项 RPC , 即客户端发送一个请求给服务端 , 从服务端获取一个应答 , 就像一次普通的函数调用 .
 
 ```go
 rpc SayHello(HelloRequest) returns (HelloResponse){
+}
+```
+
+* 服务端流式 RPC , 即客户端发送一个请求给服务端 , 可获取一个数据流用来读取一系列消息 . 客户端从返回的数据流里一直读取直到没有更多消息为止 . 
+
+```go
+rpc LotsOfReplies(HelloRequest) returns (stream HelloResponse){
+}
+```
+
+客户端流式 RPC , 即客户端用提供的一个数据流写入并发送一系列消息给服务端 . 一旦客户端完成消息写入 , 就等待服务端读取这些消息并返回应答 . 
+
+```go
+rpc LotsOfGreetings(stream HelloRequest) returns (HelloResponse) {
 }
 ```
 
