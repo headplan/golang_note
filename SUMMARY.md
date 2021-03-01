@@ -116,7 +116,7 @@
     * [微服务设计](gojin-jie/wei-fu-wu-gai-lan-yu-zhi-li/wei-fu-wu-she-ji.md)
     * [gRPC&服务发现](gojin-jie/wei-fu-wu-gai-lan-yu-zhi-li/grpcfu-wu-fa-xian.md)
       * [gRPC](gojin-jie/wei-fu-wu-gai-lan-yu-zhi-li/grpcfu-wu-fa-xian/grpc.md)
-      * [核心概念、架构和生命周期](gojin-jie/wei-fu-wu-gai-lan-yu-zhi-li/grpcfu-wu-fa-xian/he-xin-gai-nian-3001-jia-gou-he-sheng-ming-zhou-qi.md)
+      * [gRPC概念](gojin-jie/wei-fu-wu-gai-lan-yu-zhi-li/grpcfu-wu-fa-xian/he-xin-gai-nian-3001-jia-gou-he-sheng-ming-zhou-qi.md)
     * [多集群&多租户](gojin-jie/wei-fu-wu-gai-lan-yu-zhi-li/duo-ji-7fa426-duo-zu-hu.md)
   * [异常处理](gojin-jie/yi-chang-chu-li.md)
   * [并行编程](gojin-jie/bing-xing-bian-cheng.md)
