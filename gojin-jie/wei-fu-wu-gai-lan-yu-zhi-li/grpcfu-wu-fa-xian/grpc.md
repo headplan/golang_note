@@ -42,6 +42,8 @@ message Person {
 }
 ```
 
+然后 , 一旦您指定了数据结构，就可以使用protocol buffers编译器协议从PROTO文件定义的内容生成首选语言的数据访问类 . 它们为每个字段提供简单的访问器 , 如name\(\)和set\_name\(\) , 以及将整个结构序列化/解析为原始字节的方法 . 所以 , 如果您选择的语言是C++ , 那么在上面的示例中运行编译器将生成一个名为Person的类 . 然后 , 您可以在应用程序中使用该类来填充、序列化和检索Person协议缓冲区消息 . 
+
 ##### Protocol buffers 版本
 
 尽管 protocol buffers 对于开源用户来说已经存在了一段时间 , 例子内使用的却一种名叫 proto3 的新风格的 protocol buffers , 它拥有轻量简化的语法、一些有用的新功能 , 并且支持更多新语言 . 当前针对 Java 和 C++ 发布了 beta 版本 , 针对 JavaNano\(即 Android Java\)发布 alpha 版本 , 在protocol buffers Github 源码库里有 Ruby 支持 , 在golang/protobuf Github 源码库里还有针对 Go 语言的生成器 , 对更多语言的支持正在开发中 . 你可以在 proto3 语言指南里找到更多内容 , 在与当前默认版本的发布说明比较 , 看到两者的主要不同点 . 更多关于 proto3 的文档很快就会出现 . 虽然你可以使用 proto2 \(当前默认的 protocol buffers 版本\) , 我们通常建议你在 gRPC 里使用 proto3 , 因为这样你可以使用 gRPC 支持全部范围的的语言 , 并且能避免 proto2 客户端与 proto3 服务端交互时出现的兼容性问题 , 反之亦然 .
