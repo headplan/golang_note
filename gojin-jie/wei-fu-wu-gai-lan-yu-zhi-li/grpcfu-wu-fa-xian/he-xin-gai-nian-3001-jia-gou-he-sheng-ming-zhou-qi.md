@@ -52,7 +52,9 @@ rpc BidiHello(stream HelloRequest) returns (stream HelloResponse){
 }
 ```
 
+#### 使用 API 接口
 
+gRPC 提供 protocol buffer 编译插件 , 能够从一个服务定义的`.proto`文件生成客户端和服务端代码 . 通常 gRPC 用户可以在服务端实现这些API , 并从客户端调用它们 . 
 
 
 
