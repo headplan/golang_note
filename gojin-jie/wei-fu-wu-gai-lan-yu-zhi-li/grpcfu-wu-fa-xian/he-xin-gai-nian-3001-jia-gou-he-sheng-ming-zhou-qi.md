@@ -38,12 +38,21 @@ rpc LotsOfReplies(HelloRequest) returns (stream HelloResponse){
 }
 ```
 
-客户端流式 RPC , 即客户端用提供的一个数据流写入并发送一系列消息给服务端 . 一旦客户端完成消息写入 , 就等待服务端读取这些消息并返回应答 . 
+* 客户端流式 RPC , 即客户端用提供的一个数据流写入并发送一系列消息给服务端 . 一旦客户端完成消息写入 , 就等待服务端读取这些消息并返回应答 .
 
 ```go
 rpc LotsOfGreetings(stream HelloRequest) returns (HelloResponse) {
 }
 ```
+
+* 双向流式 RPC , 即两边都可以分别通过一个读写数据流来发送一系列消息 . 这两个数据流操作是相互独立的 , 所以客户端和服务端能按其希望的任意顺序读写 , 例如 : 服务端可以在写应答前等待所有的客户端消息 , 或者它可以先读一个消息再写一个消息 , 或者是读写相结合的其他方式 . 每个数据流里消息的顺序会被保持 . 
+
+```go
+rpc BidiHello(stream HelloRequest) returns (stream HelloResponse){
+}
+```
+
+
 
 
 
